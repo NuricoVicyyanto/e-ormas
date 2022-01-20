@@ -19,5 +19,7 @@ from eormasapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
+    path('', views.index, name='index'),
+    path('home/', views.home, name='home'),
+    path('data_ormas/', views.data_ormas, name='data_ormas'),
 ]
