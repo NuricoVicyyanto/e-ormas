@@ -22,4 +22,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('home/', views.home, name='home'),
     path('data_ormas/', views.data_ormas, name='data_ormas'),
+    path('unsur_ormas/', views.unsur_ormas, name='unsur_ormas'),
+    path('jml_ormas_ds/', views.jml_ormas_ds, name='jml_ormas_ds'),
+    path('jml_ormas_kec/', views.jml_ormas_kec, name='jml_ormas_kec'),
+    path('jml_ormas_kab/', views.jml_ormas_kab, name='jml_ormas_kab'),
 ]
