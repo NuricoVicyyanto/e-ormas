@@ -187,9 +187,6 @@ def tambah_unsur(request):
 
     return render(request, 'backend/tambah_unsur.html', konteks)
 
-
-def data_ormas(request):
-    return render(request, 'backend/data_ormas.html')
 def unsur_ormas(request):
     return render(request, 'backend/unsur_ormas.html')
 def jml_ormas_ds(request):
