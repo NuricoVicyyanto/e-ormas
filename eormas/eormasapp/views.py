@@ -207,3 +207,5 @@ def jml_ormas_kec(request):
     return render(request, 'backend/jml_ormas_kec.html')
 def jml_ormas_kab(request):
     return render(request, 'backend/jml_ormas_kab.html')
+def galeri(request):
+    return render(request, 'backend/galeri.html')

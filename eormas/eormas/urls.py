@@ -48,4 +48,7 @@ urlpatterns = [
     path('jml_ormas_ds/', views.jml_ormas_ds, name='jml_ormas_ds'),
     path('jml_ormas_kec/', views.jml_ormas_kec, name='jml_ormas_kec'),
     path('jml_ormas_kab/', views.jml_ormas_kab, name='jml_ormas_kab'),
+
+    # galeri
+    path('galeri/', views.galeri, name='galeri'),
 ]
