@@ -48,6 +48,12 @@ def tambah_desa(request):
 
     return render(request, 'backend/tambah_desa.html', konteks)
 
+def hapus_desa(request, id_desa):
+    desa = Desa.objects.get(id=id_desa)
+    desa.delete()
+
+    return redirect('desa')
+
 def kecamatan(request):
     kecamatan = Kecamatan.objects.all()
 
