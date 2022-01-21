@@ -159,6 +159,12 @@ def data_ormas(request):
 
     return render(request, 'backend/data_ormas.html', konteks)
 
+def hapus_ormas(request, id_ormas):
+    ormas = Ormas.objects.get(id=id_ormas)
+    ormas.delete()
+
+    return redirect('ormas')
+
 def tambah_ormas(request):
     if request.POST:
         form = FormOrmas(request.POST, request.FILES)
