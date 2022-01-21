@@ -163,7 +163,7 @@ def hapus_ormas(request, id_ormas):
     ormas = Ormas.objects.get(id=id_ormas)
     ormas.delete()
 
-    return redirect('ormas')
+    return redirect('data_ormas')
 
 def tambah_ormas(request):
     if request.POST:

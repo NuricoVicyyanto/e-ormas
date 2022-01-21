@@ -35,7 +35,3 @@ class Ormas(models.Model):
 
     def __str__(self):
         return self.nama
-
-    def delete(self, *args, **kwargs):
-        self.cover.delete()
-        super().delete(*args, **kwargs)
