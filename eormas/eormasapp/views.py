@@ -48,6 +48,23 @@ def tambah_desa(request):
 
     return render(request, 'backend/tambah_desa.html', konteks)
 
+def edit_desa(request, id_desa):
+    desa = Desa.objects.get(id=id_desa)
+    template = 'backend/edit_desa.html'
+    if request.POST:
+        form = FormDesa(request.POST,request.FILES, instance=desa)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_desa', id_desa=id_desa)
+    else:
+        form = FormDesa(instance=desa)
+        konteks ={
+            'form':form,
+            'desa':desa,
+        }
+        return render(request, template, konteks)
+
+
 def hapus_desa(request, id_desa):
     desa = Desa.objects.get(id=id_desa)
     desa.delete()

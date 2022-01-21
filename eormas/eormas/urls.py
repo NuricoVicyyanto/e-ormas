@@ -25,6 +25,7 @@ urlpatterns = [
     # desa
     path('desa/', views.desa, name='desa'),
     path('tambah_desa/', views.tambah_desa, name='tambah_desa'),
+    path('desa/edit_desa/<int:id_desa>', views.edit_desa, name='edit_desa'),
     path('desa/hapus_desa/<int:id_desa>', views.hapus_desa, name='hapus_desa'),
 
     # kecamatan

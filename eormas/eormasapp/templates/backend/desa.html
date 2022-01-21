@@ -32,7 +32,7 @@
                   <tr>
                     <td>{{ desa.desa}}</td>
                     <td>
-                      <a href="#" class="btn btn-secondary">Edit</a>
+                      <a href="{% url 'edit_desa' desa.id %}" class="btn btn-secondary">Edit</a>
                       <a href="{% url 'hapus_desa' desa.id %}" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>
