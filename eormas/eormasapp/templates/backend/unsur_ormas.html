@@ -8,8 +8,6 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active"><a href="{% url 'unsur_ormas' %}">Unsur Ormas</a></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -24,28 +22,24 @@
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
+                    <th scope="col">Unsur</th>
+                    <th scope="col">Opsi</th>
                   </tr>
                 </thead>
                 <tbody>
+                  {% for unsur in unsur %}
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
+                    <td>{{ unsur.unsur}}</td>
                     <td>
-                      <a href="#" class="btn btn-success">Edit</a>
+                      <a href="#" class="btn btn-secondary">Edit</a>
                       <a href="#" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>
+                  {% endfor %}
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
-
+              <a href="{% url 'tambah_unsur' %}" class="btn btn-primary">Tambah</a>
             </div>
           </div>
 

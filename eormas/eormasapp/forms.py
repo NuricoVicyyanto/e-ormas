@@ -30,6 +30,15 @@ class FormKabupaten(ModelForm):
             'kabupaten':forms.TextInput({'class':'form-control', 'id':'Kabupaten'})
         }
 
+class FormUnsur(ModelForm):
+    class Meta:
+        model = Unsur
+        fields = '__all__'
+
+        widgets = {
+            'unsur':forms.TextInput({'class':'form-control', 'id':'Unsur'})
+        }
+
 class FormOrmas(ModelForm):
     class Meta:
         model = Ormas

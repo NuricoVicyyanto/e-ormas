@@ -148,6 +148,39 @@ def tambah_ormas(request):
 
     return render(request, 'backend/add_data_ormas.html', konteks)
 
+def unsur(request):
+    unsur = Unsur.objects.all()
+
+    konteks ={
+        'unsur':unsur,
+    }
+
+    return render(request, 'backend/unsur_ormas.html', konteks)
+
+def tambah_unsur(request):
+    if request.POST:
+        form = FormUnsur(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            alert = 'Data Berhasil Ditambahkan'
+            form = FormUnsur
+
+            konteks={
+                'form':form,
+                'alert':alert,
+            }
+
+            return render(request, 'backend/tambah_unsur.html', konteks)
+
+    else:
+        form = FormUnsur()
+
+        konteks ={
+            'form':form,
+        }
+
+    return render(request, 'backend/tambah_unsur.html', konteks)
+
 
 def data_ormas(request):
     return render(request, 'backend/data_ormas.html')
