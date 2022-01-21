@@ -8,8 +8,6 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active"><a href="{% url 'data_ormas' %}">Data Ormas</a></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -24,25 +22,14 @@
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">nama</th>
-                    <th scope="col">unsur</th>
-                    <th scope="col">alamat</th>
-                    <th scope="col">desa</th>
-                    <th scope="col">kecamatan</th>
-                    <th scope="col">kabupaten</th>
+                    <th scope="col">Kabupaten</th>
+                    <th scope="col">Opsi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {% for ormas in ormas %}
+                    {% for kabupaten in kabupaten %}
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>28</td>
-                    <td>28</td>
-                    <td>28</td>
+                    <td>{{ kabupaten.kabupaten }}</td>
                     <td>
                       <a href="#" class="btn btn-secondary">Edit</a>
                       <a href="#" class="btn btn-danger">Hapus</a>
@@ -51,8 +38,8 @@
                   {% endfor %}
                 </tbody>
               </table>
-              <a href="{% url 'tambah_ormas' %}" class="btn btn-primary">Tambah</a>
-
+              <!-- End Table with stripped rows -->
+              <a href="{% url 'tambah_kabupaten' %}" class="btn btn-primary">Tambah</a>
             </div>
           </div>
 

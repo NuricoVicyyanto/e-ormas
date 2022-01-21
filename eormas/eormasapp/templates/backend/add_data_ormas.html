@@ -10,11 +10,11 @@
             {% if alert %}
             <div class="alert alert-success">{{ alert }}</div>
             {% endif %}
-            <form action="/tambah_desa/" method="post" enctype="multipart/form-data">
+            <form action="/add_ormas/" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="btn btn-dark">Tambah Genre</button>
-            <a href="/tambah_desa" class="btn btn-danger">Kembali</a>
+            <button class="btn btn-dark">Tambah</button>
+            <a href="/data_ormas" class="btn btn-danger">Kembali</a>
             </form>
         </div>
     </div>
