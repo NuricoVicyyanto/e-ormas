@@ -21,5 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('home/', views.home, name='home'),
+    path('desa/', views.desa, name='desa'),
+    path('tambah_desa/', views.tambah_desa, name='tambah_desa'),
+    path('kecamatan/', views.kecamatan, name='kecamatan'),
+    path('kabupaten/', views.kabupaten, name='kabupaten'),
     path('data_ormas/', views.data_ormas, name='data_ormas'),
 ]

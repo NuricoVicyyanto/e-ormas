@@ -22,28 +22,24 @@
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
+                    <th scope="col">Desa</th>
+                    <th scope="col">Opsi</th>
                   </tr>
                 </thead>
                 <tbody>
+                    {% for desa in desa %}
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
+                    <td>{{ desa.desa}}</td>
                     <td>
-                      <a href="#" class="btn btn-success">Edit</a>
+                      <a href="#" class="btn btn-secondary">Edit</a>
                       <a href="#" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>
+                  {% endfor %}
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
-
+              <a href="{% url 'tambah_desa' %}" class="btn btn-primary">Tambah</a>
             </div>
           </div>
 

@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<main id="main" class="main">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            {% if alert %}
+            <div class="alert alert-success">{{ alert }}</div>
+            {% endif %}
+            <form action="/tambah_desa/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-dark">Tambah Genre</button>
+            <a href="/desa" class="btn btn-danger">Kembali</a>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+{% endblock %}
