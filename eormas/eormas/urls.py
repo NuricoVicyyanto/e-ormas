@@ -45,6 +45,7 @@ urlpatterns = [
     # ormas
     path('data_ormas/', views.data_ormas, name='data_ormas'),
     path('tambah_ormas/', views.tambah_ormas, name='tambah_ormas'),
+    path('ormas/hapus_ormas/<int:id_ormas>', views.hapus_ormas, name='hapus_ormas'),
     
     path('jml_ormas_ds/', views.jml_ormas_ds, name='jml_ormas_ds'),
     path('jml_ormas_kec/', views.jml_ormas_kec, name='jml_ormas_kec'),
