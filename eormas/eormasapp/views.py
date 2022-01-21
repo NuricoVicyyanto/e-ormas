@@ -14,8 +14,6 @@ def index(request):
     return render(request, 'backend/index.html')
 def home(request):
     return render(request, 'backend/home.html')
-def desa(request):
-    return render(request, 'backend/desa.html')
 def data_ormas(request):
     return render(request, 'backend/data_ormas.html')
 def unsur_ormas(request):

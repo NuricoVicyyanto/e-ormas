@@ -21,7 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('home/', views.home, name='home'),
-    path('desa/', views.desa, name='desa'),
     path('data_ormas/', views.data_ormas, name='data_ormas'),
     path('unsur_ormas/', views.unsur_ormas, name='unsur_ormas'),
     path('jml_ormas_ds/', views.jml_ormas_ds, name='jml_ormas_ds'),
