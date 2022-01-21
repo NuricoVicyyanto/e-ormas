@@ -12,8 +12,8 @@ from eormasapp.models import *
 # Create your views here.
 def index(request):
     return render(request, 'backend/index.html')
-def home(request):
-    return render(request, 'backend/home.html')
+def landing(request):
+    return render(request, 'backend/landing.html')
 
 def desa(request):
     desa = Desa.objects.all()
