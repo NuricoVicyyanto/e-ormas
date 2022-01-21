@@ -202,7 +202,7 @@ def hapus_unsur(request, id_unsur):
     unsur = Unsur.objects.get(id=id_unsur)
     unsur.delete()
 
-    return redirect('data_unsur')
+    return redirect('unsur_ormas')
 
 def tambah_unsur(request):
     if request.POST:
