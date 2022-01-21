@@ -31,6 +31,7 @@ urlpatterns = [
     # kecamatan
     path('kecamatan/', views.kecamatan, name='kecamatan'),
     path('tambah_kecamatan/', views.tambah_kecamatan, name='tambah_kecamatan'),
+    path('kecamatan/edit_kecamatan/<int:id_kecamatan>', views.edit_kecamatan, name='edit_kecamatan'),
     path('kecamatan/hapus_kecamatan/<int:id_kecamatan>', views.hapus_kecamatan, name='hapus_kecamatan'),
 
     # kabupaten

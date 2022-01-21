@@ -71,6 +71,7 @@ def hapus_desa(request, id_desa):
 
     return redirect('desa')
 
+
 def kecamatan(request):
     kecamatan = Kecamatan.objects.all()
 
@@ -79,12 +80,6 @@ def kecamatan(request):
     }
 
     return render(request, 'backend/kecamatan.html', konteks)
-
-def hapus_kecamatan(request, id_kecamatan):
-    kecamatan = Kecamatan.objects.get(id=id_kecamatan)
-    kecamatan.delete()
-
-    return redirect('kecamatan')
 
 def tambah_kecamatan(request):
     if request.POST:
@@ -109,6 +104,29 @@ def tambah_kecamatan(request):
         }
 
     return render(request, 'backend/tambah_kecamatan.html', konteks)
+
+def edit_kecamatan(request, id_kecamatan):
+    kecamatan = Kecamatan.objects.get(id=id_kecamatan)
+    template = 'backend/edit_kecamatan.html'
+    if request.POST:
+        form = FormKecamatan(request.POST,request.FILES, instance=kecamatan)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_kecamatan', id_kecamatan=id_kecamatan)
+    else:
+        form = FormKecamatan(instance=kecamatan)
+        konteks ={
+            'form':form,
+            'kecamatan':kecamatan,
+        }
+        return render(request, template, konteks)
+
+def hapus_kecamatan(request, id_kecamatan):
+    kecamatan = Kecamatan.objects.get(id=id_kecamatan)
+    kecamatan.delete()
+
+    return redirect('kecamatan')
+
 
 def kabupaten(request):
     kabupaten = Kabupaten.objects.all()
