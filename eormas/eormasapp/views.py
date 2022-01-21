@@ -12,8 +12,8 @@ from eormasapp.models import *
 # Create your views here.
 def index(request):
     return render(request, 'backend/index.html')
-def home(request):
-    return render(request, 'backend/home.html')
+def landing(request):
+    return render(request, 'backend/landing.html')
 
 def desa(request):
     desa = Desa.objects.all()
@@ -63,6 +63,12 @@ def kecamatan(request):
 
     return render(request, 'backend/kecamatan.html', konteks)
 
+def hapus_kecamatan(request, id_kecamatan):
+    kecamatan = Kecamatan.objects.get(id=id_kecamatan)
+    kecamatan.delete()
+
+    return redirect('kecamatan')
+
 def tambah_kecamatan(request):
     if request.POST:
         form = FormKecamatan(request.POST, request.FILES)
@@ -95,6 +101,12 @@ def kabupaten(request):
     }
 
     return render(request, 'backend/kabupaten.html', konteks)
+
+def hapus_kabupaten(request, id_kabupaten):
+    kabupaten = Kabupaten.objects.get(id=id_kabupaten)
+    kabupaten.delete()
+
+    return redirect('kabupaten')
 
 def tambah_kabupaten(request):
     if request.POST:

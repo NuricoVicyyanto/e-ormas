@@ -7,7 +7,8 @@
       <h1>Data Tables</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'kabupaten' %}">Data Kabupaten</a></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -32,7 +33,7 @@
                     <td>{{ kabupaten.kabupaten }}</td>
                     <td>
                       <a href="#" class="btn btn-secondary">Edit</a>
-                      <a href="#" class="btn btn-danger">Hapus</a>
+                      <a href="{% url 'hapus_kabupaten' kabupaten.id %}" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>
                   {% endfor %}
