@@ -30,10 +30,12 @@ urlpatterns = [
     # kecamatan
     path('kecamatan/', views.kecamatan, name='kecamatan'),
     path('tambah_kecamatan/', views.tambah_kecamatan, name='tambah_kecamatan'),
+    path('kecamatan/hapus_kecamatan/<int:id_kecamatan>', views.hapus_kecamatan, name='hapus_kecamatan'),
 
     # kabupaten
     path('kabupaten/', views.kabupaten, name='kabupaten'),
     path('tambah_kabupaten/', views.tambah_kabupaten, name='tambah_kabupaten'),
+    path('kabupaten/hapus_kabupaten/<int:id_kabupaten>', views.hapus_kabupaten, name='hapus_kabupaten'),
 
     # unsur
     path('unsur_ormas/', views.unsur, name='unsur_ormas'),
