@@ -198,6 +198,12 @@ def unsur(request):
 
     return render(request, 'backend/unsur_ormas.html', konteks)
 
+def hapus_unsur(request, id_unsur):
+    unsur = Unsur.objects.get(id=id_unsur)
+    unsur.delete()
+
+    return redirect('data_unsur')
+
 def tambah_unsur(request):
     if request.POST:
         form = FormUnsur(request.POST, request.FILES)

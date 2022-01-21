@@ -41,6 +41,7 @@ urlpatterns = [
     # unsur
     path('unsur_ormas/', views.unsur, name='unsur_ormas'),
     path('tambah_unsur/', views.tambah_unsur, name='tambah_unsur'),
+    path('unsur/hapus_unsur/<int:id_unsur>', views.hapus_unsur, name='hapus_unsur'),
 
     # ormas
     path('data_ormas/', views.data_ormas, name='data_ormas'),
