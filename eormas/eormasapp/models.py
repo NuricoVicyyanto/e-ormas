@@ -18,3 +18,16 @@ class Ormas(models.Model):
         self.desa = self.desa.upper()
         self.kecamatan = self.kecamatan.upper()
         self.kabupaten = self.kabupaten.upper()
+
+class Galeri(models.Model):
+    image = models.ImageField(upload_to='image/', null = True)
+    judul = models.CharField(max_length=50)
+    caption = models.TextField()
+
+    def __str__(self):
+        return self.judul
+
+
+    def delete(self, *args, **kwargs):
+        self.image.delete()
+        super().delete(*args, **kwargs)

@@ -15,3 +15,15 @@ class FormOrmas(ModelForm):
             'kecamatan':forms.TextInput({'class':'form-control', 'id':'Kecamatan'}),
             'kabupaten':forms.TextInput({'class':'form-control', 'id':'Kabupaten'}),
         }
+
+class FormGaleri(ModelForm):
+    class Meta:
+        model = Galeri
+        fields = '__all__'
+        #exclude = ['judul'] * untuk kolom yang tidak akan ditampilkan
+
+        widgets = {
+            'image' : forms.FileInput({'class':'form-control'}),
+            'judul':forms.TextInput({'class':'form-control', 'id':'Judul'}),
+            'caption':forms.TextInput({'class':'form-control'}),
+        }

@@ -114,5 +114,61 @@ def jml_ormas_kab(request):
         }
 
     return render(request, 'backend/jml_ormas_kab.html', konteks)
+
+
 def galeri(request):
-    return render(request, 'backend/galeri.html')
+    galeri = Galeri.objects.all()
+
+    konteks = {
+        'galeri' : galeri,
+    }
+    return render(request, 'backend/galeri.html', konteks)
+
+
+def tambah_galeri(request):
+    if request.POST:
+        form = FormGaleri(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            alert = 'Data Berhasil Ditambahkan'
+            form = FormGaleri
+
+            konteks={
+                'form':form,
+                'alert':alert,
+            }
+
+            return render(request, 'backend/tambah_galeri.html', konteks)
+
+    else:
+        form = FormGaleri()
+
+        konteks ={
+            'form':form,
+        }
+
+    return render(request, 'backend/tambah_galeri.html', konteks)
+
+
+def hapus_galeri(request, id_galeri):
+    pohon = Galeri.objects.get(id=id_galeri)
+    pohon.delete()
+
+    return redirect('galeri')
+
+
+def edit_galeri(request, id_galeri):
+    galeri = Galeri.objects.get(id=id_galeri)
+    template = 'backend/edit_galeri.html'
+    if request.POST:
+        form = FormGaleri(request.POST,request.FILES, instance=galeri)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_galeri', id_galeri=id_galeri)
+    else:
+        form = FormGaleri(instance=galeri)
+        konteks ={
+            'form':form,
+            'galeri':galeri,
+        }
+        return render(request, template, konteks)

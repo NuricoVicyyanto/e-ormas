@@ -8,7 +8,8 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-          <li class="breadcrumb-item"><a href="{% url 'galeri' %}">Galeri</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active"><a href="{% url 'data_ormas' %}">Data Ormas</a></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -25,24 +26,29 @@
                   <tr>
                     <th scope="col">Gambar</th>
                     <th scope="col">Judul</th>
-                    <th scope="col">Keterangan</th>
-                    <th scope="col">Opsi</th>
+                    <th scope="col">Caption</th>
                   </tr>
                 </thead>
                 <tbody>
-                    {% for desa in desa %}
+                  {% for galeri in galeri %}
                   <tr>
-                    <td>{{ desa.desa}}</td>
                     <td>
-                      <a href="#" class="btn btn-secondary">Edit</a>
-                      <a href="{% url 'hapus_desa' desa.id %}" class="btn btn-danger">Hapus</a>
+                      {% if galeri.image %}
+                      <img src="{{ galeri.image.url }}" width="90px">
+                      {% endif %}
+                    </td>
+                    <td>{{ galeri.judul }}</td>
+                    <td>{{ galeri.caption }}</td>
+                  <td>
+                      <a href="{% url 'edit_galeri' galeri.id %}" class="btn btn-secondary">Edit</a>
+                      <a href="{% url 'hapus_galeri' galeri.id %}" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>
                   {% endfor %}
                 </tbody>
               </table>
-              <!-- End Table with stripped rows -->
-              <a href="{% url 'tambah_desa' %}" class="btn btn-primary">Tambah</a>
+              <a href="{% url 'tambah_galeri' %}" class="btn btn-primary">Tambah</a>
+
             </div>
           </div>
 
