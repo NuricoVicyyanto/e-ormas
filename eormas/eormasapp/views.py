@@ -1,3 +1,5 @@
+from collections import Counter
+from itertools import count
 from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
@@ -137,12 +139,6 @@ def kabupaten(request):
 
     return render(request, 'backend/kabupaten.html', konteks)
 
-def hapus_kabupaten(request, id_kabupaten):
-    kabupaten = Kabupaten.objects.get(id=id_kabupaten)
-    kabupaten.delete()
-
-    return redirect('kabupaten')
-
 def tambah_kabupaten(request):
     if request.POST:
         form = FormKabupaten(request.POST, request.FILES)
@@ -167,6 +163,27 @@ def tambah_kabupaten(request):
 
     return render(request, 'backend/tambah_kabupaten.html', konteks)
 
+def edit_kabupaten(request, id_kabupaten):
+    kabupaten = Kabupaten.objects.get(id=id_kabupaten)
+    template = 'backend/edit_kabupaten.html'
+    if request.POST:
+        form = FormKabupaten(request.POST,request.FILES, instance=kabupaten)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_kabupaten', id_kabupaten=id_kabupaten)
+    else:
+        form = FormKabupaten(instance=kabupaten)
+        konteks ={
+            'form':form,
+            'kabupaten':kabupaten,
+        }
+        return render(request, template, konteks)
+
+def hapus_kabupaten(request, id_kabupaten):
+    kabupaten = Kabupaten.objects.get(id=id_kabupaten)
+    kabupaten.delete()
+
+    return redirect('kabupaten')
     
 def data_ormas(request):
     ormas = Ormas.objects.all()
@@ -206,6 +223,23 @@ def tambah_ormas(request):
         }
 
     return render(request, 'backend/add_data_ormas.html', konteks)
+
+def edit_ormas(request, id_ormas):
+    data_ormas = Ormas.objects.get(id=id_ormas)
+    template = 'backend/edit_data_ormas.html'
+    if request.POST:
+        form = FormOrmas(request.POST,request.FILES, instance=data_ormas)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_ormas', id_ormas=id_ormas)
+    else:
+        form = FormOrmas(instance=data_ormas)
+        konteks ={
+            'form':form,
+            'data_ormas':data_ormas,
+        }
+        return render(request, template, konteks)
+
 
 def unsur(request):
     unsur = Unsur.objects.all()
@@ -247,10 +281,31 @@ def tambah_unsur(request):
 
     return render(request, 'backend/tambah_unsur.html', konteks)
 
-def unsur_ormas(request):
-    return render(request, 'backend/unsur_ormas.html')
+def edit_unsur(request, id_unsur):
+    unsur = Unsur.objects.get(id=id_unsur)
+    template = 'backend/edit_unsur.html'
+    if request.POST:
+        form = FormUnsur(request.POST,request.FILES, instance=unsur)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_unsur', id_unsur=id_unsur)
+    else:
+        form = FormUnsur(instance=unsur)
+        konteks ={
+            'form':form,
+            'unsur':unsur,
+        }
+        return render(request, template, konteks)
+
+
+
 def jml_ormas_ds(request):
-    return render(request, 'backend/jml_ormas_ds.html')
+    desa_bataan = Ormas.objects.filter(desa='bataan', status=0).count()
+    konteks ={
+        'desa_bataan':desa_bataan,
+    }
+
+    return render(request, 'backend/jml_ormas_ds.html', konteks)
 def jml_ormas_kec(request):
     return render(request, 'backend/jml_ormas_kec.html')
 def jml_ormas_kab(request):

@@ -31,7 +31,7 @@
                   <tr>
                     <td>{{ unsur.unsur }}</td>
                     <td>
-                      <a href="#" class="btn btn-secondary">Edit</a>
+                      <a href="{% url 'edit_unsur' unsur.id %}" class="btn btn-secondary">Edit</a>
                       <a href="{% url 'hapus_unsur' unsur.id %}" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>

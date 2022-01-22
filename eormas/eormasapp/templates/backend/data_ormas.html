@@ -43,7 +43,7 @@
                     <td>{{ ormas.kecamatan }}</td>
                     <td>{{ ormas.kabupaten }}</td>
                   <td>
-                      <a href="#" class="btn btn-secondary">Edit</a>
+                      <a href="{% url 'edit_ormas' ormas.id %}" class="btn btn-secondary">Edit</a>
                       <a href="{% url 'hapus_ormas' ormas.id %}" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>

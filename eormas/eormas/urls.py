@@ -37,17 +37,20 @@ urlpatterns = [
     # kabupaten
     path('kabupaten/', views.kabupaten, name='kabupaten'),
     path('tambah_kabupaten/', views.tambah_kabupaten, name='tambah_kabupaten'),
+    path('kabupaten/edit_kabupaten/<int:id_kabupaten>', views.edit_kabupaten, name='edit_kabupaten'),
     path('kabupaten/hapus_kabupaten/<int:id_kabupaten>', views.hapus_kabupaten, name='hapus_kabupaten'),
 
     # unsur
     path('unsur_ormas/', views.unsur, name='unsur_ormas'),
     path('tambah_unsur/', views.tambah_unsur, name='tambah_unsur'),
+     path('unsur/edit_unsur/<int:id_unsur>', views.edit_unsur, name='edit_unsur'),
     path('unsur/hapus_unsur/<int:id_unsur>', views.hapus_unsur, name='hapus_unsur'),
 
     # ormas
     path('data_ormas/', views.data_ormas, name='data_ormas'),
     path('tambah_ormas/', views.tambah_ormas, name='tambah_ormas'),
-    path('ormas/hapus_ormas/<int:id_ormas>', views.hapus_ormas, name='hapus_ormas'),
+    path('data_ormas/edit_ormas/<int:id_ormas>', views.edit_ormas, name='edit_ormas'),
+    path('data_ormas/hapus_ormas/<int:id_ormas>', views.hapus_ormas, name='hapus_ormas'),
     
     path('jml_ormas_ds/', views.jml_ormas_ds, name='jml_ormas_ds'),
     path('jml_ormas_kec/', views.jml_ormas_kec, name='jml_ormas_kec'),
