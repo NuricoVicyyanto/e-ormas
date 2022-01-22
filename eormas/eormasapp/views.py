@@ -1,4 +1,5 @@
 from collections import Counter
+from django.db.models import Count
 from itertools import count
 from django.shortcuts import render
 from django.http.response import HttpResponse
@@ -16,174 +17,6 @@ def index(request):
     return render(request, 'backend/index.html')
 def landing(request):
     return render(request, 'backend/landing.html')
-
-def desa(request):
-    desa = Desa.objects.all()
-
-    konteks ={
-        'desa':desa,
-    }
-
-    return render(request, 'backend/desa.html', konteks)
-
-def tambah_desa(request):
-    if request.POST:
-        form = FormDesa(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            alert = 'Data Berhasil Ditambahkan'
-            form = FormDesa
-
-            konteks={
-                'form':form,
-                'alert':alert,
-            }
-
-            return render(request, 'backend/tambah_desa.html', konteks)
-
-    else:
-        form = FormDesa()
-
-        konteks ={
-            'form':form,
-        }
-
-    return render(request, 'backend/tambah_desa.html', konteks)
-
-def edit_desa(request, id_desa):
-    desa = Desa.objects.get(id=id_desa)
-    template = 'backend/edit_desa.html'
-    if request.POST:
-        form = FormDesa(request.POST,request.FILES, instance=desa)
-        if form.is_valid():
-            form.save()
-            return redirect('edit_desa', id_desa=id_desa)
-    else:
-        form = FormDesa(instance=desa)
-        konteks ={
-            'form':form,
-            'desa':desa,
-        }
-        return render(request, template, konteks)
-
-
-def hapus_desa(request, id_desa):
-    desa = Desa.objects.get(id=id_desa)
-    desa.delete()
-
-    return redirect('desa')
-
-
-def kecamatan(request):
-    kecamatan = Kecamatan.objects.all()
-
-    konteks ={
-        'kecamatan':kecamatan,
-    }
-
-    return render(request, 'backend/kecamatan.html', konteks)
-
-def tambah_kecamatan(request):
-    if request.POST:
-        form = FormKecamatan(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            alert = 'Data Berhasil Ditambahkan'
-            form = FormKecamatan
-
-            konteks={
-                'form':form,
-                'alert':alert,
-            }
-
-            return render(request, 'backend/tambah_kecamatan.html', konteks)
-
-    else:
-        form = FormKecamatan()
-
-        konteks ={
-            'form':form,
-        }
-
-    return render(request, 'backend/tambah_kecamatan.html', konteks)
-
-def edit_kecamatan(request, id_kecamatan):
-    kecamatan = Kecamatan.objects.get(id=id_kecamatan)
-    template = 'backend/edit_kecamatan.html'
-    if request.POST:
-        form = FormKecamatan(request.POST,request.FILES, instance=kecamatan)
-        if form.is_valid():
-            form.save()
-            return redirect('edit_kecamatan', id_kecamatan=id_kecamatan)
-    else:
-        form = FormKecamatan(instance=kecamatan)
-        konteks ={
-            'form':form,
-            'kecamatan':kecamatan,
-        }
-        return render(request, template, konteks)
-
-def hapus_kecamatan(request, id_kecamatan):
-    kecamatan = Kecamatan.objects.get(id=id_kecamatan)
-    kecamatan.delete()
-
-    return redirect('kecamatan')
-
-
-def kabupaten(request):
-    kabupaten = Kabupaten.objects.all()
-
-    konteks ={
-        'kabupaten':kabupaten,
-    }
-
-    return render(request, 'backend/kabupaten.html', konteks)
-
-def tambah_kabupaten(request):
-    if request.POST:
-        form = FormKabupaten(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            alert = 'Data Berhasil Ditambahkan'
-            form = FormKabupaten
-
-            konteks={
-                'form':form,
-                'alert':alert,
-            }
-
-            return render(request, 'backend/tambah_kabupaten.html', konteks)
-
-    else:
-        form = FormKabupaten()
-
-        konteks ={
-            'form':form,
-        }
-
-    return render(request, 'backend/tambah_kabupaten.html', konteks)
-
-def edit_kabupaten(request, id_kabupaten):
-    kabupaten = Kabupaten.objects.get(id=id_kabupaten)
-    template = 'backend/edit_kabupaten.html'
-    if request.POST:
-        form = FormKabupaten(request.POST,request.FILES, instance=kabupaten)
-        if form.is_valid():
-            form.save()
-            return redirect('edit_kabupaten', id_kabupaten=id_kabupaten)
-    else:
-        form = FormKabupaten(instance=kabupaten)
-        konteks ={
-            'form':form,
-            'kabupaten':kabupaten,
-        }
-        return render(request, template, konteks)
-
-def hapus_kabupaten(request, id_kabupaten):
-    kabupaten = Kabupaten.objects.get(id=id_kabupaten)
-    kabupaten.delete()
-
-    return redirect('kabupaten')
     
 def data_ormas(request):
     ormas = Ormas.objects.all()
@@ -240,75 +73,46 @@ def edit_ormas(request, id_ormas):
         }
         return render(request, template, konteks)
 
-
-def unsur(request):
-    unsur = Unsur.objects.all()
+def jml_ormas_uns(request):
+    ormas = Ormas.objects.values('unsur').annotate(
+        jumlah=Count('unsur')
+    ).order_by('unsur')
 
     konteks ={
-        'unsur':unsur,
-    }
-
-    return render(request, 'backend/unsur_ormas.html', konteks)
-
-def hapus_unsur(request, id_unsur):
-    unsur = Unsur.objects.get(id=id_unsur)
-    unsur.delete()
-
-    return redirect('unsur_ormas')
-
-
-def tambah_unsur(request):
-    if request.POST:
-        form = FormUnsur(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            alert = 'Data Berhasil Ditambahkan'
-            form = FormUnsur
-
-            konteks={
-                'form':form,
-                'alert':alert,
-            }
-
-            return render(request, 'backend/tambah_unsur.html', konteks)
-
-    else:
-        form = FormUnsur()
-
-        konteks ={
-            'form':form,
+                'ormas':ormas,
         }
-
-    return render(request, 'backend/tambah_unsur.html', konteks)
-
-def edit_unsur(request, id_unsur):
-    unsur = Unsur.objects.get(id=id_unsur)
-    template = 'backend/edit_unsur.html'
-    if request.POST:
-        form = FormUnsur(request.POST,request.FILES, instance=unsur)
-        if form.is_valid():
-            form.save()
-            return redirect('edit_unsur', id_unsur=id_unsur)
-    else:
-        form = FormUnsur(instance=unsur)
-        konteks ={
-            'form':form,
-            'unsur':unsur,
-        }
-        return render(request, template, konteks)
-
-
+    return render(request, 'backend/jml_ormas_uns.html', konteks)
 
 def jml_ormas_ds(request):
-    desa_bataan = Ormas.objects.filter(desa='bataan', status=0).count()
+    ormas = Ormas.objects.values('desa').annotate(
+        jumlah=Count('desa')
+    ).order_by('desa')
+
     konteks ={
-        'desa_bataan':desa_bataan,
-    }
+                'ormas':ormas,
+        }
 
     return render(request, 'backend/jml_ormas_ds.html', konteks)
+
 def jml_ormas_kec(request):
-    return render(request, 'backend/jml_ormas_kec.html')
+    ormas = Ormas.objects.values('kecamatan').annotate(
+        jumlah=Count('kecamatan')
+    ).order_by('kecamatan')
+
+    konteks ={
+                'ormas':ormas,
+        }
+    return render(request, 'backend/jml_ormas_kec.html', konteks)
+
 def jml_ormas_kab(request):
-    return render(request, 'backend/jml_ormas_kab.html')
+    ormas = Ormas.objects.values('kabupaten').annotate(
+        jumlah=Count('kabupaten')
+    ).order_by('kabupaten')
+
+    konteks ={
+                'ormas':ormas,
+        }
+
+    return render(request, 'backend/jml_ormas_kab.html', konteks)
 def galeri(request):
     return render(request, 'backend/galeri.html')
