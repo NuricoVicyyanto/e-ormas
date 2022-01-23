@@ -96,87 +96,38 @@
                     <span>Dashboard</span>
                   </a>
               </li>
-              <li class="menu-header">Dashboard</li>
+              <li class="menu-header">Pages</li>
+              <li class="nav-item dropdown active">
+                  <a href="{% url 'landing' %}" class="nav-link">
+                    <i class="fas fa-fire"></i>
+                    <span>Landing</span>
+                  </a>
+              </li>
+              <li class="nav-item dropdown active">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Tables</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="{% url 'data_ormas' %}">Data Ormas</a></li>
+                  <li><a class="nav-link" href="{% url 'jml_ormas_uns' %}">Data Ormas(Uns)</a></li>
+                  <li><a class="nav-link" href="{% url 'jml_ormas_ds' %}">Data Ormas(Ds)</a></li>
+                  <li><a class="nav-link" href="{% url 'jml_ormas_kec' %}">Data Ormas(Kec)</a></li>
+                  <li><a class="nav-link" href="{% url 'jml_ormas_kab' %}">Data Ormas(Kab)</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown active">
+                <a href="{% url 'galeri' %}" class="nav-link">
+                  <i class="fas fa-fire"></i>
+                  <span>Galeri</span>
+                </a>
+              </li>
+              <li class="nav-item dropdown active">
+                <a href="{% url 'index' %}" class="nav-link">
+                  <i class="fas fa-fire"></i>
+                  <span>Info</span>
+                </a>
+              </li>
           </ul>
-  
-          <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-              <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                  <i class="fas fa-rocket"></i> Documentation
-              </a>
-          </div>
       </aside>
   </div>
-  {% comment %} <div class="main-sidebar">
-    <aside id="sidebar-wrapper">
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link " href="{% url 'index' %}">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
-
-      <li class="nav-heading">Pages</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url 'landing' %}">
-          <i class="bi bi-house-door"></i>
-          <span>Landing</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-table"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{% url 'data_ormas' %}">
-              <i class="bi bi-circle"></i><span>Data Ormas</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'jml_ormas_uns' %}">
-              <i class="bi bi-circle"></i><span>Data Ormas(Uns)</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'jml_ormas_ds' %}">
-              <i class="bi bi-circle"></i><span>Data Ormas(Ds)</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'jml_ormas_kec' %}">
-              <i class="bi bi-circle"></i><span>Data Ormas(Kec)</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'jml_ormas_kab' %}">
-              <i class="bi bi-circle"></i><span>Data Ormas(Kab)</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url 'galeri' %}">
-          <i class="bi bi-card-image"></i>
-          <span>Galeri</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-info-circle"></i>
-          <span>Info</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-    </ul>
-
-    </aside><!-- End Sidebar-->
-  </div> {% endcomment %}
 
     {% block content %}
     {% endblock %}
