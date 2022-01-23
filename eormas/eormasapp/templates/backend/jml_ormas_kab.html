@@ -1,51 +1,62 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% block content %}
 
-<main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Data Tables</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{% url 'index'%}">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active"><a href="{% url 'jml_ormas_kab' %}">Jumlah Data Ormas (Kabupaten)</a></li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
+  <div class="main-content">
     <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Datatables</h5>
-              <table class="table datatable">
-                <thead>
-                  <tr>
-                    <th scope="col">Kabupaten</th>
-                    <th scope="col">Jumlah</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for ormas in ormas %}
-                  <tr>
-                    <td>{{ ormas.kabupaten }}</td>
-                    <td>{{ ormas.jumlah }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-              <!-- End Table with stripped rows -->
-
-            </div>
-          </div>
-
+      <div class="section-header">
+        <h1>Table</h1>
+        <div class="section-header-breadcrumb">
+          <div class="breadcrumb-item active"><a href="{% url 'index'%}">Home</a></div>
+          <div class="breadcrumb-item">Tables</div>
+          <div class="breadcrumb-item">Jumlah Data Ormas (Kabupaten)</div>
         </div>
       </div>
-    </section>
-
-  </main><!-- End #main -->
+  
+      <div class="section-body">
+        <h2 class="section-title">Table</h2>
+        <p class="section-lead">Example of some Bootstrap table components.</p>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4>Sortable Table</h4>
+                <div class="card-header-action">
+                  <form>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search">
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">Kabupaten</th>
+                        <th scope="col">Jumlah</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for ormas in ormas %}
+                      <tr>
+                        <td>{{ ormas.kabupaten }}</td>
+                        <td>{{ ormas.jumlah }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  </section>
 
 {% endblock %}
