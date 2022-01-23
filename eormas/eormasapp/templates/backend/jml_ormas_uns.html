@@ -1,53 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% comment %} <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Data Tables</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{% url 'index'%}">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active"><a href="{% url 'jml_ormas_uns' %}">Jumlah Data Ormas (Unsur)</a></li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Datatables</h5>
-              <table class="table datatable">
-                <thead>
-                  <tr>
-                    <th scope="col">Unsur</th>
-                    <th scope="col">Jumlah</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for ormas in ormas %}
-                  <tr>
-                    <td>{{ ormas.unsur }}</td>
-                    <td>{{ ormas.jumlah }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-              <!-- End Table with stripped rows -->
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main><!-- End #main --> {% endcomment %}
-
   <div class="main-content">
     <section class="section">
       <div class="section-header">
