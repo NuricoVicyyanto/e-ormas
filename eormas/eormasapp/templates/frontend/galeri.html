@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% for galeri in galeri %}
+        <div class="card" style="width: 18rem;">
+            {% if galeri.image %}
+            <img class="card-img-top" src="{{ galeri.image.url }}" alt="Card image cap">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ galeri.judul }}</h5>
+              <p class="card-text">{{ galeri.caption}}</p>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

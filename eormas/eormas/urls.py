@@ -21,8 +21,17 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+    path('index/', views.index, name='index'),
     path('landing/', views.landing, name='landing'),
+    path('', views.dashboard, name='dashboard'),
+    path('ormas/', views.ormas, name='ormas'),
+    path('ormas_uns/', views.ormas_uns, name='ormas_uns'),
+    path('ormas_ds/', views.ormas_ds, name='ormas_ds'),
+    path('ormas_kec/', views.ormas_kec, name='ormas_kec'),
+    path('ormas_kab/', views.ormas_kab, name='ormas_kab'),
+    path('grafik/', views.grafik, name='grafik'),
+    path('galeri_view/', views.galeri_view, name='galeri_view'),
+
 
     # ormas
     path('data_ormas/', views.data_ormas, name='data_ormas'),

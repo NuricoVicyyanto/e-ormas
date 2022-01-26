@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="container">
+<div class="card">
+    <div class="card-header">
+      Selamat Datang
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">e-Ormas</h5>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table datatable">
+            <thead>
+              <tr>
+                <th scope="col">nama</th>
+                <th scope="col">unsur</th>
+                <th scope="col">alamat</th>
+                <th scope="col">desa</th>
+                <th scope="col">kecamatan</th>
+                <th scope="col">kabupaten</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for ormas in ormas %}
+              <tr>
+                <td>{{ ormas.nama }}</td>
+                <td>{{ ormas.unsur }}</td>
+                <td>{{ ormas.alamat }}</td>
+                <td>{{ ormas.desa }}</td>
+                <td>{{ ormas.kecamatan }}</td>
+                <td>{{ ormas.kabupaten }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

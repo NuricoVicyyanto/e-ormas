@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Django Stisla</title>
+  <title>E-Ormas</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -58,12 +58,12 @@
               <li class="menu-header">Pages</li>
               <li class="nav-item dropdown active">
                   <a href="{% url 'landing' %}" class="nav-link">
-                    <i class="fas fa-fire"></i>
+                    <i class="fas fa-columns"></i>
                     <span>Landing</span>
                   </a>
               </li>
               <li class="nav-item dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Tables</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>Tables</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{% url 'data_ormas' %}">Data Ormas</a></li>
                   <li><a class="nav-link" href="{% url 'jml_ormas_uns' %}">Data Ormas(Uns)</a></li>
@@ -74,13 +74,13 @@
               </li>
               <li class="nav-item dropdown active">
                 <a href="{% url 'galeri' %}" class="nav-link">
-                  <i class="fas fa-fire"></i>
+                  <i class="fas fa-square"></i>
                   <span>Galeri</span>
                 </a>
               </li>
               <li class="nav-item dropdown active">
                 <a href="{% url 'index' %}" class="nav-link">
-                  <i class="fas fa-fire"></i>
+                  <i class="fas fa-exclamation"></i>
                   <span>Info</span>
                 </a>
               </li>
@@ -117,6 +117,7 @@
   <!-- Template JS File -->
   <script src="{% static 'assetss/js/scripts.js' %}" }></script>
   <script src="{% static 'assetss/js/custom.js' %}"></script>
+  <script src="{% static 'assetss/js/chart.min.js' %}"></script>
 
   <!-- Page Specific JS File -->
   <!-- <script src="{% static 'assetss/js/page/index-0.js' %}"></script> -->

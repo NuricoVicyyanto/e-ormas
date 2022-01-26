@@ -17,7 +17,85 @@ def index(request):
     return render(request, 'backend/index.html')
 def landing(request):
     return render(request, 'backend/landing.html')
-    
+def dashboard(request):
+    return render(request, 'frontend/home.html')
+def ormas(request):
+    ormas = Ormas.objects.all()
+
+    konteks ={
+        'ormas':ormas,
+    }
+
+    return render(request, 'frontend/ormas.html', konteks)
+
+def ormas_uns(request):
+    ormas = Ormas.objects.values('unsur').annotate(
+        jumlah=Count('unsur')
+    ).order_by('unsur')
+
+    konteks ={
+                'ormas':ormas,
+        }
+    return render(request, 'frontend/ormas_uns.html', konteks)
+
+def ormas_ds(request):
+    ormas = Ormas.objects.values('desa').annotate(
+        jumlah=Count('desa')
+    ).order_by('desa')
+
+    konteks ={
+                'ormas':ormas,
+        }
+
+    return render(request, 'frontend/ormas_ds.html', konteks)
+
+def ormas_kec(request):
+    ormas = Ormas.objects.values('kecamatan').annotate(
+        jumlah=Count('kecamatan')
+    ).order_by('kecamatan')
+
+    konteks ={
+                'ormas':ormas,
+        }
+    return render(request, 'frontend/ormas_kec.html', konteks)
+
+def ormas_kab(request):
+    ormas = Ormas.objects.values('kabupaten').annotate(
+        jumlah=Count('kabupaten')
+    ).order_by('kabupaten')
+
+    konteks ={
+                'ormas':ormas,
+        }
+
+    return render(request, 'frontend/ormas_kab.html', konteks)
+
+def grafik(request):
+    desa = Ormas.objects.values('desa').annotate(
+        jumlah=Count('desa')
+    ).order_by('desa')
+    kecamatan = Ormas.objects.values('kecamatan').annotate(
+        jumlah=Count('kecamatan')
+    ).order_by('kecamatan')
+
+    konteks ={
+                'desa':desa,
+                'kecamatan':kecamatan,
+        }
+
+    return render(request, 'frontend/grafik.html', konteks)
+
+def galeri_view(request):
+    galeri = Galeri.objects.all()
+
+    konteks = {
+        'galeri' : galeri,
+    }
+    return render(request, 'frontend/galeri.html', konteks)
+
+
+
+
 def data_ormas(request):
     ormas = Ormas.objects.all()
 
