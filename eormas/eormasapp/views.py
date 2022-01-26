@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter 
 from django.db.models import Count
 from itertools import count
 from django.shortcuts import render
@@ -15,10 +15,13 @@ from eormasapp.models import *
 # Create your views here.
 def index(request):
     return render(request, 'backend/index.html')
+    
 def landing(request):
     return render(request, 'backend/landing.html')
+
 def dashboard(request):
     return render(request, 'frontend/home.html')
+
 def ormas(request):
     ormas = Ormas.objects.all()
 
