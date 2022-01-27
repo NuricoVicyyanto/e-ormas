@@ -31,3 +31,11 @@ class Galeri(models.Model):
     def delete(self, *args, **kwargs):
         self.image.delete()
         super().delete(*args, **kwargs)
+
+class Informasi(models.Model):
+    informasi = models.CharField(max_length=50)
+    tanggal = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.informasi
+    
