@@ -52,4 +52,7 @@ urlpatterns = [
 
     # informasi
     path('informasi/', views.informasi, name='informasi'),
+    path('tambah_informasi/', views.tambah_informasi, name='tambah_informasi'),
+    path('informasi/edit_informasi/<int:id_informasi>', views.edit_informasi, name='edit_informasi'),
+    path('informasi/hapus_informasi/<int:id_informasi>', views.hapus_informasi, name='hapus_informasi'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
