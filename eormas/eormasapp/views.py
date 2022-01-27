@@ -253,3 +253,11 @@ def edit_galeri(request, id_galeri):
             'galeri':galeri,
         }
         return render(request, template, konteks)
+
+def informasi(request):
+    informasi = Informasi.objects.all()
+
+    konteks ={
+        'informasi':informasi,
+    }
+    return render(request, 'backend/informasi.html', konteks)
