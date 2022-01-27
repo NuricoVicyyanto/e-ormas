@@ -1,6 +1,19 @@
 from django.forms import ModelForm, widgets
 from django import forms
 from eormasapp.models import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class CreateUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
+
+        widgets = {
+                'username':forms.TextInput({'class':'form-control', 'id':'Username'}),
+                'image' : forms.FileInput({'class':'form-control'}),
+                'informasi':forms.TextInput({'class':'form-control'}),
+            }
 
 class FormOrmas(ModelForm):
     class Meta:

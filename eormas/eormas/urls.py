@@ -20,6 +20,8 @@ from eormasapp import views
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('login/', views.login, name='login'),
+
     path('admin/', admin.site.urls),
     path('index/', views.index, name='index'),
     path('landing/', views.landing, name='landing'),

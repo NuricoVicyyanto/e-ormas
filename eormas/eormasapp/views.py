@@ -11,11 +11,33 @@ from django.contrib import messages
 import os
 from eormasapp.forms import *
 from eormasapp.models import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
 
 # Create your views here.
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            auth_login(request, user)
+            return redirect('index')
+        else:
+            messages.info(request, 'Username or password is incorrect')
+
+    konteks = {}
+    return render(request, 'backend/login.html', konteks)
+
+
+@login_required(login_url='login')
 def index(request):
     return render(request, 'backend/index.html')
 
+@login_required(login_url='login')
 def landing(request):
     return render(request, 'backend/landing.html')
 
@@ -98,7 +120,7 @@ def galeri_view(request):
 
 
 
-
+@login_required(login_url='login')
 def data_ormas(request):
     ormas = Ormas.objects.all()
 
@@ -108,12 +130,14 @@ def data_ormas(request):
 
     return render(request, 'backend/data_ormas.html', konteks)
 
+@login_required(login_url='login')
 def hapus_ormas(request, id_ormas):
     ormas = Ormas.objects.get(id=id_ormas)
     ormas.delete()
 
     return redirect('data_ormas')
 
+@login_required(login_url='login')
 def tambah_ormas(request):
     if request.POST:
         form = FormOrmas(request.POST, request.FILES)
@@ -138,6 +162,7 @@ def tambah_ormas(request):
 
     return render(request, 'backend/add_data_ormas.html', konteks)
 
+@login_required(login_url='login')
 def edit_ormas(request, id_ormas):
     data_ormas = Ormas.objects.get(id=id_ormas)
     template = 'backend/edit_data_ormas.html'
@@ -154,6 +179,7 @@ def edit_ormas(request, id_ormas):
         }
         return render(request, template, konteks)
 
+@login_required(login_url='login')
 def jml_ormas_uns(request):
     ormas = Ormas.objects.values('unsur').annotate(
         jumlah=Count('unsur')
@@ -164,6 +190,7 @@ def jml_ormas_uns(request):
         }
     return render(request, 'backend/jml_ormas_uns.html', konteks)
 
+@login_required(login_url='login')
 def jml_ormas_ds(request):
     ormas = Ormas.objects.values('desa').annotate(
         jumlah=Count('desa')
@@ -175,6 +202,7 @@ def jml_ormas_ds(request):
 
     return render(request, 'backend/jml_ormas_ds.html', konteks)
 
+@login_required(login_url='login')
 def jml_ormas_kec(request):
     ormas = Ormas.objects.values('kecamatan').annotate(
         jumlah=Count('kecamatan')
@@ -185,6 +213,7 @@ def jml_ormas_kec(request):
         }
     return render(request, 'backend/jml_ormas_kec.html', konteks)
 
+@login_required(login_url='login')
 def jml_ormas_kab(request):
     ormas = Ormas.objects.values('kabupaten').annotate(
         jumlah=Count('kabupaten')
@@ -196,7 +225,7 @@ def jml_ormas_kab(request):
 
     return render(request, 'backend/jml_ormas_kab.html', konteks)
 
-
+@login_required(login_url='login')
 def galeri(request):
     galeri = Galeri.objects.all()
 
@@ -205,7 +234,7 @@ def galeri(request):
     }
     return render(request, 'backend/galeri.html', konteks)
 
-
+@login_required(login_url='login')
 def tambah_galeri(request):
     if request.POST:
         form = FormGaleri(request.POST, request.FILES)
@@ -230,14 +259,14 @@ def tambah_galeri(request):
 
     return render(request, 'backend/tambah_galeri.html', konteks)
 
-
+@login_required(login_url='login')
 def hapus_galeri(request, id_galeri):
     pohon = Galeri.objects.get(id=id_galeri)
     pohon.delete()
 
     return redirect('galeri')
 
-
+@login_required(login_url='login')
 def edit_galeri(request, id_galeri):
     galeri = Galeri.objects.get(id=id_galeri)
     template = 'backend/edit_galeri.html'
@@ -254,6 +283,7 @@ def edit_galeri(request, id_galeri):
         }
         return render(request, template, konteks)
 
+@login_required(login_url='login')
 def informasi(request):
     informasi = Informasi.objects.all()
 
@@ -262,6 +292,7 @@ def informasi(request):
     }
     return render(request, 'backend/informasi.html', konteks)
 
+@login_required(login_url='login')
 def tambah_informasi(request):
     if request.POST:
         form = FormInformasi(request.POST, request.FILES)
@@ -286,12 +317,14 @@ def tambah_informasi(request):
 
     return render(request, 'backend/tambah_informasi.html', konteks)
 
+@login_required(login_url='login')
 def hapus_informasi(request, id_informasi):
     informasi = Informasi.objects.get(id=id_informasi)
     informasi.delete()
 
     return redirect('informasi')
 
+@login_required(login_url='login')
 def edit_informasi(request, id_informasi):
     informasi = Informasi.objects.get(id=id_informasi)
     template = 'backend/edit_informasi.html'
