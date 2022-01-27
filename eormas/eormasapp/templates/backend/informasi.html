@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>Table</h1>
+      <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+        <div class="breadcrumb-item">Informasi</div>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4>Data Informasi</h4>
+              <div class="card-header-action">
+                <form>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-btn">
+                      <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="table datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Informasi</th>
+                      <th scope="col">Tanggal</th>
+                      <th scope="col">Opsi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for informasi in informasi %}
+                    <tr>
+                      <td>{{ informasi.informasi }}</td>
+                      <td>{{ informasi.tanggal }}</td>
+                      <td>
+                        <a href="" class="btn btn-secondary">Edit</a>
+                        <a href="" class="btn btn-danger">Hapus</a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <a href="" class="btn btn-primary">Tambah</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+{% endblock %}

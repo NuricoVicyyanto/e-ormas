@@ -4,3 +4,4 @@ from eormasapp.models import *
 
 admin.site.register(Ormas),
 admin.site.register(Galeri),
+admin.site.register(Informasi),

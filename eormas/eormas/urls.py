@@ -49,4 +49,7 @@ urlpatterns = [
     path('tambah_galeri/', views.tambah_galeri, name='tambah_galeri'),
     path('galeri/edit_galeri/<int:id_galeri>', views.edit_galeri, name='edit_galeri'),
     path('galeri/hapus_galeri/<int:id_galeri>', views.hapus_galeri, name='hapus_galeri'),
+
+    # informasi
+    path('informasi/', views.informasi, name='informasi'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
