@@ -14,6 +14,7 @@ from eormasapp.models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
 
 # Create your views here.
 def login(request):
@@ -32,6 +33,10 @@ def login(request):
     konteks = {}
     return render(request, 'backend/login.html', konteks)
 
+@login_required(login_url='login')
+def logout(request):
+    auth_logout(request)
+    return  redirect('login')
 
 @login_required(login_url='login')
 def index(request):
