@@ -36,7 +36,7 @@ def login(request):
 @login_required(login_url='login')
 def logout(request):
     auth_logout(request)
-    return  redirect('login')
+    return  redirect('dashboard')
 
 @login_required(login_url='login')
 def index(request):
