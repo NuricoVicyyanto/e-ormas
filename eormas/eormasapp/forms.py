@@ -27,3 +27,14 @@ class FormGaleri(ModelForm):
             'judul':forms.TextInput({'class':'form-control', 'id':'Judul'}),
             'caption':forms.TextInput({'class':'form-control'}),
         }
+
+class FormInformasi(ModelForm):
+    class Meta:
+        model = Informasi
+        fields = '__all__'
+        #exclude = ['judul'] * untuk kolom yang tidak akan ditampilkan
+
+        widgets = {
+            'informasi' : forms.TextInput({'class':'form-control'}),
+            'tanggal':forms.DateInput(format=('%d/%m/%Y'), attrs={'class':'form-control', 'type':'date'}),
+        }
