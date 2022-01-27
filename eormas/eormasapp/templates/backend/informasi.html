@@ -44,14 +44,14 @@
                       <td>{{ informasi.informasi }}</td>
                       <td>{{ informasi.tanggal }}</td>
                       <td>
-                        <a href="" class="btn btn-secondary">Edit</a>
-                        <a href="" class="btn btn-danger">Hapus</a>
+                        <a href="{% url 'edit_informasi' informasi.id %}" class="btn btn-secondary">Edit</a>
+                        <a href="{% url 'hapus_informasi' informasi.id %}" class="btn btn-danger">Hapus</a>
                       </td>
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
-                <a href="" class="btn btn-primary">Tambah</a>
+                <a href="{% url 'tambah_informasi' %}" class="btn btn-primary">Tambah</a>
               </div>
             </div>
           </div>

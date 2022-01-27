@@ -245,7 +245,7 @@ def edit_galeri(request, id_galeri):
         form = FormGaleri(request.POST,request.FILES, instance=galeri)
         if form.is_valid():
             form.save()
-            return redirect('edit_galeri', id_galeri=id_galeri)
+            return redirect('galeri')
     else:
         form = FormGaleri(instance=galeri)
         konteks ={
@@ -261,3 +261,49 @@ def informasi(request):
         'informasi':informasi,
     }
     return render(request, 'backend/informasi.html', konteks)
+
+def tambah_informasi(request):
+    if request.POST:
+        form = FormInformasi(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            alert = 'Data Berhasil Ditambahkan'
+            form = FormInformasi
+
+            konteks={
+                'form':form,
+                'alert':alert,
+            }
+
+            return render(request, 'backend/tambah_informasi.html', konteks)
+
+    else:
+        form = FormInformasi()
+
+        konteks ={
+            'form':form,
+        }
+
+    return render(request, 'backend/tambah_informasi.html', konteks)
+
+def hapus_informasi(request, id_informasi):
+    informasi = Informasi.objects.get(id=id_informasi)
+    informasi.delete()
+
+    return redirect('informasi')
+
+def edit_informasi(request, id_informasi):
+    informasi = Informasi.objects.get(id=id_informasi)
+    template = 'backend/edit_informasi.html'
+    if request.POST:
+        form = FormInformasi(request.POST,request.FILES, instance=informasi)
+        if form.is_valid():
+            form.save()
+            return redirect('informasi')
+    else:
+        form = FormInformasi(instance=informasi)
+        konteks ={
+            'form':form,
+            'informasi':informasi,
+        }
+        return render(request, template, konteks)
