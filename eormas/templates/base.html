@@ -21,6 +21,28 @@
   <link rel="stylesheet" href="{% static 'assetss/css/components.css' %}">
   <link rel="stylesheet" href="{% static 'assetss/css/custom.css' %}">
   <!-- <link rel="stylesheet" href="{% static 'assetss/css/bootstrap.min.css' %}"> -->
+
+  <!-- Template Jquery -->
+  <!-- Bootstrap CSS -->
+  <!-- Bootstrap DataTables CSS -->
+  <!-- Jquery -->
+  <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <!-- Jquery DataTables -->
+  <script type="text/javascript" language="javascript" src="http:////cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+  <!-- Bootstrap dataTables Javascript -->
+  <script type="text/javascript" language="javascript" src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'assetss/datatable/css/bootstrap.min.css' %}">
+  <!-- Bootstrap DataTables CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'assetss/datatable/css/dataTables.bootstrap.css' %}">
+
+  <!-- Panggil Fungsi -->
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+    $('.table-paginate').dataTable();
+    } );
+  </script>
+
 </head>
 
 <body>
@@ -119,6 +141,14 @@
   <script src="{% static 'assetss/js/scripts.js' %}" }></script>
   <script src="{% static 'assetss/js/custom.js' %}"></script>
   <script src="{% static 'assetss/js/chart.min.js' %}"></script>
+
+  <!-- Template jquery -->
+  <!-- Jquery -->
+  <script type="text/javascript" language="javascript" src="{% static 'assetss/datatable/js/jquery-1.10.2.min.js' %} "></script>
+  <!-- Jquery DataTables -->
+  <script type="text/javascript" language="javascript" src="{% static 'assetss/datatable/js/jquery.dataTables.min.js' %} "></script>
+  <!-- Bootstrap Javascript -->
+  <script type="text/javascript" language="javascript" src="{% static 'assetss/datatable/js/dataTables.bootstrap.js' %} "></script>
 
   <!-- Page Specific JS File -->
   <!-- <script src="{% static 'assetss/js/page/index-0.js' %}"></script> -->
