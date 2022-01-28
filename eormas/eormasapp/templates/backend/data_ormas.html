@@ -70,12 +70,7 @@
         </div>
       </div>
     </div>
-
-    {% for message in messages %}
-        {% if message %}
-            <div class="alert alert-success">{{ message }}</div>
-        {% endif %}
-    {% endfor %}
+    
     <div class="section-body">
       <div class="row">
         <div class="col-12">
@@ -119,13 +114,13 @@
                       <td>
                         <a href="{% url 'edit_ormas' unverormas.id %}" class="btn btn-secondary">Edit</a>
                         <a href="{% url 'hapus_ormas' unverormas.id %}" class="btn btn-danger">Hapus</a>
-                        <a href="{% url 'verifikasi_ormas' unverormas.id %}" class="btn btn-success">Verfikasilosi</a>
-                        <form action="{% url 'verifikasi_ormas' unverormas.id %}" method="post"
+                        <a href="{% url 'verifikasi_ormas' unverormas.id %}" class="btn btn-success">Verfikasi</a>
+                        <!-- <form action="{% url 'verifikasi_ormas' unverormas.id %}" method="post"
                           enctype="multipart/form-data">
                           {% csrf_token %}
                           {{ form.as_p }}
                           <button class="btn btn-dark">Verifikasi</button>
-                        </form>
+                        </form> -->
                       </td>
                     </tr>
                     {% endfor %}
