@@ -204,7 +204,7 @@ def verifikasi_ormas(request, id_ormas):
             messages.success(request, "Data Berhasil Diverifikasi!")
             return redirect('edit_ormas', id_ormas=id_ormas)
     else:
-        form = FormOrmas(instance=data_ormas)
+        form = FormOrmas.verifikasi(values="yes")
         konteks ={
             'form':form,
             'data_ormas':data_ormas,
