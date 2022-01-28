@@ -73,7 +73,7 @@ def dashboard(request):
 def ormas(request):
     # ormas = Ormas.objects.all()
     # filter berdasarkan data yang sudah terverifikasi
-    ormas = Ormas.objects.filter(verifikasi='yes')
+    ormas = Ormas.objects.filter(verifikasi='True')
 
     konteks ={
         'ormas':ormas,
@@ -84,7 +84,7 @@ def ormas(request):
 def ormas_uns(request):
     ormas = Ormas.objects.values('unsur').annotate(
         jumlah=Count('unsur')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('unsur')
+    ).Ormas.objects.filter(verifikasi='True').order_by('unsur')
 
     konteks ={
                 'ormas':ormas,
@@ -94,7 +94,7 @@ def ormas_uns(request):
 def ormas_ds(request):
     ormas = Ormas.objects.values('desa').annotate(
         jumlah=Count('desa')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('desa')
+    ).Ormas.objects.filter(verifikasi='True').order_by('desa')
 
     konteks ={
                 'ormas':ormas,
@@ -105,7 +105,7 @@ def ormas_ds(request):
 def ormas_kec(request):
     ormas = Ormas.objects.values('kecamatan').annotate(
         jumlah=Count('kecamatan')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('kecamatan')
+    ).Ormas.objects.filter(verifikasi='True').order_by('kecamatan')
 
     konteks ={
                 'ormas':ormas,
@@ -115,7 +115,7 @@ def ormas_kec(request):
 def ormas_kab(request):
     ormas = Ormas.objects.values('kabupaten').annotate(
         jumlah=Count('kabupaten')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('kabupaten')
+    ).Ormas.objects.filter(verifikasi='True').order_by('kabupaten')
 
     konteks ={
                 'ormas':ormas,
@@ -150,7 +150,7 @@ def galeri_view(request):
 
 @login_required(login_url='login')
 def data_ormas(request):
-    ormas = Ormas.objects.filter(verifikasi='yes')
+    ormas = Ormas.objects.filter(verifikasi='True')
     unverormas = Ormas.objects.filter(verifikasi='no')
     
     konteks ={
@@ -196,19 +196,15 @@ def tambah_ormas(request):
 @login_required(login_url='login')
 def verifikasi_ormas(request, id_ormas):
     data_ormas = Ormas.objects.get(id=id_ormas)
-    template = 'backend/edit_data_ormas.html'
+    template = 'backend/verifikasi_ormas.html'
     if request.POST:
-        form = FormOrmas(request.POST,request.FILES, instance=data_ormas, initial={'verifikasi': 'yes'})
+        form = VerFormOrmas(request.POST,request.FILES, instance=data_ormas)
         if form.is_valid():
             form.save()
             messages.success(request, "Data Berhasil Diverifikasi!")
-            return redirect('edit_ormas', id_ormas=id_ormas)
+            return redirect('verifikasi_ormas', id_ormas=id_ormas)
     else:
-<<<<<<< Updated upstream
-        form = FormOrmas.verifikasi(values="yes")
-=======
-        form = FormOrmas(instance=data_ormas)
->>>>>>> Stashed changes
+        form = VerFormOrmas(instance=data_ormas)
         konteks ={
             'form':form,
             'data_ormas':data_ormas,
@@ -238,10 +234,10 @@ def edit_ormas(request, id_ormas):
 def jml_ormas_uns(request):
     ormas = Ormas.objects.values('unsur').annotate(
         jumlah=Count('unsur')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('unsur')
+    ).Ormas.objects.filter(verifikasi='True').order_by('unsur')
     unverormas = Ormas.objects.values('unsur').annotate(
         jumlah=Count('unsur')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('unsur')
+    ).Ormas.objects.filter(verifikasi='no').order_by('unsur')
 
     konteks ={
                 'ormas':ormas,
@@ -253,7 +249,7 @@ def jml_ormas_uns(request):
 def jml_ormas_ds(request):
     ormas = Ormas.objects.values('desa').annotate(
         jumlah=Count('desa')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('desa')
+    ).Ormas.objects.filter(verifikasi='True').order_by('desa')
     unverormas = Ormas.objects.values('desa').annotate(
         jumlah=Count('desa')
     ).Ormas.objects.filter(verifikasi='no').order_by('desa')
@@ -269,7 +265,7 @@ def jml_ormas_ds(request):
 def jml_ormas_kec(request):
     ormas = Ormas.objects.values('kecamatan').annotate(
         jumlah=Count('kecamatan')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('kecamatan')
+    ).Ormas.objects.filter(verifikasi='True').order_by('kecamatan')
     unverormas = Ormas.objects.values('kecamatan').annotate(
         jumlah=Count('kecamatan')
     ).Ormas.objects.filter(verifikasi='no').order_by('kecamatan')
@@ -284,7 +280,7 @@ def jml_ormas_kec(request):
 def jml_ormas_kab(request):
     ormas = Ormas.objects.values('kabupaten').annotate(
         jumlah=Count('kabupaten')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('kabupaten')
+    ).Ormas.objects.filter(verifikasi='True').order_by('kabupaten')
     unverormas = Ormas.objects.values('kabupaten').annotate(
         jumlah=Count('kabupaten')
     ).Ormas.objects.filter(verifikasi='no').order_by('kabupaten')

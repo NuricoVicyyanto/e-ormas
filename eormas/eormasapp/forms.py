@@ -27,13 +27,7 @@ class FormOrmas(ModelForm):
             'alamat':forms.TextInput({'class':'form-control', 'id':'Alamat'}),
             'desa':forms.TextInput({'class':'form-control', 'id':'Desa'}),
             'kecamatan':forms.TextInput({'class':'form-control', 'id':'Kecamatan'}), 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
             'kabupaten':forms.TextInput({'class':'form-control', 'id':'Kabupaten'}), 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
             'verifikasi':forms.HiddenInput({'class':'form-control', 'id':'verifikasi'}), 
         }
         
@@ -43,6 +37,12 @@ class VerFormOrmas(ModelForm):
         fields = '__all__'
 
         widgets = {
+            'nama':forms.HiddenInput({'class':'form-control', 'id':'Nama',}),
+            'unsur':forms.HiddenInput({'class':'form-control', 'id':'Unsur'}),
+            'alamat':forms.HiddenInput({'class':'form-control', 'id':'Alamat'}),
+            'desa':forms.HiddenInput({'class':'form-control', 'id':'Desa'}),
+            'kecamatan':forms.HiddenInput({'class':'form-control', 'id':'Kecamatan'}), 
+            'kabupaten':forms.HiddenInput({'class':'form-control', 'id':'Kabupaten'}), 
             'verifikasi' : CheckboxInput(attrs={'class': 'required checkbox form-control'}),   
     }
 
