@@ -15,6 +15,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
+from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
 def login(request):
@@ -37,6 +38,25 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return  redirect('dashboard')
+
+@login_required(login_url='login')
+@user_passes_test(lambda u: u.is_superuser)
+def register(request):
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for '+ user)
+            return redirect('login')
+
+    konteks = {'form': form}
+    return render(request, 'backend/register.html', konteks)
+
+
+
 
 @login_required(login_url='login')
 def index(request):

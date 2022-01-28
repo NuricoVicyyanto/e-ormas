@@ -94,6 +94,14 @@
                   <span>Daftar User</span>
                 </a>
               </li>
+              {% if request.user.is_superuser %}
+              <li class="nav-item dropdown active">
+                <a href="{% url 'register' %}" class="nav-link">
+                  <i class="fas fa-exclamation"></i>
+                  <span>Register Account</span>
+                </a>
+              </li>
+              {% endif %}
               <li class="nav-item dropdown active">
                 <a href="{% url 'logout' %}" class="nav-link">
                   <i class="fas fa-exclamation"></i>
