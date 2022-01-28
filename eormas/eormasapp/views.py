@@ -365,3 +365,12 @@ def edit_informasi(request, id_informasi):
             'informasi':informasi,
         }
         return render(request, template, konteks)
+
+@login_required(login_url='login')
+def daftar_user(request):
+    user = User.objects.all()
+
+    konteks = {
+        'user' : user,
+    }
+    return render(request, 'backend/daftar_user.html', konteks)
