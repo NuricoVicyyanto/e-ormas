@@ -66,26 +66,19 @@
             <div class="container">
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">E - Ormas</a></li>
-                        <li><a href="#">Data Ormas</a>
+                        <li class="active"><a href="#">E - Ormas</a></li>
+                        <li><a href="#">Tables</a>
                             <ul class="dropdown">
-                                <li><a href="#">Data Ormas</a></li>
-                                <li><a href="#">Data Ormas(Uns)</a></li>
-                                <li><a href="#">Data Ormas(Kel)</a></li>
-                                <li><a href="#">Data Ormas(Kec)</a></li>
-                                <li><a href="#">Data Ormas(Kab)</a></li>
+                                <li><a class="nav-link" href="{% url 'ormas' %}">Data Ormas</a></li>
+                                <li><a class="nav-link" href="{% url 'ormas_uns' %}">Data Ormas(Uns)</a></li>
+                                <li><a class="nav-link" href="{% url 'ormas_ds' %}">Data Ormas(Ds)</a></li>
+                                <li><a class="nav-link" href="{% url 'ormas_kec' %}">Data Ormas(Kec)</a></li>
+                                <li><a class="nav-link" href="{% url 'ormas_kab' %}">Data Ormas(Kab)</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Grafik Ormas</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Grafik Ormas(Uns)</a></li>
-                                <li><a href="#">Grafik Ormas(Kel)</a></li>
-                                <li><a href="#">Grafik Ormas(Kec)</a></li>
-                                <li><a href="#">Grafik Ormas(Kab)</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./shop.html">Galeri</a></li>
-                        <li><a href="./blog.html">Informasi</a></li>
+                        <li><a class="nav-link" href="{% url 'grafik'%}">Grafik</a></li>
+                        <li><a class="nav-link" href="{% url 'galeri'%}">Galeri</a></li>
+                        <li><a class="nav-link" href="#">Informasi</a></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>

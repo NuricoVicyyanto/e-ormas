@@ -15,7 +15,7 @@ class Ormas(models.Model):
     desa = models.CharField(max_length=50)
     kecamatan = models.CharField(max_length=50)
     kabupaten = models.CharField(max_length=50)
-    action = models.CharField(default='Review', max_length=10, choices=OPTIONS, blank=True, null=True)
+    verifikasi = models.CharField(max_length=50, default="no")
 
     def __str__(self):
         return self.nama
