@@ -36,7 +36,7 @@ body {
 	height: 100%;
 	font-family: "Muli", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+	/* font-smoothing: antialiased; */
 }
 
 h1,
@@ -377,7 +377,7 @@ ol {
 }
 
 .header-top .ht-right .login-panel {
-	float: right;
+	/* float: right; */
 	font-size: 14px;
 	color: #252525;
 	display: inline-block;
@@ -3617,7 +3617,7 @@ ol {
 
 .contact-widget .cw-item {
 	background: #ffffff;
-	margin-bottom: 11px;
+	margin: 50px;
 	-webkit-box-shadow: 0px 8px 35px 10px #E8E8E8;
 	box-shadow: 0px 8px 35px 10px #E8E8E8;
 	padding-left: 25px;
