@@ -3208,7 +3208,11 @@ ol {
 }
 
 .blog-item .bi-pic img {
-	min-width: 100%;
+	width: 20rem;
+	height: 15rem;
+	/* object-fit:contain; */
+	object-fit: cover; /* cover, contain, fill, scale-down */
+	object-position: center;
 }
 
 .blog-item .bi-text {
