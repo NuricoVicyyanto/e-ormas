@@ -9,6 +9,7 @@ class Ormas(models.Model):
     desa = models.CharField(max_length=50)
     kecamatan = models.CharField(max_length=50)
     kabupaten = models.CharField(max_length=50)
+    verifikasi = models.CharField(max_length=50, default="no")
 
     def __str__(self):
         return self.nama
