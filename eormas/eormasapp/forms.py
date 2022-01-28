@@ -26,7 +26,10 @@ class FormOrmas(ModelForm):
             'alamat':forms.TextInput({'class':'form-control', 'id':'Alamat'}),
             'desa':forms.TextInput({'class':'form-control', 'id':'Desa'}),
             'kecamatan':forms.TextInput({'class':'form-control', 'id':'Kecamatan'}), 
+<<<<<<< Updated upstream
             'kabupaten':forms.TextInput({'class':'form-control', 'id':'Kabupaten'}), 
+=======
+>>>>>>> Stashed changes
             'verifikasi':forms.HiddenInput({'class':'form-control', 'id':'verifikasi'}), 
         }
         

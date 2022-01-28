@@ -43,7 +43,11 @@ urlpatterns = [
     path('tambah_ormas/', views.tambah_ormas, name='tambah_ormas'),
     path('data_ormas/edit_ormas/<int:id_ormas>', views.edit_ormas, name='edit_ormas'),
     path('data_ormas/hapus_ormas/<int:id_ormas>', views.hapus_ormas, name='hapus_ormas'),
+<<<<<<< Updated upstream
     path('data_ormas/verifikasi_ormas/<int:id_ormas>', views.verifikasi_ormas, name='verifikasi_ormas'),
+=======
+    path('data_ormas/verifikasi_ormas/<int:id_ormas>', views.verifikasi_edit_ormas, name='verifikasi_ormas'),
+>>>>>>> Stashed changes
     
     path('jml_ormas_uns/', views.jml_ormas_uns, name='jml_ormas_uns'),
     path('jml_ormas_ds/', views.jml_ormas_ds, name='jml_ormas_ds'),
