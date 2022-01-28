@@ -19,9 +19,10 @@ class FormOrmas(ModelForm):
     class Meta:
         model = Ormas
         fields = '__all__'
+        # exclude = ['action']
 
         widgets = {
-            'nama':forms.TextInput({'class':'form-control', 'id':'Nama'}),
+            'nama':forms.TextInput({'class':'form-control', 'id':'Nama',}),
             'unsur':forms.TextInput({'class':'form-control', 'id':'Unsur'}),
             'alamat':forms.TextInput({'class':'form-control', 'id':'Alamat'}),
             'desa':forms.TextInput({'class':'form-control', 'id':'Desa'}),

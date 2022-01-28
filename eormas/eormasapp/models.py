@@ -3,12 +3,19 @@ from django.db import models
 # Create your models here.
 
 class Ormas(models.Model):
+
+    OPTIONS = [
+        ('Review', 'Review'),
+        ('Accepted', 'Accepted'),
+    ]
+
     nama = models.CharField(max_length=50)
     unsur = models.CharField(max_length=50)
     alamat = models.CharField(max_length=50)
     desa = models.CharField(max_length=50)
     kecamatan = models.CharField(max_length=50)
     kabupaten = models.CharField(max_length=50)
+    action = models.CharField(default='Review', max_length=10, choices=OPTIONS, blank=True, null=True)
 
     def __str__(self):
         return self.nama

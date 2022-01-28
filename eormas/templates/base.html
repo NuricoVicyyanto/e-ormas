@@ -60,12 +60,7 @@
                   </a>
               </li>
               <li class="menu-header">Pages</li>
-              <li class="nav-item dropdown active">
-                  <a href="{% url 'landing' %}" class="nav-link">
-                    <i class="fas fa-columns"></i>
-                    <span>Landing</span>
-                  </a>
-              </li>
+              {% if request.user.is_superuser %}
               <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>Tables</span></a>
                 <ul class="dropdown-menu">
@@ -90,11 +85,10 @@
               </li>
               <li class="nav-item dropdown active">
                 <a href="{% url 'daftar_user' %}" class="nav-link">
-                  <i class="fas fa-exclamation"></i>
+                  <i class="fas fa-columns"></i>
                   <span>Daftar User</span>
                 </a>
               </li>
-              {% if request.user.is_superuser %}
               <li class="nav-item dropdown active">
                 <a href="{% url 'register' %}" class="nav-link">
                   <i class="fas fa-exclamation"></i>

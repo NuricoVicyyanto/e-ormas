@@ -17,6 +17,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import user_passes_test
 
+
 # Create your views here.
 def login(request):
     if request.method == 'POST':
