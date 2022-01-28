@@ -1,20 +1,32 @@
 {% extends 'index.html' %}
 {% block content %}
 
-<div class="container">
+    <!-- Blog Section Begin -->
+<section class="blog-section spad">
+  <div class="container">
     <div class="row">
-        {% for galeri in galeri %}
-        <div class="card" style="width: 18rem;">
-            {% if galeri.image %}
-            <img class="card-img-top" src="{{ galeri.image.url }}" alt="Card image cap">
-            {% endif %}
-            <div class="card-body">
-              <h5 class="card-title">{{ galeri.judul }}</h5>
-              <p class="card-text">{{ galeri.caption}}</p>
+      <div class="col-lg-12 order-1 order-lg-2">
+        <div class="row">
+          {% for galeri in galeri %}
+            <div class="col-lg-4 col-sm-4">
+              <div class="blog-item " style="width: 20rem;">
+                {% if galeri.image %}
+                  <div class="bi-pic">
+                    <img src="{{ galeri.image.url }}" alt="">
+                  </div>
+                {% endif %}
+                  <div class="bi-text">
+                    <h4>{{ galeri.judul }}</h4>
+                    <p>{{ galeri.caption }}</p>
+                  </div>
+              </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
+  <!-- Blog Section End -->
 
 {% endblock %}

@@ -1,7 +1,6 @@
 from collections import Counter
 from django.db.models import Count
 from itertools import count
-from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
@@ -17,6 +16,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import user_passes_test
+
 
 # Create your views here.
 def login(request):
@@ -73,11 +73,7 @@ def dashboard(request):
 def ormas(request):
     # ormas = Ormas.objects.all()
     # filter berdasarkan data yang sudah terverifikasi
-<<<<<<< Updated upstream
-    ormas = Ormas.objects.filter(verifikasi='True')
-=======
     ormas = Ormas.objects.filter(verifikasi='yes')
->>>>>>> Stashed changes
 
     konteks ={
         'ormas':ormas,
@@ -88,11 +84,7 @@ def ormas(request):
 def ormas_uns(request):
     ormas = Ormas.objects.values('unsur').annotate(
         jumlah=Count('unsur')
-<<<<<<< Updated upstream
-    ).Ormas.objects.filter(verifikasi='True').order_by('unsur')
-=======
     ).Ormas.objects.filter(verifikasi='yes').order_by('unsur')
->>>>>>> Stashed changes
 
     konteks ={
                 'ormas':ormas,
@@ -102,11 +94,7 @@ def ormas_uns(request):
 def ormas_ds(request):
     ormas = Ormas.objects.values('desa').annotate(
         jumlah=Count('desa')
-<<<<<<< Updated upstream
-    ).Ormas.objects.filter(verifikasi='True').order_by('desa')
-=======
     ).Ormas.objects.filter(verifikasi='yes').order_by('desa')
->>>>>>> Stashed changes
 
     konteks ={
                 'ormas':ormas,
@@ -117,11 +105,7 @@ def ormas_ds(request):
 def ormas_kec(request):
     ormas = Ormas.objects.values('kecamatan').annotate(
         jumlah=Count('kecamatan')
-<<<<<<< Updated upstream
-    ).Ormas.objects.filter(verifikasi='True').order_by('kecamatan')
-=======
     ).Ormas.objects.filter(verifikasi='yes').order_by('kecamatan')
->>>>>>> Stashed changes
 
     konteks ={
                 'ormas':ormas,
@@ -131,11 +115,7 @@ def ormas_kec(request):
 def ormas_kab(request):
     ormas = Ormas.objects.values('kabupaten').annotate(
         jumlah=Count('kabupaten')
-<<<<<<< Updated upstream
-    ).Ormas.objects.filter(verifikasi='True').order_by('kabupaten')
-=======
     ).Ormas.objects.filter(verifikasi='yes').order_by('kabupaten')
->>>>>>> Stashed changes
 
     konteks ={
                 'ormas':ormas,
@@ -170,11 +150,7 @@ def galeri_view(request):
 
 @login_required(login_url='login')
 def data_ormas(request):
-<<<<<<< Updated upstream
-    ormas = Ormas.objects.filter(verifikasi='True')
-=======
     ormas = Ormas.objects.filter(verifikasi='yes')
->>>>>>> Stashed changes
     unverormas = Ormas.objects.filter(verifikasi='no')
     
     konteks ={
@@ -220,17 +196,6 @@ def tambah_ormas(request):
 @login_required(login_url='login')
 def verifikasi_ormas(request, id_ormas):
     data_ormas = Ormas.objects.get(id=id_ormas)
-<<<<<<< Updated upstream
-    template = 'backend/verifikasi_ormas.html'
-    if request.POST:
-        form = VerFormOrmas(request.POST,request.FILES, instance=data_ormas)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Data Berhasil Diperbaharui!")
-            return redirect('verifikasi_ormas', id_ormas=id_ormas)
-    else:
-        form = VerFormOrmas(instance=data_ormas)
-=======
     template = 'backend/edit_data_ormas.html'
     if request.POST:
         form = FormOrmas(request.POST,request.FILES, instance=data_ormas, initial={'verifikasi': 'yes'})
@@ -239,17 +204,12 @@ def verifikasi_ormas(request, id_ormas):
             messages.success(request, "Data Berhasil Diverifikasi!")
             return redirect('edit_ormas', id_ormas=id_ormas)
     else:
-        form = FormOrmas(instance=data_ormas)
->>>>>>> Stashed changes
+        form = FormOrmas.verifikasi(values="yes")
         konteks ={
             'form':form,
             'data_ormas':data_ormas,
         }
-<<<<<<< Updated upstream
-        return render(request, template, konteks) 
-=======
         return render(request, template, konteks)
->>>>>>> Stashed changes
 
 @login_required(login_url='login')
 def edit_ormas(request, id_ormas):
@@ -274,17 +234,10 @@ def edit_ormas(request, id_ormas):
 def jml_ormas_uns(request):
     ormas = Ormas.objects.values('unsur').annotate(
         jumlah=Count('unsur')
-<<<<<<< Updated upstream
-    ).Ormas.objects.filter(verifikasi='True').order_by('unsur')
-    unverormas = Ormas.objects.values('unsur').annotate(
-        jumlah=Count('unsur')
-    ).Ormas.objects.filter(verifikasi='no').order_by('unsur')
-=======
     ).Ormas.objects.filter(verifikasi='yes').order_by('unsur')
     unverormas = Ormas.objects.values('unsur').annotate(
         jumlah=Count('unsur')
     ).Ormas.objects.filter(verifikasi='yes').order_by('unsur')
->>>>>>> Stashed changes
 
     konteks ={
                 'ormas':ormas,
@@ -296,11 +249,7 @@ def jml_ormas_uns(request):
 def jml_ormas_ds(request):
     ormas = Ormas.objects.values('desa').annotate(
         jumlah=Count('desa')
-<<<<<<< Updated upstream
-    ).Ormas.objects.filter(verifikasi='True').order_by('desa')
-=======
     ).Ormas.objects.filter(verifikasi='yes').order_by('desa')
->>>>>>> Stashed changes
     unverormas = Ormas.objects.values('desa').annotate(
         jumlah=Count('desa')
     ).Ormas.objects.filter(verifikasi='no').order_by('desa')
@@ -316,11 +265,7 @@ def jml_ormas_ds(request):
 def jml_ormas_kec(request):
     ormas = Ormas.objects.values('kecamatan').annotate(
         jumlah=Count('kecamatan')
-<<<<<<< Updated upstream
-    ).Ormas.objects.filter(verifikasi='True').order_by('kecamatan')
-=======
     ).Ormas.objects.filter(verifikasi='yes').order_by('kecamatan')
->>>>>>> Stashed changes
     unverormas = Ormas.objects.values('kecamatan').annotate(
         jumlah=Count('kecamatan')
     ).Ormas.objects.filter(verifikasi='no').order_by('kecamatan')
@@ -335,11 +280,7 @@ def jml_ormas_kec(request):
 def jml_ormas_kab(request):
     ormas = Ormas.objects.values('kabupaten').annotate(
         jumlah=Count('kabupaten')
-<<<<<<< Updated upstream
-    ).Ormas.objects.filter(verifikasi='True').order_by('kabupaten')
-=======
     ).Ormas.objects.filter(verifikasi='yes').order_by('kabupaten')
->>>>>>> Stashed changes
     unverormas = Ormas.objects.values('kabupaten').annotate(
         jumlah=Count('kabupaten')
     ).Ormas.objects.filter(verifikasi='no').order_by('kabupaten')

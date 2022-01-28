@@ -40,6 +40,7 @@
                       <th scope="col">desa</th>
                       <th scope="col">kecamatan</th>
                       <th scope="col">kabupaten</th>
+                      <th scope="col">Status</th>
                       <th scope="col">Opsi</th>
                     </tr>
                   </thead>
@@ -52,6 +53,7 @@
                       <td>{{ ormas.desa }}</td>
                       <td>{{ ormas.kecamatan }}</td>
                       <td>{{ ormas.kabupaten }}</td>
+                      <td>{{ ormas.action }}</td>
                       <td>
                         <a href="{% url 'edit_ormas' ormas.id %}" class="btn btn-secondary">Edit</a>
                         <a href="{% url 'hapus_ormas' ormas.id %}" class="btn btn-danger">Hapus</a>
