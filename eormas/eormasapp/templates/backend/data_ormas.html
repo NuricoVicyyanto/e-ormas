@@ -17,7 +17,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>Data Ormas</h4>
+              <h4>Data Ormas Accepted</h4>
               <div class="card-header-action">
                 <form>
                   <div class="input-group">
@@ -53,7 +53,11 @@
                       <td>{{ ormas.desa }}</td>
                       <td>{{ ormas.kecamatan }}</td>
                       <td>{{ ormas.kabupaten }}</td>
-                      <td>{{ ormas.action }}</td>
+                      {% if ormas.status == '0' %}
+                      <td>Review</td>
+                      {% elif ormas.status == '1' %}
+                      <td>Accepted</td>
+                      {% endif %}
                       <td>
                         <a href="{% url 'edit_ormas' ormas.id %}" class="btn btn-secondary">Edit</a>
                         <a href="{% url 'hapus_ormas' ormas.id %}" class="btn btn-danger">Hapus</a>
@@ -83,7 +87,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>Data Ormas</h4>
+              <h4>Data Ormas Review</h4>
               <div class="card-header-action">
                 <form>
                   <div class="input-group">
@@ -106,6 +110,7 @@
                       <th scope="col">desa</th>
                       <th scope="col">kecamatan</th>
                       <th scope="col">kabupaten</th>
+                      <th scope="col">Status</th>
                       <th scope="col">Opsi</th>
                     </tr>
                   </thead>
@@ -118,25 +123,20 @@
                       <td>{{ unverormas.desa }}</td>
                       <td>{{ unverormas.kecamatan }}</td>
                       <td>{{ unverormas.kabupaten }}</td>
+                      {% if unverormas.status == '0' %}
+                      <td>Review</td>
+                      {% elif unverormas.status == '1' %}
+                      <td>Accepted</td>
+                      {% endif %}
                       <td>
-                        <a href="{% url 'edit_ormas' unverormas.id %}" class="btn btn-secondary">Edit</a>
+                        <a href="{% url 'edit_ormas' unverormas.id %}" class="btn btn-warning">Review</a>
                         <a href="{% url 'hapus_ormas' unverormas.id %}" class="btn btn-danger">Hapus</a>
-                        <a href="{% url 'verifikasi_ormas' unverormas.id %}" class="btn btn-success">Verfikasilosi</a>
-                        <form action="{% url 'verifikasi_ormas' unverormas.id %}" method="post"
-                          enctype="multipart/form-data">
-                          {% csrf_token %}
-                          {{ form.as_p }}
-                          <button class="btn btn-dark">Verifikasi</button>
-                        </form>
+                        <a href="{% url 'publish_ormas' unverormas.id %}" class="btn btn-success">Accepted</a>
                       </td>
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
-                <div class="container">
-                <a href="{% url 'tambah_ormas' %}" class="btn btn-primary">Tambah</a>
-                <hr>
-              </div>
               </div>
             </div>
           </div>

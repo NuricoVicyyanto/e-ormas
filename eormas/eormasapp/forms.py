@@ -19,15 +19,15 @@ class FormOrmas(ModelForm):
     class Meta:
         model = Ormas
         fields = '__all__'
-        # exclude = ['action']
 
         widgets = {
-            'nama':forms.TextInput({'class':'form-control', 'id':'Nama',}),
+            'nama':forms.TextInput({'class':'form-control', 'id':'Nama'}),
             'unsur':forms.TextInput({'class':'form-control', 'id':'Unsur'}),
             'alamat':forms.TextInput({'class':'form-control', 'id':'Alamat'}),
             'desa':forms.TextInput({'class':'form-control', 'id':'Desa'}),
-            'kecamatan':forms.TextInput({'class':'form-control', 'id':'Kecamatan'}), 
-            'verifikasi':forms.HiddenInput({'class':'form-control', 'id':'verifikasi'}), 
+            'kecamatan':forms.TextInput({'class':'form-control', 'id':'Kecamatan'}),
+            'kabupaten':forms.TextInput({'class':'form-control', 'id':'Kabupaten'}),
+            'status':forms.HiddenInput({'class':'form-control', 'id':'verifikasi'}), 
         }
 
 class FormGaleri(ModelForm):

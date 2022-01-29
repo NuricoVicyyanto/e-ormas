@@ -17,7 +17,6 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import user_passes_test
 
-
 # Create your views here.
 def login(request):
     if request.method == 'POST':
@@ -71,9 +70,7 @@ def dashboard(request):
     return render(request, 'frontend/home.html')
 
 def ormas(request):
-    # ormas = Ormas.objects.all()
-    # filter berdasarkan data yang sudah terverifikasi
-    ormas = Ormas.objects.filter(verifikasi='yes')
+    ormas = Ormas.objects.filter(status= '1')
 
     konteks ={
         'ormas':ormas,
@@ -82,9 +79,9 @@ def ormas(request):
     return render(request, 'frontend/ormas.html', konteks)
 
 def ormas_uns(request):
-    ormas = Ormas.objects.values('unsur').annotate(
+    ormas = Ormas.objects.values('unsur').filter(status = '1').annotate(
         jumlah=Count('unsur')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('unsur')
+    ).order_by('unsur')
 
     konteks ={
                 'ormas':ormas,
@@ -92,9 +89,9 @@ def ormas_uns(request):
     return render(request, 'frontend/ormas_uns.html', konteks)
 
 def ormas_ds(request):
-    ormas = Ormas.objects.values('desa').annotate(
+    ormas = Ormas.objects.values('desa').filter(status = '1').annotate(
         jumlah=Count('desa')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('desa')
+    ).order_by('desa')
 
     konteks ={
                 'ormas':ormas,
@@ -103,9 +100,9 @@ def ormas_ds(request):
     return render(request, 'frontend/ormas_ds.html', konteks)
 
 def ormas_kec(request):
-    ormas = Ormas.objects.values('kecamatan').annotate(
+    ormas = Ormas.objects.values('kecamatan').filter(status = '1').annotate(
         jumlah=Count('kecamatan')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('kecamatan')
+    ).order_by('kecamatan')
 
     konteks ={
                 'ormas':ormas,
@@ -113,9 +110,9 @@ def ormas_kec(request):
     return render(request, 'frontend/ormas_kec.html', konteks)
 
 def ormas_kab(request):
-    ormas = Ormas.objects.values('kabupaten').annotate(
+    ormas = Ormas.objects.values('kabupaten').filter(status = '1').annotate(
         jumlah=Count('kabupaten')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('kabupaten')
+    ).order_by('kabupaten')
 
     konteks ={
                 'ormas':ormas,
@@ -150,9 +147,9 @@ def galeri_view(request):
 
 @login_required(login_url='login')
 def data_ormas(request):
-    ormas = Ormas.objects.filter(verifikasi='yes')
-    unverormas = Ormas.objects.filter(verifikasi='no')
-    
+    ormas = Ormas.objects.filter(status= '1')
+    unverormas = Ormas.objects.filter(status = '0')
+
     konteks ={
         'ormas':ormas,
         'unverormas' : unverormas,
@@ -160,12 +157,23 @@ def data_ormas(request):
 
     return render(request, 'backend/data_ormas.html', konteks)
 
+
 @login_required(login_url='login')
 def hapus_ormas(request, id_ormas):
     ormas = Ormas.objects.get(id=id_ormas)
     ormas.delete()
 
     return redirect('data_ormas')
+
+
+def publish_ormas(request, id_ormas):
+    ormas = Ormas.objects.get(id=id_ormas)
+
+    ormas.status = '1'
+    ormas.save()
+
+    return redirect('data_ormas')
+
 
 @login_required(login_url='login')
 def tambah_ormas(request):
@@ -184,32 +192,14 @@ def tambah_ormas(request):
             return render(request, 'backend/add_data_ormas.html', konteks)
 
     else:
-        form = FormOrmas()
+            form = FormOrmas()
 
-        konteks ={
-            'form':form,
-        }
+            konteks ={
+                'form':form,
+            }
 
     return render(request, 'backend/add_data_ormas.html', konteks)
 
-
-@login_required(login_url='login')
-def verifikasi_ormas(request, id_ormas):
-    data_ormas = Ormas.objects.get(id=id_ormas)
-    template = 'backend/edit_data_ormas.html'
-    if request.POST:
-        form = FormOrmas(request.POST,request.FILES, instance=data_ormas, initial={'verifikasi': 'yes'})
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Data Berhasil Diverifikasi!")
-            return redirect('edit_ormas', id_ormas=id_ormas)
-    else:
-        form = FormOrmas.verifikasi(values="yes")
-        konteks ={
-            'form':form,
-            'data_ormas':data_ormas,
-        }
-        return render(request, template, konteks)
 
 @login_required(login_url='login')
 def edit_ormas(request, id_ormas):
@@ -228,20 +218,14 @@ def edit_ormas(request, id_ormas):
         }
         return render(request, template, konteks)
 
-
-#CRUD Backend data ormas terverifikasi
 @login_required(login_url='login')
 def jml_ormas_uns(request):
     ormas = Ormas.objects.values('unsur').annotate(
         jumlah=Count('unsur')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('unsur')
-    unverormas = Ormas.objects.values('unsur').annotate(
-        jumlah=Count('unsur')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('unsur')
+    ).order_by('unsur')
 
     konteks ={
                 'ormas':ormas,
-                'unverormas' : unverormas,
         }
     return render(request, 'backend/jml_ormas_uns.html', konteks)
 
@@ -249,14 +233,10 @@ def jml_ormas_uns(request):
 def jml_ormas_ds(request):
     ormas = Ormas.objects.values('desa').annotate(
         jumlah=Count('desa')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('desa')
-    unverormas = Ormas.objects.values('desa').annotate(
-        jumlah=Count('desa')
-    ).Ormas.objects.filter(verifikasi='no').order_by('desa')
+    ).order_by('desa')
 
     konteks ={
                 'ormas':ormas,
-                'unverormas' : unverormas,
         }
 
     return render(request, 'backend/jml_ormas_ds.html', konteks)
@@ -265,14 +245,10 @@ def jml_ormas_ds(request):
 def jml_ormas_kec(request):
     ormas = Ormas.objects.values('kecamatan').annotate(
         jumlah=Count('kecamatan')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('kecamatan')
-    unverormas = Ormas.objects.values('kecamatan').annotate(
-        jumlah=Count('kecamatan')
-    ).Ormas.objects.filter(verifikasi='no').order_by('kecamatan')
+    ).order_by('kecamatan')
 
     konteks ={
                 'ormas':ormas,
-                'unverormas' : unverormas,
         }
     return render(request, 'backend/jml_ormas_kec.html', konteks)
 
@@ -280,18 +256,13 @@ def jml_ormas_kec(request):
 def jml_ormas_kab(request):
     ormas = Ormas.objects.values('kabupaten').annotate(
         jumlah=Count('kabupaten')
-    ).Ormas.objects.filter(verifikasi='yes').order_by('kabupaten')
-    unverormas = Ormas.objects.values('kabupaten').annotate(
-        jumlah=Count('kabupaten')
-    ).Ormas.objects.filter(verifikasi='no').order_by('kabupaten')
+    ).order_by('kabupaten')
 
     konteks ={
                 'ormas':ormas,
-                'unverormas' : unverormas,
         }
 
     return render(request, 'backend/jml_ormas_kab.html', konteks)
-
 
 @login_required(login_url='login')
 def galeri(request):
