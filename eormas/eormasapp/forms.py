@@ -1,4 +1,4 @@
-from django.forms import ModelForm, widgets
+from django.forms import CheckboxInput, ModelForm, widgets
 from django import forms
 from eormasapp.models import *
 from django.contrib.auth.forms import UserCreationForm
@@ -29,6 +29,21 @@ class FormOrmas(ModelForm):
             'kabupaten':forms.TextInput({'class':'form-control', 'id':'Kabupaten'}),
             'status':forms.HiddenInput({'class':'form-control', 'id':'verifikasi'}), 
         }
+        
+class VerFormOrmas(ModelForm):
+    class Meta:
+        model = Ormas
+        fields = '__all__'
+
+        widgets = {
+            'nama':forms.HiddenInput({'class':'form-control', 'id':'Nama',}),
+            'unsur':forms.HiddenInput({'class':'form-control', 'id':'Unsur'}),
+            'alamat':forms.HiddenInput({'class':'form-control', 'id':'Alamat'}),
+            'desa':forms.HiddenInput({'class':'form-control', 'id':'Desa'}),
+            'kecamatan':forms.HiddenInput({'class':'form-control', 'id':'Kecamatan'}), 
+            'kabupaten':forms.HiddenInput({'class':'form-control', 'id':'Kabupaten'}), 
+            'verifikasi' : CheckboxInput(attrs={'class': 'required checkbox form-control'}),   
+    }
 
 class FormGaleri(ModelForm):
     class Meta:
