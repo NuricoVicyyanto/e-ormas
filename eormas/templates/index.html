@@ -26,43 +26,46 @@
     <br><br><br><br>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/homepage"><img src="#" width="130" height="50" class=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="justify-content-start mx-4">
+              <a class="navbar-brand" href="/homepage"><img src="#" width="130" height="50" class=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item active">
-                        <a class="nav-link text-white" href="{% url 'dashboard' %}">Home</a>
-                    </li>
-                    <li class="nav-item active dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Data Ormas
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{% url 'ormas' %}">Data Ormas</a></li>
-                            <li><a class="dropdown-item" href="{% url 'ormas_uns' %}">Data Ormas(Unsur)</a></li>
-                            <li><a class="dropdown-item" href="{% url 'ormas_ds' %}">Data Ormas(Kelurahan)</a></li>
-                            <li><a class="dropdown-item" href="{% url 'ormas_kec' %}">Data Ormas(Kecamatan)</a></li>
-                            <li><a class="dropdown-item" href="{% url 'ormas_kab' %}">Data Ormas(Kabupaten)</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link js-scroll-trigger text-white" href="{% url 'grafik' %}">Grafik</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link js-scroll-trigger text-white" href="{% url 'galeri_view' %}">Galeri</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link js-scroll-trigger text-white" href="{% url 'informasi' %}">Informasi</a>
-                    </li>
-                </ul>
-                <span class="navbar-text">
-                    <a href="{% url 'login' %}" class="btn btn-warning shadow text-white">Log in</a>
-                </span>
+              </button>
             </div>
+            <div class="justify-content-end mx-4">
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="nav-item active">
+                          <a class="nav-link text-white" href="{% url 'dashboard' %}">Home</a>
+                      </li>
+                      <li class="nav-item active dropdown">
+                          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">
+                              Data Ormas
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <li><a class="dropdown-item" href="{% url 'ormas' %}">Data Ormas</a></li>
+                              <li><a class="dropdown-item" href="{% url 'ormas_uns' %}">Data Ormas(Unsur)</a></li>
+                              <li><a class="dropdown-item" href="{% url 'ormas_ds' %}">Data Ormas(Kelurahan)</a></li>
+                              <li><a class="dropdown-item" href="{% url 'ormas_kec' %}">Data Ormas(Kecamatan)</a></li>
+                              <li><a class="dropdown-item" href="{% url 'ormas_kab' %}">Data Ormas(Kabupaten)</a></li>
+                          </ul>
+                      </li>
+                      <li class="nav-item active">
+                          <a class="nav-link js-scroll-trigger text-white" href="{% url 'grafik' %}">Grafik</a>
+                      </li>
+                      <li class="nav-item active">
+                          <a class="nav-link js-scroll-trigger text-white" href="{% url 'galeri_view' %}">Galeri</a>
+                      </li>
+                      <li class="nav-item active">
+                          <a class="nav-link js-scroll-trigger text-white" href="{% url 'informasi' %}">Informasi</a>
+                      </li>
+                  </ul>
+                  <span class="navbar-text">
+                      <a href="{% url 'login' %}" class="btn btn-warning shadow text-white">Log in</a>
+                  </span>
+              </div>
+            <div>
         </div>
     </nav>
     {% block content %}
