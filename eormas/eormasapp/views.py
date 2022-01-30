@@ -189,7 +189,7 @@ def tambah_ormas(request):
         form = FormOrmas(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            alert = 'Data Berhasil Ditambahkan'
+            alert = 'Data telah berhasil dikirim, mohon menunggu verifikasi admin untuk pengecekan data anda !!!'
             form = FormOrmas
 
             konteks={

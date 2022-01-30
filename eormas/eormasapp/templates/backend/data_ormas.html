@@ -4,12 +4,7 @@
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1>Table</h1>
-      <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="#">Tables</a></div>
-        <div class="breadcrumb-item">Data Ormas</div>
-      </div>
+      <h1>Data Ormas</h1>
     </div>
 
     <div class="section-body">
@@ -31,7 +26,7 @@
             </div>
             <div class="card-body p-0">
               <div class="table-responsive">
-                <table class="table datatable">
+                <table class="table datatable" id="movie">
                   <thead>
                     <tr>
                       <th scope="col">nama</th>
@@ -66,10 +61,14 @@
                     {% endfor %}
                   </tbody>
                 </table>
-                <div class="container">
-                <a href="{% url 'tambah_ormas' %}" class="btn btn-primary">Tambah</a>
-                <hr>
-              </div>
+                <div class="container ">
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link paginate" id="previous" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link paginate" id="next" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                  </div>
               </div>
             </div>
           </div>
@@ -138,7 +137,5 @@
         </div>
       </div>
     </div>
-
 </section>
-
 {% endblock %}
