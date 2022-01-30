@@ -1,16 +1,20 @@
 {% extends 'index.html' %}
 {% block content %}
-
 <div class="container">
-<div class="card">
-    <div class="card-header">
-      Selamat Datang
-    </div>
+<div class="shadow p-3 mb-5 bg-white rounded">
     <div class="card-body">
       <h5 class="card-title">e-Ormas</h5>
       <div class="card-body p-0">
+        <form>
+          <div class="input-group">
+            <input type="text" class="form-control" id="myInput" placeholder="Search">
+            <div class="input-group-btn">
+            </div>
+          </div>
+        </form>
+        <br>
         <div class="table-responsive">
-          <table class="table datatable">
+          <table class="table table-bordered">
             <thead>
               <tr>
                 <th scope="col">nama</th>
@@ -21,7 +25,7 @@
                 <th scope="col">kabupaten</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
               {% for ormas in ormas %}
               <tr>
                 <td>{{ ormas.nama }}</td>
@@ -39,5 +43,4 @@
     </div>
   </div>
 </div>
-
 {% endblock %}

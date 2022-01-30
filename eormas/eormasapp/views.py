@@ -27,7 +27,7 @@ def login(request):
 
         if user is not None:
             auth_login(request, user)
-            return redirect('index')
+            return redirect('tambah_ormas')
         else:
             messages.info(request, 'Username or password is incorrect')
 
@@ -121,16 +121,24 @@ def ormas_kab(request):
     return render(request, 'frontend/ormas_kab.html', konteks)
 
 def grafik(request):
-    desa = Ormas.objects.values('desa').annotate(
+    unsur = Ormas.objects.values('unsur').filter(status = '1').annotate(
+        jumlah=Count('unsur')
+    ).order_by('unsur')
+    desa = Ormas.objects.values('desa').filter(status = '1').annotate(
         jumlah=Count('desa')
     ).order_by('desa')
-    kecamatan = Ormas.objects.values('kecamatan').annotate(
+    kecamatan = Ormas.objects.values('kecamatan').filter(status = '1').annotate(
         jumlah=Count('kecamatan')
     ).order_by('kecamatan')
+    kabupaten = Ormas.objects.values('kabupaten').filter(status = '1').annotate(
+        jumlah=Count('kabupaten')
+    ).order_by('kabupaten')
 
     konteks ={
+                'unsur':unsur,
                 'desa':desa,
                 'kecamatan':kecamatan,
+                'kabupaten':kabupaten,
         }
 
     return render(request, 'frontend/grafik.html', konteks)
@@ -220,7 +228,7 @@ def edit_ormas(request, id_ormas):
 
 @login_required(login_url='login')
 def jml_ormas_uns(request):
-    ormas = Ormas.objects.values('unsur').annotate(
+    ormas = Ormas.objects.values('unsur').filter(status = '1').annotate(
         jumlah=Count('unsur')
     ).order_by('unsur')
 
@@ -231,7 +239,7 @@ def jml_ormas_uns(request):
 
 @login_required(login_url='login')
 def jml_ormas_ds(request):
-    ormas = Ormas.objects.values('desa').annotate(
+    ormas = Ormas.objects.values('desa').filter(status = '1').annotate(
         jumlah=Count('desa')
     ).order_by('desa')
 
@@ -243,7 +251,7 @@ def jml_ormas_ds(request):
 
 @login_required(login_url='login')
 def jml_ormas_kec(request):
-    ormas = Ormas.objects.values('kecamatan').annotate(
+    ormas = Ormas.objects.values('kecamatan').filter(status = '1').annotate(
         jumlah=Count('kecamatan')
     ).order_by('kecamatan')
 
@@ -254,7 +262,7 @@ def jml_ormas_kec(request):
 
 @login_required(login_url='login')
 def jml_ormas_kab(request):
-    ormas = Ormas.objects.values('kabupaten').annotate(
+    ormas = Ormas.objects.values('kabupaten').filter(status = '1').annotate(
         jumlah=Count('kabupaten')
     ).order_by('kabupaten')
 

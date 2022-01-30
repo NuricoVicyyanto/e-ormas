@@ -3,10 +3,64 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-lg-6 my-4">
+      <div class="shadow p-3 mb-5 bg-white rounded">
+      <div class="contact-widget my-4">
+        <div class="cw-item my-4">
+          <h5 class="card-title">Grafik Ormas Unsur</h5>
+          <!-- Bar Chart -->
+          <canvas id="barChart2" style="max-height: 400px;"></canvas>
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              new Chart(document.querySelector('#barChart2'), {
+                type: 'bar',
+                data: {
+                  labels: [{% for unsur in unsur %}'{{ unsur.unsur }}',{% endfor %}],
+              datasets: [{
+                label: 'Bar Chart',
+                data: [{% for unsur in unsur %}{{ unsur.jumlah }}, {% endfor %}],
+              backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(201, 203, 207, 0.2)'
+            ],
+              borderColor: [
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(201, 203, 207)'
+            ],
+              borderWidth: 1
+                          }]
+                        },
+              options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+                      });
+                    });
+          </script>
+          <!-- End Bar CHart -->
+        </div>
+      </div>
+    </div>
+  </div>
+
       <div class="col-lg-6 my-4">
+        <div class="shadow p-3 mb-5 bg-white rounded">
         <div class="contact-widget my-4">
           <div class="cw-item my-4">
-            <h5 class="card-title">Bar CHart</h5>
+            <h5 class="card-title">Grafik Ormas Kelurahan</h5>
             <!-- Bar Chart -->
             <canvas id="barChart" style="max-height: 400px;"></canvas>
             <script>
@@ -54,6 +108,113 @@
         </div>
       </div>
     </div>
+
+    <div class="col-lg-6 my-4">
+      <div class="shadow p-3 mb-5 bg-white rounded">
+      <div class="contact-widget my-4">
+        <div class="cw-item my-4">
+          <h5 class="card-title">Grafik Ormas Kecamatan</h5>
+          <!-- Bar Chart -->
+          <canvas id="barChart1" style="max-height: 400px;"></canvas>
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              new Chart(document.querySelector('#barChart1'), {
+                type: 'bar',
+                data: {
+                  labels: [{% for kecamatan in kecamatan %}'{{ kecamatan.kecamatan }}',{% endfor %}],
+              datasets: [{
+                label: 'Bar Chart',
+                data: [{% for kecamatan in kecamatan %}{{ kecamatan.jumlah }}, {% endfor %}],
+              backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(201, 203, 207, 0.2)'
+            ],
+              borderColor: [
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(201, 203, 207)'
+            ],
+              borderWidth: 1
+                          }]
+                        },
+              options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+                      });
+                    });
+          </script>
+          <!-- End Bar CHart -->
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="col-lg-6 my-4">
+    <div class="shadow p-3 mb-5 bg-white rounded">
+    <div class="contact-widget my-4">
+      <div class="cw-item my-4">
+        <h5 class="card-title">Grafik Ormas Kabupaten</h5>
+        <!-- Bar Chart -->
+        <canvas id="barChart3" style="max-height: 400px;"></canvas>
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            new Chart(document.querySelector('#barChart3'), {
+              type: 'bar',
+              data: {
+                labels: [{% for kabupaten in kabupaten %}'{{ kabupaten.kabupaten }}',{% endfor %}],
+            datasets: [{
+              label: 'Bar Chart',
+              data: [{% for kabupaten in kabupaten %}{{ kabupaten.jumlah }}, {% endfor %}],
+            backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)'
+          ],
+            borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)'
+          ],
+            borderWidth: 1
+                        }]
+                      },
+            options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+                    });
+                  });
+        </script>
+        <!-- End Bar CHart -->
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
 
 {% endblock %}
