@@ -10,6 +10,11 @@
     background-color: #3d5a80;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; 
+}
+
 .footer-copyright{
     background-color: rgb(160, 160, 248);
 }
