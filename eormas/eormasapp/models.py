@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
@@ -12,6 +13,7 @@ class Ormas(models.Model):
     kecamatan = models.CharField(max_length=50)
     kabupaten = models.CharField(max_length=50)
     status = models.CharField(max_length=1, default="0")
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.nama
@@ -41,4 +43,6 @@ class Informasi(models.Model):
 
     def __str__(self):
         return self.informasi
+    
+    
     
