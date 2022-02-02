@@ -67,7 +67,13 @@ def landing(request):
     return render(request, 'backend/landing.html')
 
 def dashboard(request):
-    return render(request, 'frontend/home.html')
+    informasi = Informasi.objects.all()
+
+    konteks ={
+        'informasi':informasi,
+    }
+
+    return render(request, 'frontend/home.html', konteks)
 
 def ormas(request):
     ormas = Ormas.objects.filter(status= '1')
