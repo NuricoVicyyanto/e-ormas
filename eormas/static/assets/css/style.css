@@ -1,5 +1,7 @@
 .main{
     background-color: #f1f6fa;
+    font-family: 'Poppins';font-size: 18px;
+    padding-top: 73px;
 }
 
 .navbar {
@@ -15,8 +17,8 @@
     margin-top: 0; 
 }
 
-.running{
-    background-color:rgb(160, 160, 248);
+.running-text{
+    color:#1565c0;
 }
 
 .footer-copyright{
