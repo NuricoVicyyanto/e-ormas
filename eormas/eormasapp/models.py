@@ -1,11 +1,10 @@
 from django.db import models
 from django.conf import settings
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
 class Ormas(models.Model):
-
     nama = models.CharField(max_length=50)
     unsur = models.CharField(max_length=50)
     alamat = models.CharField(max_length=50)
@@ -13,7 +12,6 @@ class Ormas(models.Model):
     kecamatan = models.CharField(max_length=50)
     kabupaten = models.CharField(max_length=50)
     status = models.CharField(max_length=1, default="0")
-    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.nama

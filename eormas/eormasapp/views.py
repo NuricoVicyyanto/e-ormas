@@ -78,7 +78,7 @@ def ormas(request):
 
     return render(request, 'frontend/ormas.html', konteks)
 
-def ormas_uns(request):
+def ormasUnsur(request):
     ormas = Ormas.objects.values('unsur').filter(status = '1').annotate(
         jumlah=Count('unsur')
     ).order_by('unsur')
@@ -88,7 +88,7 @@ def ormas_uns(request):
         }
     return render(request, 'frontend/ormas_uns.html', konteks)
 
-def ormas_ds(request):
+def ormasDesa(request):
     ormas = Ormas.objects.values('desa').filter(status = '1').annotate(
         jumlah=Count('desa')
     ).order_by('desa')
@@ -99,7 +99,7 @@ def ormas_ds(request):
 
     return render(request, 'frontend/ormas_ds.html', konteks)
 
-def ormas_kec(request):
+def ormasKecamatan(request):
     ormas = Ormas.objects.values('kecamatan').filter(status = '1').annotate(
         jumlah=Count('kecamatan')
     ).order_by('kecamatan')
@@ -109,7 +109,7 @@ def ormas_kec(request):
         }
     return render(request, 'frontend/ormas_kec.html', konteks)
 
-def ormas_kab(request):
+def ormasKabupaten(request):
     ormas = Ormas.objects.values('kabupaten').filter(status = '1').annotate(
         jumlah=Count('kabupaten')
     ).order_by('kabupaten')
@@ -143,7 +143,7 @@ def grafik(request):
 
     return render(request, 'frontend/grafik.html', konteks)
 
-def galeri_view(request):
+def galeriView(request):
     galeri = Galeri.objects.all()
 
     konteks = {
@@ -154,7 +154,7 @@ def galeri_view(request):
 
 
 @login_required(login_url='login')
-def data_ormas(request):
+def dataOrmas(request):
     ormas = Ormas.objects.filter(status= '1')
     unverormas = Ormas.objects.filter(status = '0')
 
@@ -167,14 +167,14 @@ def data_ormas(request):
 
 
 @login_required(login_url='login')
-def hapus_ormas(request, id_ormas):
+def hapusOrmas(request, id_ormas):
     ormas = Ormas.objects.get(id=id_ormas)
     ormas.delete()
 
     return redirect('data_ormas')
 
 
-def publish_ormas(request, id_ormas):
+def publishOrmas(request, id_ormas):
     ormas = Ormas.objects.get(id=id_ormas)
 
     ormas.status = '1'
@@ -184,7 +184,7 @@ def publish_ormas(request, id_ormas):
 
 
 @login_required(login_url='login')
-def tambah_ormas(request):
+def tambahOrmas(request):
     if request.POST:
         form = FormOrmas(request.POST, request.FILES)
         if form.is_valid():
@@ -210,7 +210,7 @@ def tambah_ormas(request):
 
 
 @login_required(login_url='login')
-def edit_ormas(request, id_ormas):
+def editOrmas(request, id_ormas):
     data_ormas = Ormas.objects.get(id=id_ormas)
     template = 'backend/edit_data_ormas.html'
     if request.POST:
@@ -227,7 +227,7 @@ def edit_ormas(request, id_ormas):
         return render(request, template, konteks)
 
 @login_required(login_url='login')
-def jml_ormas_uns(request):
+def jmlOrmasUnsur(request):
     ormas = Ormas.objects.values('unsur').filter(status = '1').annotate(
         jumlah=Count('unsur')
     ).order_by('unsur')
@@ -238,7 +238,7 @@ def jml_ormas_uns(request):
     return render(request, 'backend/jml_ormas_uns.html', konteks)
 
 @login_required(login_url='login')
-def jml_ormas_ds(request):
+def jmlOrmasDesa(request):
     ormas = Ormas.objects.values('desa').filter(status = '1').annotate(
         jumlah=Count('desa')
     ).order_by('desa')
@@ -250,7 +250,7 @@ def jml_ormas_ds(request):
     return render(request, 'backend/jml_ormas_ds.html', konteks)
 
 @login_required(login_url='login')
-def jml_ormas_kec(request):
+def jmlOrmasKecamatan(request):
     ormas = Ormas.objects.values('kecamatan').filter(status = '1').annotate(
         jumlah=Count('kecamatan')
     ).order_by('kecamatan')
@@ -261,7 +261,7 @@ def jml_ormas_kec(request):
     return render(request, 'backend/jml_ormas_kec.html', konteks)
 
 @login_required(login_url='login')
-def jml_ormas_kab(request):
+def jmlOrmasKabupaten(request):
     ormas = Ormas.objects.values('kabupaten').filter(status = '1').annotate(
         jumlah=Count('kabupaten')
     ).order_by('kabupaten')
@@ -282,7 +282,7 @@ def galeri(request):
     return render(request, 'backend/galeri.html', konteks)
 
 @login_required(login_url='login')
-def tambah_galeri(request):
+def tambahGaleri(request):
     if request.POST:
         form = FormGaleri(request.POST, request.FILES)
         if form.is_valid():
@@ -307,14 +307,14 @@ def tambah_galeri(request):
     return render(request, 'backend/tambah_galeri.html', konteks)
 
 @login_required(login_url='login')
-def hapus_galeri(request, id_galeri):
+def hapusGaleri(request, id_galeri):
     pohon = Galeri.objects.get(id=id_galeri)
     pohon.delete()
 
     return redirect('galeri')
 
 @login_required(login_url='login')
-def edit_galeri(request, id_galeri):
+def editGaleri(request, id_galeri):
     galeri = Galeri.objects.get(id=id_galeri)
     template = 'backend/edit_galeri.html'
     if request.POST:
@@ -340,7 +340,7 @@ def informasi(request):
     return render(request, 'backend/informasi.html', konteks)
 
 @login_required(login_url='login')
-def tambah_informasi(request):
+def tambahInformasi(request):
     if request.POST:
         form = FormInformasi(request.POST, request.FILES)
         if form.is_valid():
@@ -365,14 +365,14 @@ def tambah_informasi(request):
     return render(request, 'backend/tambah_informasi.html', konteks)
 
 @login_required(login_url='login')
-def hapus_informasi(request, id_informasi):
+def hapusInformasi(request, id_informasi):
     informasi = Informasi.objects.get(id=id_informasi)
     informasi.delete()
 
     return redirect('informasi')
 
 @login_required(login_url='login')
-def edit_informasi(request, id_informasi):
+def editInformasi(request, id_informasi):
     informasi = Informasi.objects.get(id=id_informasi)
     template = 'backend/edit_informasi.html'
     if request.POST:
@@ -389,7 +389,7 @@ def edit_informasi(request, id_informasi):
         return render(request, template, konteks)
 
 @login_required(login_url='login')
-def daftar_user(request):
+def daftarUser(request):
     user = User.objects.all()
 
     konteks = {
