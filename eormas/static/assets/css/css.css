@@ -15,6 +15,10 @@
     margin-top: 0; 
 }
 
+.running{
+    background-color:rgb(160, 160, 248);
+}
+
 .footer-copyright{
     background-color: rgb(160, 160, 248);
 }
