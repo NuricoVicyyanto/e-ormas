@@ -1,7 +1,10 @@
 {% extends 'index.html' %}
 {% block content %}
-<div class="running-text"><marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
-    Selamat datang di website kami teknologi.visitklaten.com - Sharing Teknologi - Berbagi Ilmu Tentang Teknologi
+<div class="running-text">
+  <marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
+    {% for informasi in informasi %}
+    {{ informasi.informasi}}-{{ informasi.tanggal }} |
+    {% endfor %}
     </marquee>
   </div>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
