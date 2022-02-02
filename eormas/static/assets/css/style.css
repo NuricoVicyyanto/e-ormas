@@ -1,13 +1,13 @@
 .main{
-    background-color: #f6fdff;
+    background-color: #f1f6fa;
 }
 
 .navbar {
-    background-color: #3d5a80;
+    background-color: #1565c0;
 }
 
 .page-footer{
-    background-color: #3d5a80;
+    background-color: #1565c0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -20,7 +20,16 @@
 }
 
 .footer-copyright{
-    background-color: rgb(160, 160, 248);
+    background-color:#1e88e5;
+}
+
+.main-desc h1 {
+    border-left: 4px solid #1565c0;
+    padding-left: 20px;
+}
+
+.main-desc p{
+    padding-left: 10rem;
 }
 
 .navbar .nav-link {
@@ -44,30 +53,20 @@
     border-bottom: 3px solid white;
 }
 
-
-.carousel {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
 .judul-card {
     text-align: center;
     padding-bottom: 20px;
 }
 
 .konten {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 30px;
-    padding-bottom: 50px;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
 }
 
-.footer {
-    background-color: #ffffff;
-    width: 100%;
+.text-content {
+    padding-left: 8rem;
 }
 
 .float {
@@ -107,3 +106,25 @@ a:hover {
     height: 35rem;
     object-fit: cover;
 }
+
+.gambar {
+    width: 100%;
+    height: 28rem;
+    object-fit: cover;
+}
+
+.line {
+    background-color: #1565c0;
+}
+
+/* CSS HEX
+--alice-blue: #e3f2fdff;
+--uranian-blue: #bbdefbff;
+--light-sky-blue: #90caf9ff;
+--blue-jeans: #64b5f6ff;
+--blue-jeans-2: #42a5f5ff;
+--tufts-blue: #2196f3ff;
+--bleu-de-france: #1e88e5ff;
+--bright-navy-blue: #1976d2ff;
+--denim: #1565c0ff;
+--cobalt-blue: #0d47a1ff; */
