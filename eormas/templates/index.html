@@ -15,7 +15,7 @@
         <script type="text/javascript"
         src="https://code.jquery.com/jquery-3.5.1.js">
         </script>
-      
+        <link rel="icon" href="{% static 'img/logo.png' %}">
         <!-- Datatable plugin JS library file -->
         <script type="text/javascript" src=
       "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
@@ -23,12 +23,11 @@
     <title>e-Ormas</title>
 </head>
 
-<body class="main">
-    
+<body class="main">    
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
         <div class="container">
             <div class="justify-content-start mx-4">
-              <a class="navbar-brand" href="{% url 'dashboard' %}"><img src="static/img/logo.png"></a>
+              <a class="navbar-brand" href="{% url 'dashboard' %}"><img src="{% static 'img/logo.png' %}"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

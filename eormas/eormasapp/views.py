@@ -56,8 +56,6 @@ def register(request):
     return render(request, 'backend/register.html', konteks)
 
 
-
-
 @login_required(login_url='login')
 def index(request):
     return render(request, 'backend/index.html')
@@ -90,7 +88,7 @@ def ormasUnsur(request):
     ).order_by('unsur')
 
     konteks ={
-                'ormas':ormas,
+            'ormas':ormas,
         }
     return render(request, 'frontend/ormas_uns.html', konteks)
 
@@ -156,6 +154,80 @@ def galeriView(request):
         'galeri' : galeri,
     }
     return render(request, 'frontend/galeri.html', konteks)
+
+
+def statistik(request):
+    data = Ormas.objects.all()
+
+    #maesan
+    maesanPendidikan = data.filter(kecamatan="MAESAN", unsur="Pendidikan", status = '1').count()
+    maesanPolitik = data.filter(kecamatan="MAESAN", unsur="Politik", status = '1').count()
+    maesanSosial = data.filter(kecamatan="MAESAN", unsur="Sosial", status = '1').count()
+    maesanEkonomi = data.filter(kecamatan="MAESAN", unsur="Ekonomi", status = '1').count()
+    maesanLainnya = data.filter(kecamatan="MAESAN", unsur="Lainnya", status = '1').count()
+
+    #grujugan
+    grujuganPendidikan = data.filter(kecamatan="GRUJUGAN", unsur="Pendidikan", status = '1').count()
+    grujuganPolitik = data.filter(kecamatan="GRUJUGAN", unsur="Politik", status = '1').count()
+    grujuganSosial = data.filter(kecamatan="GRUJUGAN", unsur="Sosial", status = '1').count()
+    grujuganEkonomi = data.filter(kecamatan="GRUJUGAN", unsur="Ekonomi", status = '1').count()
+    grujuganLainnya = data.filter(kecamatan="GRUJUGAN", unsur="Lainnya", status = '1').count()
+
+    #tamanan
+    tamananPendidikan = data.filter(kecamatan="TAMANAN", unsur="Pendidikan", status = '1').count()
+    tamananPolitik = data.filter(kecamatan="TAMANAN", unsur="Politik", status = '1').count()
+    tamananSosial = data.filter(kecamatan="TAMANAN", unsur="Sosial", status = '1').count()
+    tamananEkonomi = data.filter(kecamatan="TAMANAN", unsur="Ekonomi", status = '1').count()
+    tamananLainnya = data.filter(kecamatan="TAMANAN", unsur="Lainnya", status = '1').count()
+
+    #jambesari ds
+    jambesariPendidikan = data.filter(kecamatan="JAMBESARI", unsur="Pendidikan", status = '1').count()
+    jambesariPolitik = data.filter(kecamatan="JAMBESARI", unsur="Politik", status = '1').count()
+    jambesariSosial = data.filter(kecamatan="JAMBESARI", unsur="Sosial", status = '1').count()
+    jambesariEkonomi = data.filter(kecamatan="JAMBESARI", unsur="Ekonomi", status = '1').count()
+    jambesariLainnya = data.filter(kecamatan="JAMBESARI", unsur="Lainnya", status = '1').count()
+
+    #pujer
+    pujerPendidikan = data.filter(kecamatan="PUJER", unsur="Pendidikan", status = '1').count()
+    pujerPolitik = data.filter(kecamatan="PUJER", unsur="Politik", status = '1').count()
+    pujerSosial = data.filter(kecamatan="PUJER", unsur="Sosial", status = '1').count()
+    pujerEkonomi = data.filter(kecamatan="PUJER", unsur="Ekonomi", status = '1').count()
+    pujerLainnya = data.filter(kecamatan="PUJER", unsur="Lainnya", status = '1').count()
+
+    konteks ={
+        'maesanPendidikan':maesanPendidikan,
+        'maesanPolitik':maesanPolitik,
+        'maesanSosial':maesanSosial,
+        'maesanEkonomi':maesanEkonomi,
+        'maesanLainnya':maesanLainnya,
+
+        'grujuganPendidikan':grujuganPendidikan,
+        'grujuganPolitik':grujuganPolitik,
+        'grujuganSosial':grujuganSosial,
+        'grujuganEkonomi':grujuganEkonomi,
+        'grujuganLainnya':grujuganLainnya,
+
+        'tamananPendidikan':tamananPendidikan,
+        'tamananPolitik':tamananPolitik,
+        'tamananSosial':tamananSosial,
+        'tamananEkonomi':tamananEkonomi,
+        'tamananLainnya':tamananLainnya,
+
+        'jambesariPendidikan':jambesariPendidikan,
+        'jambesariPolitik':jambesariPolitik,
+        'jambesariSosial':jambesariSosial,
+        'jambesariEkonomi':jambesariEkonomi,
+        'jambesariLainnya':jambesariLainnya,
+
+        'pujerPendidikan':pujerPendidikan,
+        'pujerPolitik':pujerPolitik,
+        'pujerSosial':pujerSosial,
+        'pujerEkonomi':pujerEkonomi,
+        'pujerLainnya':pujerLainnya,
+
+    }
+
+    return render(request, 'backend/statistik.html', konteks)
 
 
 

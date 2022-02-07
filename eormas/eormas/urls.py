@@ -38,6 +38,8 @@ urlpatterns = [
     path('galeri_view/', views.galeriView, name='galeri_view'),
 
 
+    path('statistik/', views.statistik, name='statistik'),
+
     # ormas
     path('data_ormas/', views.dataOrmas, name='data_ormas'),
     path('tambah_ormas/', views.tambahOrmas, name='tambah_ormas'),

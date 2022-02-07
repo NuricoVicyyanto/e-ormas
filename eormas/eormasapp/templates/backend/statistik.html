@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="main-content">
+    <section class="section">
+      <div class="section-header">
+        <h1>Data Ormas(Kecamatan)</h1>
+      </div>
+  
+      <div class="section-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4>Sortable Table</h4>
+                <div class="card-header-action">
+                  <form>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="myInput" placeholder="Search">
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table datatable" id="movie">
+                    <thead>
+                      <tr>
+                        <th scope="col">Kecamatan</th>
+                        <th scope="col">Pendidikan</th>
+                        <th scope="col">Politik</th>
+                        <th scope="col">Sosial</th>
+                        <th scope="col">Ekonomi</th>
+                        <th scope="col">lainnya</th>
+                      </tr>
+                    </thead>
+                    <tbody id="myTable">
+                      <tr>
+                        <td>Maesan</td>
+                        <td>{{ maesanPendidikan }}</td>
+                        <td>{{ maesanPolitik }}</td>
+                        <td>{{ maesanSosial }}</td>
+                        <td>{{ maesanEkonomi }}</td>
+                        <td>{{ maesanLainnya }}</td>
+                    </tr>
+                    <tr>
+                        <td>Grujugan</td>
+                        <td>{{ grujuganPendidikan }}</td>
+                        <td>{{ grujuganPolitik }}</td>
+                        <td>{{ grujuganSosial }}</td>
+                        <td>{{ grujuganEkonomi }}</td>
+                        <td>{{ grujuganLainnya }}</td>
+                    </tr>
+                    <tr>
+                        <td>Tamanan</td>
+                        <td>{{ tamananPendidikan }}</td>
+                        <td>{{ tamananPolitik }}</td>
+                        <td>{{ tamananSosial }}</td>
+                        <td>{{ tamananEkonomi }}</td>
+                        <td>{{ tamananLainnya }}</td>
+                    </tr>
+                    <tr>
+                        <td>Jambesari ds</td>
+                        <td>{{ jambesariPendidikan }}</td>
+                        <td>{{ jambesariPolitik }}</td>
+                        <td>{{ jambesariSosial }}</td>
+                        <td>{{ jambesariEkonomi }}</td>
+                        <td>{{ jambesariLainnya }}</td>
+                    </tr>
+                    <tr>
+                        <td>Pujer</td>
+                        <td>{{ pujerPendidikan }}</td>
+                        <td>{{ pujerPolitik }}</td>
+                        <td>{{ pujerSosial }}</td>
+                        <td>{{ pujerEkonomi }}</td>
+                        <td>{{ pujerLainnya }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="container ">
+                    <nav aria-label="Page navigation example">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link paginate" id="previous" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link paginate" id="next" href="#">Next</a></li>
+                      </ul>
+                    </nav>
+                    </div>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  </section>
+
+{% endblock %}

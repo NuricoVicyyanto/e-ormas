@@ -1,9 +1,9 @@
 {% extends 'index.html' %}
 {% block content %}
-<div class="running-text">
+<div class="running-text bg-warning">
   <marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
     {% for informasi in informasi %}
-    {{ informasi.informasi}}-{{ informasi.tanggal }} |
+    {{ informasi.informasi}}-{{ informasi.tanggal }} <span style="color:red">|</span>
     {% endfor %}
     </marquee>
   </div>
