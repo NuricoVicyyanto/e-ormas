@@ -58,17 +58,15 @@
     border-bottom: 3px solid white;
 }
 
+.container-box{
+    margin-top: 50px;
+    margin-bottom: 75px;
+}
+
 .judul-card {
     text-align: center;
     padding-bottom: 20px;
 }
-
-/* .konten {
-    padding-left: 5rem;
-    padding-right: 5rem;
-    padding-top: 3rem;
-    padding-bottom: 5rem;
-} */
 
 .text-content {
     padding-left: 8rem;
@@ -112,10 +110,6 @@ a:hover {
 }
 
 .isi-konten {
-    /* box-shadow: 0 2px 10px #1565c0;
-    background-color: #bbdefb;
-    border-radius: 10px;
-    border-color: #1565c0; */
     margin-left: 5rem;
     margin-right: 5rem;
     margin-top: 3rem;
@@ -191,6 +185,22 @@ a:hover {
     background-color: #1565c0;
     padding-top: 3rem;
     padding-bottom: 3rem;
+}
+
+.bi-pic {
+    width: 100%;
+    height: 200px;
+}
+
+.galeri-box {
+    background-color: #fcfdff;
+    height: 350px;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+    border-radius: 15px;
+}
+
+.gmbr {
+    border-radius: 8px;
 }
 
 /* CSS HEX
