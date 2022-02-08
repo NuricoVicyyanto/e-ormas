@@ -28,7 +28,7 @@
                                         {% endif %}
                                         <form action="/daftar/" method="post" enctype="multipart/form-data">
                                             {% csrf_token %}
-                                            {{ form.nama }}
+                                            {{ user.ormas.nama }}
                                             <button class="btn btn-dark">Tambah</button>
                                             <a href="/data_ormas" class="btn btn-danger">Kembali</a>
                                         </form>

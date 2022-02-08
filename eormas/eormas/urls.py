@@ -37,12 +37,11 @@ urlpatterns = [
     path('grafik/', views.grafik, name='grafik'),
     path('galeri_view/', views.galeriView, name='galeri_view'),
 
-
     path('statistik/', views.statistik, name='statistik'),
 
     # ormas
     path('data_ormas/', views.dataOrmas, name='data_ormas'),
-    path('tambah_ormas/', views.tambahOrmas, name='tambah_ormas'),
+    path('tambah_ormas/', views.tambahOrmas,  name='tambah_ormas'),
     path('data_ormas/edit_ormas/<int:id_ormas>', views.editOrmas, name='edit_ormas'),
     path('data_ormas/hapus_ormas/<int:id_ormas>', views.hapusOrmas, name='hapus_ormas'),
     path('data_ormas/publish_ormas/<int:id_ormas>', views.publishOrmas, name='publish_ormas'),

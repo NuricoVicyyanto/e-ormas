@@ -6,7 +6,6 @@
     <div class="section-header">
       <h1>Data Ormas</h1>
     </div>
-
     <div class="section-body">
       <div class="row">
         <div class="col-12">
@@ -29,12 +28,21 @@
                 <table class="table datatable" id="movie">
                   <thead>
                     <tr>
-                      <th scope="col">nama</th>
-                      <th scope="col">unsur</th>
-                      <th scope="col">alamat</th>
-                      <th scope="col">desa</th>
-                      <th scope="col">kecamatan</th>
-                      <th scope="col">kabupaten</th>
+                      <th scope="col">Nama Ormas</th>
+                      <th scope="col">Jenis Ormas</th>
+                      <th scope="col">Bidang Ormas</th>
+                      <th scope="col">Alamat</th>
+                      <th scope="col">Kelurahan</th>
+                      <th scope="col">Kecamatan</th>
+                      <th scope="col">Kabupaten</th>
+                      <th scope="col">Nama Notaris</th>
+                      <th scope="col">No Notaris</th>
+                      <th scope="col">AD/ART</th>
+                      <th scope="col">Nomor SK yang disahkan</th>
+                      <th scope="col">Masa Bakti</th>
+                      <th scope="col">Biodata Ketua</th>
+                      <th scope="col">Biodata Sekretaris</th>
+                      <th scope="col">Biodata Bendahara</th>
                       <th scope="col">Status</th>
                       <th scope="col">Opsi</th>
                     </tr>
@@ -44,10 +52,31 @@
                     <tr>
                       <td>{{ ormas.nama }}</td>
                       <td>{{ ormas.unsur }}</td>
+                      <td>{{ ormas.bidang }}</td>
                       <td>{{ ormas.alamat }}</td>
                       <td>{{ ormas.desa }}</td>
                       <td>{{ ormas.kecamatan }}</td>
                       <td>{{ ormas.kabupaten }}</td>
+                      <td>{{ ormas.namaNotaris }}</td>
+                      <td>{{ ormas.noNotaris }}</td>
+                      <td>{{ ormas.adArt }}</td>
+                      <td>{{ ormas.sk }}</td>
+                      <td>{{ ormas.masaBakti }}</td>
+                      <td>
+                        {% if ormas.biodataKetua %}
+                        <img src="{{ ormas.biodataKetua.url }}" width="90px">
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if ormas.biodataSekretaris %}
+                        <img src="{{ ormas.biodataSekretaris.url }}" width="90px">
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if ormas.biodataBendahara %}
+                        <img src="{{ ormas.biodataBendahara.url }}" width="90px">
+                        {% endif %}
+                      </td>
                       {% if ormas.status == '0' %}
                       <td>Review</td>
                       {% elif ormas.status == '1' %}
@@ -55,7 +84,7 @@
                       {% endif %}
                       <td>
                         <a href="{% url 'edit_ormas' ormas.id %}" class="btn btn-secondary">Edit</a>
-                        <a href="{% url 'hapus_ormas' ormas.id %}" class="btn btn-danger">Hapus</a>
+                        <a href="{% url 'hapus_ormas' ormas.id %}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">Hapus</a>
                       </td>
                     </tr>
                     {% endfor %}
@@ -98,12 +127,21 @@
                 <table class="table datatable">
                   <thead>
                     <tr>
-                      <th scope="col">nama</th>
-                      <th scope="col">unsur</th>
-                      <th scope="col">alamat</th>
-                      <th scope="col">desa</th>
-                      <th scope="col">kecamatan</th>
-                      <th scope="col">kabupaten</th>
+                      <th scope="col">Nama Ormas</th>
+                      <th scope="col">Jenis Ormas</th>
+                      <th scope="col">Bidang Ormas</th>
+                      <th scope="col">Alamat</th>
+                      <th scope="col">Kelurahan</th>
+                      <th scope="col">Kecamatan</th>
+                      <th scope="col">Kabupaten</th>
+                      <th scope="col">Nama Notaris</th>
+                      <th scope="col">No Notaris</th>
+                      <th scope="col">AD/ART</th>
+                      <th scope="col">Nomor SK yang disahkan</th>
+                      <th scope="col">Masa Bakti</th>
+                      <th scope="col">Biodata Ketua</th>
+                      <th scope="col">Biodata Sekretaris</th>
+                      <th scope="col">Biodata Bendahara</th>
                       <th scope="col">Status</th>
                       <th scope="col">Opsi</th>
                     </tr>
@@ -113,10 +151,31 @@
                     <tr>
                       <td>{{ unverormas.nama }}</td>
                       <td>{{ unverormas.unsur }}</td>
+                      <td>{{ unverormas.bidang }}</td>
                       <td>{{ unverormas.alamat }}</td>
                       <td>{{ unverormas.desa }}</td>
                       <td>{{ unverormas.kecamatan }}</td>
                       <td>{{ unverormas.kabupaten }}</td>
+                      <td>{{ unverormas.namaNotaris }}</td>
+                      <td>{{ unverormas.noNotaris }}</td>
+                      <td>{{ unverormas.adArt }}</td>
+                      <td>{{ unverormas.sk }}</td>
+                      <td>{{ unverormas.masaBakti }}</td>
+                      <td>
+                        {% if unverormas.biodataKetua %}
+                        <img src="{{ unverormas.biodataKetua.url }}" width="90px">
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if unverormas.biodataSekretaris %}
+                        <img src="{{ unverormas.biodataSekretaris.url }}" width="90px">
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if unverormas.biodataBendahara %}
+                        <img src="{{ unverormas.biodataBendahara.url }}" width="90px">
+                        {% endif %}
+                      </td>
                       {% if unverormas.status == '0' %}
                       <td>Review</td>
                       {% elif unverormas.status == '1' %}

@@ -1,4 +1,5 @@
 from collections import Counter
+from datetime import timedelta
 from django.db.models import Count
 from itertools import count
 from django.shortcuts import render
@@ -16,6 +17,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.models import Group
+from django.utils.timezone import now
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def login(request):
@@ -49,6 +53,11 @@ def register(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
+            group = Group.objects.get(name='ormas')
+            user.groups.add(group)
+            Ormas.objects.create(
+				user=user,
+				)
             messages.success(request, 'Account was created for '+ user)
             return redirect('login')
 
@@ -263,7 +272,7 @@ def publishOrmas(request, id_ormas):
 
 @login_required(login_url='login')
 def tambahOrmas(request):
-    if request.POST:
+    if request.POST :
         form = FormOrmas(request.POST, request.FILES)
         if form.is_valid():
             form.save()
