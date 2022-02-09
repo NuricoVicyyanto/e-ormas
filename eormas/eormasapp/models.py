@@ -17,7 +17,10 @@ class Ormas(models.Model):
     adArt = models.CharField(max_length=50)
     sk = models.CharField(max_length=50)
     masaBakti = models.CharField(max_length=50)
-
+    
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
+    role = models.IntegerField(max_length=2)
+    
     #biodata ketua
     biodataKetua = models.ImageField(upload_to='image/', null = True)
     biodataSekretaris = models.ImageField(upload_to='image/', null = True)
