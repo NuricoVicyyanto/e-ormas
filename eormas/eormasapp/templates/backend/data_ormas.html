@@ -183,7 +183,7 @@
                       {% endif %}
                       <td>
                         <a href="{% url 'edit_ormas' unverormas.id %}" class="btn btn-warning">Review</a>
-                        <a href="{% url 'hapus_ormas' unverormas.id %}" class="btn btn-danger">Hapus</a>
+                        <a href="{% url 'hapus_ormas' unverormas.id %}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">Hapus</a>
                         <a href="{% url 'publish_ormas' unverormas.id %}" class="btn btn-success">Accepted</a>
                       </td>
                     </tr>

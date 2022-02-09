@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 
 
 class Ormas(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     nama = models.CharField(max_length=50)
     unsur = models.CharField(max_length=50) # Jenis
     bidang = models.CharField(max_length=50)
@@ -20,7 +19,6 @@ class Ormas(models.Model):
     masaBakti = models.CharField(max_length=50)
     
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
-    role = models.IntegerField(max_length=2)
     
     #biodata ketua
     biodataKetua = models.ImageField(upload_to='image/', null = True)

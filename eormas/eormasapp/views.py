@@ -31,12 +31,10 @@ def login(request):
 
         if user is not None:
             auth_login(request, user)
-            current_user = request.user
-            ormas = Ormas.objects.filter(user_id = current_user.id).first()
             # ormas = Ormas.objects.all()
-            if ormas.role == 1:
+            if request.user.is_superuser:
                 return redirect('tambah_ormas')
-            elif ormas.role == 2:
+            else:
                 return redirect('data_ormas')
         else:
             messages.info(request, 'Username or password is incorrect')

@@ -41,7 +41,7 @@
                       <td>{{ informasi.tanggal }}</td>
                       <td>
                         <a href="{% url 'edit_informasi' informasi.id %}" class="btn btn-secondary">Edit</a>
-                        <a href="{% url 'hapus_informasi' informasi.id %}" class="btn btn-danger">Hapus</a>
+                        <a href="{% url 'hapus_informasi' informasi.id %}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">Hapus</a>
                       </td>
                     </tr>
                     {% endfor %}
