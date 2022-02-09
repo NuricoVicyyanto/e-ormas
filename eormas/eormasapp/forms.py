@@ -77,3 +77,5 @@ class FormInformasi(ModelForm):
             'informasi' : forms.TextInput({'class':'form-control'}),
             'tanggal':forms.DateInput(format=('%d/%m/%Y'), attrs={'class':'form-control', 'type':'date'}),
         }
+
+

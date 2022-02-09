@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 
 class Ormas(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     nama = models.CharField(max_length=50)
     unsur = models.CharField(max_length=50) # Jenis
     bidang = models.CharField(max_length=50)
@@ -42,7 +43,6 @@ class Galeri(models.Model):
     def __str__(self):
         return self.judul
 
-
     def delete(self, *args, **kwargs):
         self.image.delete()
         super().delete(*args, **kwargs)
@@ -53,6 +53,3 @@ class Informasi(models.Model):
 
     def __str__(self):
         return self.informasi
-    
-    
-    
