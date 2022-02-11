@@ -246,13 +246,21 @@
                       {% endif %}
                       <td>
                         <a href="{% url 'edit_ormas' unverormas.id %}" class="btn btn-warning">Review</a>
-                        <a href="{% url 'hapus_ormas' unverormas.id %}" class="btn btn-danger">Hapus</a>
+                        <a href="{% url 'hapus_ormas' unverormas.id %}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">Hapus</a>
                         <a href="{% url 'publish_ormas' unverormas.id %}" class="btn btn-success">Accepted</a>
                       </td>
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
+                <div class="container ">
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link paginate" id="previous" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link paginate" id="next" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
               </div>
             </div>
           </div>

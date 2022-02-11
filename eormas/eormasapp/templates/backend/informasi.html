@@ -41,12 +41,20 @@
                       <td>{{ informasi.tanggal }}</td>
                       <td>
                         <a href="{% url 'edit_informasi' informasi.id %}" class="btn btn-secondary">Edit</a>
-                        <a href="{% url 'hapus_informasi' informasi.id %}" class="btn btn-danger">Hapus</a>
+                        <a href="{% url 'hapus_informasi' informasi.id %}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">Hapus</a>
                       </td>
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
+                <div class="container ">
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link paginate" id="previous" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link paginate" id="next" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
                 <a href="{% url 'tambah_informasi' %}" class="btn btn-primary">Tambah</a>
               </div>
             </div>
