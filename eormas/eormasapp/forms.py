@@ -1,7 +1,7 @@
 from django.forms import CheckboxInput, ModelForm, widgets
 from django import forms
 from eormasapp.models import *
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 class CreateUserForm(UserCreationForm):
@@ -14,6 +14,39 @@ class CreateUserForm(UserCreationForm):
                 'image' : forms.FileInput({'class':'form-control'}),
                 'informasi':forms.TextInput({'class':'form-control'}),
             }
+
+
+class FormUser(forms.ModelForm):
+    username = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(required=True,
+                             widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput(attrs={'placeholder': 'Username',
+                                                             'class': 'form-control',
+                                                             }))
+    password = forms.CharField(max_length=50,
+                               required=True,
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Password',
+                                                                 'class': 'form-control',
+                                                                 'data-toggle': 'password',
+                                                                 'id': 'password',
+                                                                 'name': 'password',
+                                                                 }))
+    remember_me = forms.BooleanField(required=False)
+
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'remember_me']
 
 class FormOrmas(ModelForm):
     class Meta:
@@ -37,23 +70,39 @@ class FormOrmas(ModelForm):
             )
 
         widgets = {
+            'user':forms.HiddenInput(),
             'nama':forms.TextInput({'class':'form-control', 'id':'Nama'}),
             'unsur':forms.Select({'class':'form-control', 'id':'Unsur'}, choices=JENIS),
             'bidang':forms.Select({'class':'form-control', 'id':'Bidang'}, choices=BIDANG),
             'alamat':forms.TextInput({'class':'form-control', 'id':'Alamat'}),
+            'buktiAlamat':forms.FileInput({'class':'form-control'}),
             'desa':forms.TextInput({'class':'form-control', 'id':'Desa'}),
             'kecamatan':forms.TextInput({'class':'form-control', 'id':'Kecamatan'}),
             'kabupaten':forms.TextInput({'class':'form-control', 'id':'Kabupaten'}),
             'namaNotaris':forms.TextInput({'class':'form-control', 'id':'NamaNotaris'}),
             'noNotaris':forms.TextInput({'class':'form-control', 'id':'NoNotaris'}),
-            'adArt':forms.TextInput({'class':'form-control', 'id':'AdArt'}),
-            'sk':forms.TextInput({'class':'form-control', 'id':'SK'}),
-            'masaBakti':forms.TextInput({'class':'form-control', 'id':'MasaBakti'}),
+            'skTerdaftar':forms.FileInput({'class':'form-control'}),
+            'skPengurus':forms.FileInput({'class':'form-control'}),
+            
+            'namaKetua':forms.TextInput({'class':'form-control', 'id':'NamaKetua'}),
+            'ttlKetua':forms.TextInput({'class':'form-control', 'id':'TtlKetua'}),
+            'noKetua':forms.TextInput({'class':'form-control', 'id':'NoKetua'}),
             'biodataKetua':forms.FileInput({'class':'form-control', 'id':'BiodataKetua'}),
+
+            'namaSekretaris':forms.TextInput({'class':'form-control', 'id':'NamaSekretaris'}),
+            'ttlSekretaris':forms.TextInput({'class':'form-control', 'id':'TtlSekretaris'}),
+            'noSekretaris':forms.TextInput({'class':'form-control', 'id':'NoSekretaris'}),
             'biodataSekretaris':forms.FileInput({'class':'form-control', 'id':'BiodataSekretaris'}),
+
+            'namaBendahara':forms.TextInput({'class':'form-control', 'id':'NamaBendahara'}),
+            'ttlBendahara':forms.TextInput({'class':'form-control', 'id':'TtlBendahara'}),
+            'noBendahara':forms.TextInput({'class':'form-control', 'id':'NoBendahara'}),
             'biodataBendahara':forms.FileInput({'class':'form-control', 'id':'BiodataBendahara'}),
+            
             'status':forms.HiddenInput({'class':'form-control', 'id':'verifikasi'}), 
         }
+
+        
 
 class FormGaleri(ModelForm):
     class Meta:

@@ -32,16 +32,25 @@
                       <th scope="col">Jenis Ormas</th>
                       <th scope="col">Bidang Ormas</th>
                       <th scope="col">Alamat</th>
+                      <th scope="col">Bukti Alamat</th>
                       <th scope="col">Kelurahan</th>
                       <th scope="col">Kecamatan</th>
                       <th scope="col">Kabupaten</th>
                       <th scope="col">Nama Notaris</th>
-                      <th scope="col">No Notaris</th>
-                      <th scope="col">AD/ART</th>
-                      <th scope="col">Nomor SK yang disahkan</th>
-                      <th scope="col">Masa Bakti</th>
+                      <th scope="col">Nomor Notaris</th>
+                      <th scope="col">SK Terdaftar</th>
+                      <th scope="col">SK Pengurus</th>
+                      <th scope="col">Nama Ketua</th>
+                      <th scope="col">TTL Ketua</th>
+                      <th scope="col">No Telepon Ketua</th>
                       <th scope="col">Biodata Ketua</th>
+                      <th scope="col">Nama Sekretaris</th>
+                      <th scope="col">TTL Sekretaris</th>
+                      <th scope="col">No Telepon Sekretaris</th>
                       <th scope="col">Biodata Sekretaris</th>
+                      <th scope="col">Nama Bendahara</th>
+                      <th scope="col">TTL Bendahara</th>
+                      <th scope="col">No Telepon Bendahara</th>
                       <th scope="col">Biodata Bendahara</th>
                       <th scope="col">Status</th>
                       <th scope="col">Opsi</th>
@@ -54,24 +63,47 @@
                       <td>{{ ormas.unsur }}</td>
                       <td>{{ ormas.bidang }}</td>
                       <td>{{ ormas.alamat }}</td>
+                      <td>
+                      <a href="{{ ormas.buktiAlamat.url }}">Review</a>
+                
+                      </td>
                       <td>{{ ormas.desa }}</td>
                       <td>{{ ormas.kecamatan }}</td>
                       <td>{{ ormas.kabupaten }}</td>
                       <td>{{ ormas.namaNotaris }}</td>
                       <td>{{ ormas.noNotaris }}</td>
-                      <td>{{ ormas.adArt }}</td>
-                      <td>{{ ormas.sk }}</td>
-                      <td>{{ ormas.masaBakti }}</td>
+                      <td>
+                        {% if ormas.skTerdaftar %}
+                        <img src="{{ ormas.skTerdaftar.url }}" width="90px">
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if ormas.skPengurus %}
+                        <img src="{{ ormas.skPengurus.url }}" width="90px">
+                        {% endif %}
+                      </td>
+                      
+                      <td>{{ ormas.namaKetua }}</td>
+                      <td>{{ ormas.ttlKetua }}</td>
+                      <td>{{ ormas.noKetua }}</td>
                       <td>
                         {% if ormas.biodataKetua %}
                         <img src="{{ ormas.biodataKetua.url }}" width="90px">
                         {% endif %}
                       </td>
+
+                      <td>{{ ormas.namaSekretaris }}</td>
+                      <td>{{ ormas.ttlSekretaris }}</td>
+                      <td>{{ ormas.noSekretaris }}</td>
                       <td>
                         {% if ormas.biodataSekretaris %}
                         <img src="{{ ormas.biodataSekretaris.url }}" width="90px">
                         {% endif %}
                       </td>
+
+                      <td>{{ ormas.namaBendahara }}</td>
+                      <td>{{ ormas.ttlBendahara }}</td>
+                      <td>{{ ormas.noBendahara }}</td>
                       <td>
                         {% if ormas.biodataBendahara %}
                         <img src="{{ ormas.biodataBendahara.url }}" width="90px">
@@ -131,16 +163,25 @@
                       <th scope="col">Jenis Ormas</th>
                       <th scope="col">Bidang Ormas</th>
                       <th scope="col">Alamat</th>
+                      <th scope="col">Bukti Alamat</th>
                       <th scope="col">Kelurahan</th>
                       <th scope="col">Kecamatan</th>
                       <th scope="col">Kabupaten</th>
                       <th scope="col">Nama Notaris</th>
-                      <th scope="col">No Notaris</th>
-                      <th scope="col">AD/ART</th>
-                      <th scope="col">Nomor SK yang disahkan</th>
-                      <th scope="col">Masa Bakti</th>
+                      <th scope="col">Nomor Notaris</th>
+                      <th scope="col">SK Terdaftar</th>
+                      <th scope="col">SK Pengurus</th>
+                      <th scope="col">Nama Ketua</th>
+                      <th scope="col">TTL Ketua</th>
+                      <th scope="col">No Telepon Ketua</th>
                       <th scope="col">Biodata Ketua</th>
+                      <th scope="col">Nama Sekretaris</th>
+                      <th scope="col">TTL Sekretaris</th>
+                      <th scope="col">No Telepon Sekretaris</th>
                       <th scope="col">Biodata Sekretaris</th>
+                      <th scope="col">Nama Bendahara</th>
+                      <th scope="col">TTL Bendahara</th>
+                      <th scope="col">No Telepon Bendahara</th>
                       <th scope="col">Biodata Bendahara</th>
                       <th scope="col">Status</th>
                       <th scope="col">Opsi</th>
@@ -153,24 +194,46 @@
                       <td>{{ unverormas.unsur }}</td>
                       <td>{{ unverormas.bidang }}</td>
                       <td>{{ unverormas.alamat }}</td>
+                      <td>
+                        {% if unverormas.buktiAlamat %}
+                        <img src="{{ unverormas.buktiAlamat.url }}" width="90px">
+                        {% endif %}
+                      </td>
                       <td>{{ unverormas.desa }}</td>
                       <td>{{ unverormas.kecamatan }}</td>
                       <td>{{ unverormas.kabupaten }}</td>
                       <td>{{ unverormas.namaNotaris }}</td>
                       <td>{{ unverormas.noNotaris }}</td>
-                      <td>{{ unverormas.adArt }}</td>
-                      <td>{{ unverormas.sk }}</td>
-                      <td>{{ unverormas.masaBakti }}</td>
+                      <td>
+                        {% if unverormas.skTerdaftar %}
+                        <img src="{{ unverormas.skTerdaftar.url }}" width="90px">
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if unverormas.skPengurus %}
+                        <img src="{{ unverormas.skPengurus.url }}" width="90px">
+                        {% endif %}
+                      </td>   
+                      <td>{{ unverormas.namaKetua }}</td>
+                      <td>{{ unverormas.ttlKetua }}</td>
+                      <td>{{ unverormas.noKetua }}</td>
                       <td>
                         {% if unverormas.biodataKetua %}
                         <img src="{{ unverormas.biodataKetua.url }}" width="90px">
                         {% endif %}
                       </td>
+                      <td>{{ unverormas.namaSekretaris }}</td>
+                      <td>{{ unverormas.ttlSekretaris }}</td>
+                      <td>{{ unverormas.noSekretaris }}</td>
                       <td>
                         {% if unverormas.biodataSekretaris %}
                         <img src="{{ unverormas.biodataSekretaris.url }}" width="90px">
                         {% endif %}
                       </td>
+
+                      <td>{{ unverormas.namaBendahara }}</td>
+                      <td>{{ unverormas.ttlBendahara }}</td>
+                      <td>{{ unverormas.noBendahara }}</td>
                       <td>
                         {% if unverormas.biodataBendahara %}
                         <img src="{{ unverormas.biodataBendahara.url }}" width="90px">

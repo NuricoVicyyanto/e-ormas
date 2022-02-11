@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from eormasapp import views
 from django.conf.urls.static import static
+from django.conf.urls import url
 
 urlpatterns = [
     path('login/', views.login, name='login'),
@@ -38,6 +39,10 @@ urlpatterns = [
     path('galeri_view/', views.galeriView, name='galeri_view'),
 
     path('statistik/', views.statistik, name='statistik'),
+
+    path('daftar/', views.daftar, name='daftar'),
+    path('pendaftaran/', views.pendaftaran, name='pendaftaran'),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
 
     # ormas
     path('data_ormas/', views.dataOrmas, name='data_ormas'),

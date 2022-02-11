@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'eormasapp',
+    'eormasapp.apps.EormasappConfig',
     'django_cleanup.apps.CleanupConfig',
-    'crispy_forms',
+    'social_django',
 ]
 
 MIDDLEWARE = [

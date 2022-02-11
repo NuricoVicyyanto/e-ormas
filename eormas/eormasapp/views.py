@@ -2,6 +2,7 @@ from collections import Counter
 from datetime import timedelta
 from django.db.models import Count
 from itertools import count
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
@@ -31,13 +32,11 @@ def login(request):
 
         if user is not None:
             auth_login(request, user)
-            current_user = request.user
-            ormas = Ormas.objects.filter(user_id = current_user.id).first()
             # ormas = Ormas.objects.all()
-            if ormas.role == 1:
-                return redirect('tambah_ormas')
-            elif ormas.role == 2:
+            if request.user.is_superuser:
                 return redirect('data_ormas')
+            else:
+                return redirect('pendaftaran')
         else:
             messages.info(request, 'Username or password is incorrect')
 
@@ -58,12 +57,12 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            user = form.cleaned_data.get('username')
-            group = Group.objects.get(name='ormas')
-            user.groups.add(group)
-            Ormas.objects.create(
-				user=user,
-				)
+            # user = form.cleaned_data.get('username')
+            # group = Group.objects.get(name='ormas')
+            # user.groups.add(group)
+            # Ormas.objects.create(
+			# 	user=user,
+			# 	)
             messages.success(request, 'Account was created for '+ user)
             return redirect('login')
 
@@ -489,3 +488,29 @@ def daftarUser(request):
         'user' : user,
     }
     return render(request, 'backend/daftar_user.html', konteks)
+
+
+def pendaftaran(request):
+    return render(request, 'backend/pendaftaran.html')
+
+
+@login_required
+def daftar(request):
+    if request.method == 'POST':
+        
+        user_form = FormUser(request.POST, instance=request.user)
+        ormas = FormOrmas(request.POST, request.FILES, instance=request.user.ormas)
+        if user_form.is_valid() and ormas.is_valid():
+            user_form.save()
+            ormas.status = '0'
+            ormas.save()
+            messages.success(request, 'Your profile is updated successfully')
+            return redirect(to='logout')
+    else:
+        user_form = FormUser(instance=request.user)
+        ormas = FormOrmas(instance=request.user.ormas)
+
+
+    return render(request, 'backend/daftar.html', {'user_form': user_form, 'ormas': ormas})
+
+    

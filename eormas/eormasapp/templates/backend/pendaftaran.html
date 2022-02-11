@@ -1,34 +1,20 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% load crispy_forms_tags %} 
-
+{% extends "userard.html" %}
+{% block title %} Home Page {% endblock title%}
 {% block content %}
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
-        <h1 class="h3 mb-0 text-gray-800">Profile</h1>
-        </div>          
-
-        <!-- Main Content Here -->
-        <div class="row">
-          <div class="col-lg-2"></div>
-          <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
-            <div class="card-body">
-                <p><strong>Nama: </strong> {{user.username}} </p>
-                <p><strong>Email: </strong> {{user.email}} </p>
-                <p><strong>Bio: </strong> {{user.ormas.nama}} </p>
-                {% comment %} <p><strong>Phone Number: </strong> {{user.profile.phone_number}} </p>
-                <p><strong>DOB: </strong> {{user.profile.birth_date}} </p>
-                <a href="{% url 'profile-update' %}" class="btn btn-sm btn-primary shadow-sm">Update Profile</a> {% endcomment %}
-            </div>
-          </div>
-        </div>
-        
-        
-        
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome, {{user.username.title|default:'Guest'}}</h1>
+        <p class="lead">
+            This is <b>user registration and login system</b> build with django which is
+            a Python-based free and open-source web framework that follows the model–template–views architectural pattern.
+        </p>
+        <hr class="my-4">
+        <p class="lead">
+            {% if user.is_authenticated %}
+                <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
+            {% else %}
+                <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign in</a>
+            {% endif %}
+        </p>
     </div>
-    <!-- /.container-fluid -->
+
 {% endblock content %}
