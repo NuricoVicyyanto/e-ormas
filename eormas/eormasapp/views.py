@@ -87,6 +87,8 @@ def dashboard(request):
 
     return render(request, 'frontend/home.html', konteks)
 
+
+
 def ormas(request):
     ormas = Ormas.objects.filter(status= '1')
 
@@ -95,6 +97,7 @@ def ormas(request):
     }
 
     return render(request, 'frontend/ormas.html', konteks)
+
 
 def ormasUnsur(request):
     ormas = Ormas.objects.values('unsur').filter(status = '1').annotate(
@@ -116,6 +119,7 @@ def ormasDesa(request):
         }
 
     return render(request, 'frontend/ormas_ds.html', konteks)
+
 
 def ormasKecamatan(request):
     ormas = Ormas.objects.values('kecamatan').filter(status = '1').annotate(
@@ -488,6 +492,22 @@ def daftarUser(request):
         'user' : user,
     }
     return render(request, 'backend/daftar_user.html', konteks)
+
+def del_user(request, id):    
+    try:
+        u = User.objects.get(id = id)
+        u.delete()
+        messages.success(request, "The user is deleted")            
+
+    except User.DoesNotExist:
+        messages.error(request, "User doesnot exist")    
+        return render(request, 'backend/daftar_user.html')
+
+    except Exception as e: 
+        return render(request, 'backend/daftar_user.html')
+
+    return render(request, 'backend/daftar_user.html')
+    
 
 
 def pendaftaran(request):
