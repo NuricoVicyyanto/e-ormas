@@ -28,7 +28,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index, name='index'),
     path('landing/', views.landing, name='landing'),
+
     path('daftar_user/', views.daftarUser, name='daftar_user'),
+    path('data_user/hapus_user/<int:id>', views.del_user, name='hapus_user'),
+
+
+
     path('', views.dashboard, name='dashboard'),
     path('ormas/', views.ormas, name='ormas'),
     path('ormas_uns/', views.ormasUnsur, name='ormas_uns'),
