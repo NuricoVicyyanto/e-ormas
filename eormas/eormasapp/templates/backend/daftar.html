@@ -2,8 +2,8 @@
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
 <div class="card">
-    <div class="container">
-    <div class="row my-3 p-3">
+    <div class="container mb-4">
+    <div class="row justify-content-center">
         <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
     </div>
     {% if user_form.errors %}
@@ -19,22 +19,84 @@
         </div>
     {% endif %}
     <div class="form-content">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" id="reqForm" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="small mb-1">Username:</label>
+                <div class="col-md-8">
+                    <div class="tab">
+                        <label class="mb-1">Username:</label>
                             {{ user_form.username }}
-                        <label class="small mb-1">Email:</label>
+                        <label class="mb-1">Email:</label>
                             {{ user_form.email }}
+                        <label class="mb-1">Nama Organisasi:</label>
+                            {{ ormas.nama }}
+                        <label class="mb-1">Jenis Organisasi:</label>
+                            {{ ormas.unsur }}
+                        <label class="mb-1">Bidang Kegiatan:</label>
+                            {{ ormas.bidang }}
                     </div>
-                    {{ ormas.as_p }}
+                    <div class="tab">
+                        {{ ormas.user}}
+                        <label class="mb-1">Alamat:</label>
+                            {{ ormas.alamat }}
+                        <label class="mb-1">Bukti Alamat:</label>
+                            {{ ormas.buktiAlamat }}
+                        <label class="mb-1">Kelurahan:</label>
+                            {{ ormas.desa }}
+                        <label class="mb-1">Kecamatan:</label>
+                            {{ ormas.kecamatan }}
+                        <label class="mb-1">Kabupaten:</label>
+                            {{ ormas.kabupaten }}
+                    </div>
+                    <div class="tab">
+                        <label class="mb-1">Nama Notaris:</label>
+                            {{ ormas.namaNotaris }}
+                        <label class="mb-1">No Notaris:</label>
+                            {{ ormas.noNotaris }}
+                        <label class="mb-1">SK Terdaftar:</label>
+                            {{ ormas.skTerdaftar }}
+                        <label class="mb-1">Sk Pengurus:</label>
+                            {{ ormas.skPengurus }}
+                    </div>
+                    <div class="tab">
+                        <label class="mb-1">Nama Ketua:</label>
+                            {{ ormas.namaKetua }}
+                        <label class="mb-1">Tempat/ Tgl lahir Ketua:</label>
+                            {{ ormas.ttlKetua }}
+                        <label class="mb-1">No Ketua:</label>
+                            {{ ormas.noKetua }}
+                        <label class="mb-1">Bukti identitas Ketua:</label>
+                            {{ ormas.biodataKetua }}
+                    </div>
+                    <div class="tab">
+                        <label class="mb-1">Nama Sekretaris:</label>
+                            {{ ormas.namaSekretaris }}
+                        <label class="mb-1">Tempat/ Tgl lahir Sekretaris:</label>
+                            {{ ormas.ttlSekretaris }}
+                        <label class="mb-1">No Sekretaris:</label>
+                            {{ ormas.noSekretaris }}
+                        <label class="mb-1">Bukti identitas Sekretaris:</label>
+                            {{ ormas.biodataSekretaris }}
+                    </div>
+                    <div class="tab">
+                        <label class="mb-1">Nama Bendahara:</label>
+                            {{ ormas.namaBendahara }}
+                        <label class="mb-1">Tempat/ Tgl lahir Bendahara:</label>
+                            {{ ormas.ttlBendahara }}
+                        <label class="mb-1">No Bendahara:</label>
+                            {{ ormas.noBendahara }}
+                        <label class="mb-1">Bukti identitas Bendahara:</label>
+                            {{ ormas.biodataBendahara }}
+                        {{ormas.status}}
+                    </div>
+                    <div class="all-steps" id="all-steps"> <span class="step"></span> <span class="step"></span> <span class="step"></span> <span class="step"></span> <span class="step"></span></div>
                 </div>
             </div>
             <br><br>
-            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
-            <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+            <div id="nextprevious">
+                <div style="float:right;"> <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button> <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button> </div>
+            </div>
+            </div>
         </form>
     </div>
 </div>
