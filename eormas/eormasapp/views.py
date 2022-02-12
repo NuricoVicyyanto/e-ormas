@@ -63,7 +63,7 @@ def register(request):
             # Ormas.objects.create(
 			# 	user=user,
 			# 	)
-            messages.success(request, 'Account was created for '+ user)
+            messages.success(request, 'Account was created')
             return redirect('login')
 
     konteks = {'form': form}
