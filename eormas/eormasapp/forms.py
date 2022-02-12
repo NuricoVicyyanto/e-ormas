@@ -75,7 +75,7 @@ class FormOrmas(ModelForm):
             'unsur':forms.Select({'class':'form-control', 'id':'Unsur'}, choices=JENIS),
             'bidang':forms.Select({'class':'form-control', 'id':'Bidang'}, choices=BIDANG),
             'alamat':forms.TextInput({'class':'form-control', 'id':'Alamat'}),
-            'buktiAlamat':forms.FileInput({'class':'form-control'}),
+            'buktiAlamat':forms.FileInput({'class':'form-control', 'id':'BuktiAlamat'}),
             'desa':forms.TextInput({'class':'form-control', 'id':'Desa'}),
             'kecamatan':forms.TextInput({'class':'form-control', 'id':'Kecamatan'}),
             'kabupaten':forms.TextInput({'class':'form-control', 'id':'Kabupaten'}),
