@@ -21,8 +21,31 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import Group
 from django.utils.timezone import now
 from django.views.decorators.csrf import csrf_exempt
+import csv
+
+def file_load_view(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachement; filename="report.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Nama Ormas', 'Jenis Ormas','Bidang Ormas', 'Alamat', 'Kelurahan', 'Kecamatan', 'Kabupaten','Nama Notaris', 'Nomor Notaris', 'Nama Ketua', 
+    'ttl Ketua', 'Nomor Ketua', 'Nama Sekretaris','ttl Sekretaris','Nomor Sekretaris', 'Nama Bendahara','ttl Bendahara', 'noBendahara'])
+
+    ormas = Ormas.objects.filter(status= '1')
+
+    # Note: we convert the students query set to a values_list as the writerow expects a list/tuple       
+    ormas = ormas.all().values_list('nama', 'unsur','bidang', 'alamat', 'desa', 'kecamatan', 'kabupaten','namaNotaris', 'noNotaris', 'namaKetua', 
+    'ttlKetua', 'noKetua', 'namaSekretaris','ttlSekretaris','noSekretaris', 'namaBendahara','ttlBendahara', 'noBendahara')
+
+    for ormas in ormas:
+        writer.writerow(ormas)
+
+    return response
+
+
 
 # Create your views here.
+
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')

@@ -53,12 +53,12 @@
               <a href="#">E-Ormas</a>
           </div>
           <ul class="sidebar-menu">
-            <li class="nav-item dropdown active">
+            {% comment %} <li class="nav-item dropdown active">
               <a href="{% url 'tambah_ormas' %}" class="nav-link">
                 <i class="fas fa-address-card"></i>
                 <span>Daftar</span>
               </a>
-            </li>
+            </li> {% endcomment %}
               {% if request.user.is_superuser %}
               <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>Tables</span></a>

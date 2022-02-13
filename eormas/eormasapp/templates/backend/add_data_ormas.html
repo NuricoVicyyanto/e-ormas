@@ -6,7 +6,6 @@
         <div class="section-header">
             <h1>Formulir Pengisian Data Ormas</h1>
         </div>
-
         <div class="section-body">
             <h2 class="section-title">Formulir Pengisian Data Ormas</h2>
             <p class="section-lead">Isi data-data yang tersedia pada kolom dengan lengkap dan benar!!</p>
@@ -22,7 +21,56 @@
                                         {% endif %}
                                         <form action="/tambah_ormas/" method="post" enctype="multipart/form-data">
                                             {% csrf_token %}
-                                            {{ form.as_p }}
+                                            <label class="mb-1">Nama Organisasi:</label>
+                                                {{ form.nama }}
+                                            <label class="mb-1">Jenis Organisasi:</label>
+                                                {{ form.unsur }}
+                                            <label class="mb-1">Bidang Kegiatan:</label>
+                                                {{ form.bidang }}
+                                                {{ form.user }}
+                                            <label class="mb-1">Alamat:</label>
+                                                {{ form.alamat }}
+                                            <label class="mb-1">Bukti Alamat:</label>
+                                                {{ form.buktiAlamat }}
+                                            <label class="mb-1">Kelurahan:</label>
+                                                {{ form.desa }}
+                                            <label class="mb-1">Kecamatan:</label>
+                                                {{ form.kecamatan }}
+                                            <label class="mb-1">Kabupaten:</label>
+                                                {{ form.kabupaten }}
+                                            <label class="mb-1">Nama Notaris:</label>
+                                                {{ form.namaNotaris }}
+                                            <label class="mb-1">No Notaris:</label>
+                                                {{ form.noNotaris }}
+                                            <label class="mb-1">SK Terdaftar:</label>
+                                                {{ form.skTerdaftar }}
+                                            <label class="mb-1">Sk Pengurus:</label>
+                                                {{ form.skPengurus }}
+                                            <label class="mb-1">Nama Ketua:</label>
+                                                {{ form.namaKetua }}
+                                            <label class="mb-1">Tempat/ Tgl lahir Ketua:</label>
+                                                {{ form.ttlKetua }}
+                                            <label class="mb-1">No Ketua:</label>
+                                                {{ form.noKetua }}
+                                            <label class="mb-1">Bukti identitas Ketua:</label>
+                                                {{ form.biodataKetua }}
+                                            <label class="mb-1">Nama Sekretaris:</label>
+                                                {{ form.namaSekretaris }}
+                                            <label class="mb-1">Tempat/ Tgl lahir Sekretaris:</label>
+                                                {{ form.ttlSekretaris }}
+                                            <label class="mb-1">No Sekretaris:</label>
+                                                {{ form.noSekretaris }}
+                                            <label class="mb-1">Bukti identitas Sekretaris:</label>
+                                                {{ form.biodataSekretaris }}
+                                            <label class="mb-1">Nama Bendahara:</label>
+                                                {{ form.namaBendahara }}
+                                            <label class="mb-1">Tempat/ Tgl lahir Bendahara:</label>
+                                                {{ form.ttlBendahara }}
+                                            <label class="mb-1">No Bendahara:</label>
+                                                {{ form.noBendahara }}
+                                            <label class="mb-1">Bukti identitas Bendahara:</label>
+                                                {{ form.biodataBendahara }}
+                                                {{ form.status }}
                                             <button class="btn btn-dark">Daftar</button>
                                             <a href="/data_ormas" class="btn btn-danger">Kembali</a>
                                         </form>
