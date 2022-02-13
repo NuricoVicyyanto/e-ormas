@@ -39,18 +39,8 @@
                       <li class="nav-item active">
                           <a class="nav-link text-white" href="{% url 'dashboard' %}">Home</a>
                       </li>
-                      <li class="nav-item active dropdown">
-                          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button"
-                              data-bs-toggle="dropdown" aria-expanded="false">
-                              Data Ormas
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <li><a class="dropdown-item" href="{% url 'ormas' %}">Data Ormas</a></li>
-                              <li><a class="dropdown-item" href="{% url 'ormas_uns' %}">Data Ormas(Unsur)</a></li>
-                              <li><a class="dropdown-item" href="{% url 'ormas_ds' %}">Data Ormas(Kelurahan)</a></li>
-                              <li><a class="dropdown-item" href="{% url 'ormas_kec' %}">Data Ormas(Kecamatan)</a></li>
-                              <li><a class="dropdown-item" href="{% url 'ormas_kab' %}">Data Ormas(Kabupaten)</a></li>
-                          </ul>
+                      <li class="nav-item active">
+                        <a class="nav-link js-scroll-trigger text-white" href="{% url 'ormas' %}">Data Ormas</a>
                       </li>
                       <li class="nav-item active">
                           <a class="nav-link js-scroll-trigger text-white" href="{% url 'grafik' %}">Grafik</a>

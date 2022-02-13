@@ -8,19 +8,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 
 function showTab(n) {
-    var x = document.getElementsByClassName("tab");
-    x[n].style.display = "block";
-    if (n == 0) {
-        document.getElementById("prevBtn").style.display = "none";
-    } else {
-        document.getElementById("prevBtn").style.display = "inline";
-    }
-    if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Submit";
-    } else {
-        document.getElementById("nextBtn").innerHTML = "Next";
-    }
-    fixStepIndicator(n)
+var x = document.getElementsByClassName("tab");
+x[n].style.display = "block";
+if (n == 0) {
+document.getElementById("prevBtn").style.display = "none";
+} else {
+document.getElementById("prevBtn").style.display = "inline";
+}
+if (n == (x.length - 1)) {
+document.getElementById("nextBtn").innerHTML = "Submit";
+} else {
+document.getElementById("nextBtn").innerHTML = "Next";
+}
+if (n == (x.length)) {
+  document.getElementById("nextBtn").type = "submit";
+}
+fixStepIndicator(n)
 }
 
 function nextPrev(n) {

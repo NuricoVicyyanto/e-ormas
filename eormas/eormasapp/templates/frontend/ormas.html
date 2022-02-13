@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 {% block content %}
 <div class="container container-box">
-<div class="shadow p-3 mb-5 bg-white rounded">
+  <div class="shadow p-3 mb-5 mx-3 bg-white rounded">
     <div class="card-body">
       <h5 class="card-title">e-Ormas</h5>
       <div class="card-body p-0">
@@ -38,6 +38,140 @@
               {% endfor %}
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ver-col justify-content-between">
+    <div class="shadow p-3 mb-5 mx-3 bg-white rounded">
+      <div class="card-body">
+        <h5 class="card-title">e-Ormas</h5>
+        <div class="card-body p-0">
+          <form>
+            <div class="input-group">
+              <input type="text" class="form-control" id="myInput" placeholder="Search">
+              <div class="input-group-btn">
+              </div>
+            </div>
+          </form>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                  <tr>
+                    <th scope="col">Unsur</th>
+                    <th scope="col">Jumlah</th>
+                  </tr>
+                </thead>
+                <tbody id="myTable">
+                  {% for ormas in ormas %}
+                  <tr>
+                    <td>{{ ormas.unsur }}</td>
+                    <td>{{ ormas.jumlah }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shadow p-3 mb-5 mx-3 bg-white rounded">
+      <div class="card-body">
+        <h5 class="card-title">e-Ormas</h5>
+        <div class="card-body p-0">
+          <form>
+            <div class="input-group">
+              <input type="text" class="form-control" id="myInput" placeholder="Search">
+              <div class="input-group-btn">
+              </div>
+            </div>
+          </form>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Desa</th>
+                  <th scope="col">Jumlah</th>
+                </tr>
+              </thead>
+              <tbody id="myTable">
+                {% for ormas in ormas %}
+                <tr>
+                  <td>{{ ormas.desa }}</td>
+                  <td>{{ ormas.jumlah }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shadow p-3 mb-5 mx-3 bg-white rounded">
+      <div class="card-body">
+        <h5 class="card-title">e-Ormas</h5>
+        <div class="card-body p-0">
+          <form>
+            <div class="input-group">
+              <input type="text" class="form-control" id="myInput" placeholder="Search">
+              <div class="input-group-btn">
+              </div>
+            </div>
+          </form>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                  <tr>
+                    <th scope="col">Kecamatan</th>
+                    <th scope="col">Jumlah</th>
+                  </tr>
+                </thead>
+                <tbody id="myTable">
+                  {% for ormas in ormas %}
+                  <tr>
+                    <td>{{ ormas.kecamatan }}</td>
+                    <td>{{ ormas.jumlah }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shadow p-3 mb-5 mx-3 bg-white rounded">
+      <div class="card-body">
+        <h5 class="card-title">e-Ormas</h5>
+        <div class="card-body p-0">
+          <form>
+            <div class="input-group">
+              <input type="text" class="form-control" id="myInput" placeholder="Search">
+              <div class="input-group-btn">
+              </div>
+            </div>
+          </form>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                  <tr>
+                    <th scope="col">Kabupaten</th>
+                    <th scope="col">Jumlah</th>
+                  </tr>
+                </thead>
+                <tbody id="myTable">
+                  {% for ormas in ormas %}
+                  <tr>
+                    <td>{{ ormas.kabupaten }}</td>
+                    <td>{{ ormas.jumlah }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
