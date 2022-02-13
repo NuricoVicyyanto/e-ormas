@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'eormasapp.apps.EormasappConfig',
     'django_cleanup.apps.CleanupConfig',
     'social_django',
-    'import_export',
     
 ]
 
