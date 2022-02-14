@@ -12,6 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <script type="text/javascript"
         src="https://code.jquery.com/jquery-3.5.1.js">
         </script>
@@ -36,17 +38,17 @@
             <div class="justify-content-end mx-4">
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="nav navbar-nav navbar-right">
-                      <li class="nav-item active">
-                          <a class="nav-link text-white" href="{% url 'dashboard' %}">Home</a>
+                      <li class="nav-item active text-center">
+                          <a class="nav-link text-white h6" data-toggle="collapse" href="{% url 'dashboard' %}"><i class="fa fa-home fa-2x"></i><br>Home</a>
                       </li>
                       <li class="nav-item active">
-                        <a class="nav-link js-scroll-trigger text-white" href="{% url 'ormas' %}">Data Ormas</a>
+                        <a class="nav-link  text-white h6" href="{% url 'ormas' %}"><i class="fa fa-table fa-2x"></i><br>Data Ormas</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link js-scroll-trigger text-white" href="{% url 'grafik' %}">Grafik</a>
+                          <a class="nav-link text-white h6" href="{% url 'grafik' %}"><i class="fa fa-bar-chart fa-2x"></i><br>Grafik</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link js-scroll-trigger text-white" href="{% url 'galeri_view' %}">Galeri</a>
+                          <a class="nav-link text-white h6" href="{% url 'galeri_view' %}"><i class="fa fa-file-image-o fa-2x"></i><br>Galeri</a>
                       </li>
                   </ul>
                   <span class="navbar-text">

@@ -1,88 +1,130 @@
-{% extends 'index.html' %}
-{% block content %}
-<div class="running-text bg-warning">
+{% extends 'index.html' %} {% block content %}
+<div class="running-text bg-primary text-white">
   <marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
-    {% for informasi in informasi %}
-    {{ informasi.informasi}}-{{ informasi.tanggal }} <span style="color:red">|</span>
+    {% for informasi in informasi %} {{ informasi.informasi}}-{{
+    informasi.tanggal }} <span style="color: red">|</span>
     {% endfor %}
-    </marquee>
-</div> <br>
-    <div class="konten">
-      <div class="isi-konten">
+  </marquee>
+</div>
+<br />
+<div class="konten">
+  <div class="isi-konten">
+    <!-- <div class="container"> -->
+    <div class="row">
+      <div class="col-7">
+        <div class="card">
+          <div class="card-header">Selamat Datang</div>
+          <div class="card-body">
+            <p class="card-text">
+              e-Ormas adalah aplikasi yang digunakan sebagai media atau basis
+              data informasi Organisasi dan Lembaga Masayarakat pada Badan
+              Kesatuan Bangsa dan Politik Dalam Negeri Pemerintah Kabupaten
+              Madiun. Organisasi Kemasyarakatan yang selanjutnya disebut ORMAS
+              adalah organisasi yang didirikan dan dibentuk oleh masyarakat
+              secara sukarela berdasarkan kesamaan aspirasi, kehendak,
+              kebutuhan, kepentingan, kegiatan, dan tujuan untuk berpartisipasi
+              dalam pembangunan demi tercapainya tujuan Negara Kesatuan Republik
+              Indonesia yang berdasarkan Pancasila.
+            </p>
+            <hr />
+            <br />
 
+            <h5><strong> Tujuan Ormas </strong></h5>
+            <p>
+              A. Meningkatkan Partisipasi Dan Keberdayaan Masyarakat. <br />
+              B. Memberikan Pelayanan Kepada Masyarakat. <br />
+              C. Menjaga Nilai Agama Dan Kepercayaan Terhadap Tuhan Yang Maha
+              Esa. <br />
+              D. Melestarikan Dan Memelihara Norma, Nilai, Moral, Etika, Dan
+              Budaya Yang Hidup Dalam Masyarakat.<br />
+              E. Melestarikan Sumber Daya Alam Dan Lingkungan Hidup. <br />
+              F. Mengembangkan Kesetiakawanan Sosial, Gotong Royong, Dan
+              Toleransi Dalam Kehidupan Bermasyarakat. <br />
+              G. Menjaga, Memelihara, Dan Memperkuat Persatuan Dan Kesatuan
+              Bangsa. Dan <br />
+              H. Mewujudkan Tujuan Negara.
+            </p>
+          </div>
+        </div>
+      </div>
 
-        <!-- <div class="container"> -->
-          <div class="row">
-            <div class="col-7">
-              <div class="card">
-                <div class="card-header">
-                  Selamat Datang
-                </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    e-Ormas adalah aplikasi yang digunakan sebagai media atau basis data informasi Organisasi dan Lembaga Masayarakat pada Badan Kesatuan Bangsa dan Politik Dalam Negeri Pemerintah Kabupaten Madiun. Organisasi Kemasyarakatan yang selanjutnya disebut ORMAS adalah organisasi yang didirikan dan dibentuk oleh masyarakat secara sukarela berdasarkan kesamaan aspirasi, kehendak, kebutuhan, kepentingan, kegiatan, dan tujuan untuk berpartisipasi dalam pembangunan demi tercapainya tujuan Negara Kesatuan Republik Indonesia yang berdasarkan Pancasila.</p><hr>
-                    <br>
-
-                     <h5> <strong> Tujuan Ormas </strong></h5> 
-                    <p>A. Meningkatkan Partisipasi Dan Keberdayaan Masyarakat. <br>
-                    B. Memberikan Pelayanan Kepada Masyarakat. <br>
-                    C. Menjaga Nilai Agama Dan Kepercayaan Terhadap Tuhan Yang Maha Esa. <br>
-                    D. Melestarikan Dan Memelihara Norma, Nilai, Moral, Etika, Dan Budaya Yang Hidup Dalam Masyarakat.<br>
-                    E. Melestarikan Sumber Daya Alam Dan Lingkungan Hidup. <br>
-                    F. Mengembangkan Kesetiakawanan Sosial, Gotong Royong, Dan Toleransi Dalam Kehidupan Bermasyarakat. <br>
-                    G. Menjaga, Memelihara, Dan Memperkuat Persatuan Dan Kesatuan Bangsa. Dan <br>
-                    H. Mewujudkan Tujuan Negara.</p>
-
-                </div>
+      <div class="col-5">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne"
+                aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseOne"
+              >
+                <h6><strong>Hak Ormas</strong></h6>
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-headingOne"
+            >
+              <div class="accordion-body">
+                <p>
+                  A. Mengatur Dan Mengurus Rumah Tangga Organisasi Secara
+                  Mandiri Dan Terbuka. <br />
+                  B. Memperoleh Hak Atas Kekayaan Intelektual Untuk Nama Dan
+                  Lambang Ormas Sesuai Dengan Ketentuan Peraturan
+                  Perundang-Undangan.<br />
+                  C. Memperjuangkan Cita-Cita Dan Tujuan Organisasi.<br />
+                  D. Melaksanakan Kegiatan Untuk Mencapai Tujuan Organisasi.<br />
+                  E. Mendapatkan Perlindungan Hukum Terhadap Keberadaan Dan
+                  Kegiatan Organisasi. <br />
+                  F. Melakukan Kerja Sama Dengan Pemerintah, Pemerintah Daerah,
+                  Swasta, Ormas Lain, Dan Pihak Lain Dalam Rangka Pengembangan
+                  Dan Keberlanjutan Organisasi.
+                </p>
               </div>
             </div>
-
-
-            <div class="col-5">
-
-                <div class="accordion" id="accordionPanelsStayOpenExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-                        <h6><strong>Hak Ormas</strong></h6>
-                      </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                      <div class="accordion-body">
-                        <p>A. Mengatur Dan Mengurus Rumah Tangga Organisasi Secara Mandiri Dan Terbuka. <br>
-                          B. Memperoleh Hak Atas Kekayaan Intelektual Untuk Nama Dan Lambang Ormas Sesuai Dengan Ketentuan Peraturan Perundang-Undangan.<br>
-                          C. Memperjuangkan Cita-Cita Dan Tujuan Organisasi.<br>
-                          D. Melaksanakan Kegiatan Untuk Mencapai Tujuan Organisasi.<br>
-                          E. Mendapatkan Perlindungan Hukum Terhadap Keberadaan Dan Kegiatan Organisasi. <br>
-                          F. Melakukan Kerja Sama Dengan Pemerintah, Pemerintah Daerah, Swasta, Ormas Lain, Dan Pihak Lain Dalam Rangka Pengembangan Dan Keberlanjutan Organisasi. </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                        <h6><strong>Kewajiban Ormas</strong></h6>
-                      </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
-                      <div class="accordion-body">
-                        <p>A. Melaksanakan Kegiatan Sesuai Dengan Tujuan Organisasi. <br>
-                        B. Menjaga Persatuan Dan Kesatuan Bangsa Serta Keutuhan Negara Kesatuan Republik Indonesia. <br>
-                        C. Memelihara Nilai Agama, Budaya, Moral, Etika, Dan Norma Kesusilaan Serta Memberikan Manfaat Untuk Masyarakat. <br>
-                        D. Menjaga Ketertiban Umum Dan Terciptanya Kedamaian Dalam Masyarakat. <br>
-                        E. Melakukan Pengelolaan Keuangan Secara Transparan Dan Akuntabel; Berpartisipasi Dalam Pencapaian Tujuan Negara.</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
-              
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo"
+                aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseTwo"
+              >
+                <h6><strong>Kewajiban Ormas</strong></h6>
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapseTwo"
+              class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-headingTwo"
+            >
+              <div class="accordion-body">
+                <p>
+                  A. Melaksanakan Kegiatan Sesuai Dengan Tujuan Organisasi.
+                  <br />
+                  B. Menjaga Persatuan Dan Kesatuan Bangsa Serta Keutuhan Negara
+                  Kesatuan Republik Indonesia. <br />
+                  C. Memelihara Nilai Agama, Budaya, Moral, Etika, Dan Norma
+                  Kesusilaan Serta Memberikan Manfaat Untuk Masyarakat. <br />
+                  D. Menjaga Ketertiban Umum Dan Terciptanya Kedamaian Dalam
+                  Masyarakat. <br />
+                  E. Melakukan Pengelolaan Keuangan Secara Transparan Dan
+                  Akuntabel; Berpartisipasi Dalam Pencapaian Tujuan Negara.
+                </p>
+              </div>
             </div>
           </div>
-        <!-- </div> -->
-
-
-        
         </div>
-    </div> <br><br>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+</div>
+<br /><br />
 {% endblock %}

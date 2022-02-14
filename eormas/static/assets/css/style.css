@@ -40,11 +40,12 @@
 }
 
 .navbar {
-    background-color: #1565c0;
+    background-color: #110485;
+    height: 90px;
 }
 
 .page-footer{
-    background-color: #1565c0;
+    background-color: #110485;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -54,10 +55,11 @@
 
 .running-text{
     color:#1565c0;
+    padding-top: 20px;
 }
 
 .footer-copyright{
-    background-color:#1e88e5;
+    background-color:#2c00cc;
 }
 
 .main-desc h1 {

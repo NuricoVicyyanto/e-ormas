@@ -39,10 +39,6 @@ urlpatterns = [
 
     path('', views.dashboard, name='dashboard'),
     path('ormas/', views.ormas, name='ormas'),
-    path('ormas_uns/', views.ormasUnsur, name='ormas_uns'),
-    path('ormas_ds/', views.ormasDesa, name='ormas_ds'),
-    path('ormas_kec/', views.ormasKecamatan, name='ormas_kec'),
-    path('ormas_kab/', views.ormasKabupaten, name='ormas_kab'),
     path('grafik/', views.grafik, name='grafik'),
     path('galeri_view/', views.galeriView, name='galeri_view'),
 
@@ -55,10 +51,13 @@ urlpatterns = [
     # ormas
     path('data_ormas/', views.dataOrmas, name='data_ormas'),
     path('tambah_ormas/', views.tambahOrmas,  name='tambah_ormas'),
-    path('data_ormas/edit_ormas/<int:id_ormas>', views.editOrmas, name='edit_ormas'),
-    path('data_ormas/hapus_ormas/<int:id_ormas>', views.hapusOrmas, name='hapus_ormas'),
-    path('data_ormas/publish_ormas/<int:id_ormas>', views.publishOrmas, name='publish_ormas'),
-    
+    path('data_ormas/edit_ormas/<int:id_ormas>',
+         views.editOrmas, name='edit_ormas'),
+    path('data_ormas/hapus_ormas/<int:id_ormas>',
+         views.hapusOrmas, name='hapus_ormas'),
+    path('data_ormas/publish_ormas/<int:id_ormas>',
+         views.publishOrmas, name='publish_ormas'),
+
     path('jml_ormas_uns/', views.jmlOrmasDesa, name='jml_ormas_uns'),
     path('jml_ormas_ds/', views.jmlOrmasDesa, name='jml_ormas_ds'),
     path('jml_ormas_kec/', views.jmlOrmasKecamatan, name='jml_ormas_kec'),
@@ -67,12 +66,16 @@ urlpatterns = [
     # galeri
     path('galeri/', views.galeri, name='galeri'),
     path('tambah_galeri/', views.tambahGaleri, name='tambah_galeri'),
-    path('galeri/edit_galeri/<int:id_galeri>', views.editGaleri, name='edit_galeri'),
-    path('galeri/hapus_galeri/<int:id_galeri>', views.hapusGaleri, name='hapus_galeri'),
+    path('galeri/edit_galeri/<int:id_galeri>',
+         views.editGaleri, name='edit_galeri'),
+    path('galeri/hapus_galeri/<int:id_galeri>',
+         views.hapusGaleri, name='hapus_galeri'),
 
     # informasi
     path('informasi/', views.informasi, name='informasi'),
     path('tambah_informasi/', views.tambahInformasi, name='tambah_informasi'),
-    path('informasi/edit_informasi/<int:id_informasi>', views.editInformasi, name='edit_informasi'),
-    path('informasi/hapus_informasi/<int:id_informasi>', views.hapusInformasi, name='hapus_informasi'),
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    path('informasi/edit_informasi/<int:id_informasi>',
+         views.editInformasi, name='edit_informasi'),
+    path('informasi/hapus_informasi/<int:id_informasi>',
+         views.hapusInformasi, name='hapus_informasi'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

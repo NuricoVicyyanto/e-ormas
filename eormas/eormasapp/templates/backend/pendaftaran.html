@@ -1,20 +1,26 @@
-{% extends "userard.html" %}
-{% block title %} Home Page {% endblock title%}
-{% block content %}
-    <div class="box">
-        <h1 class="display-4">Selamat Datang, {{user.username.title|default:'Guest'}}</h1>
-        <p class="lead">
-            Selamat datang di sistem pendaftaran e-ormas Badan Kesatuan Bangsa dan Politik Kabupaten Bondowoso
-            , Silahkan lengkapi data-data ormas anda pada halaman profile dengan lengkap dan benar, pastikan data anda telah diisi dengan 
-            baik agar proses verifiksi ormas anda berjalan dengan baik.
-        </p>
-        <hr class="my-4">
-        <p class="lead">
-            {% if user.is_authenticated %}
-                <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
-            {% else %}
-                <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign in</a>
-            {% endif %}
-        </p>
-    </div>
+{% extends "userard.html" %} {% block title %} Home Page {% endblock title%} {%
+block content %}
+<div class="box">
+  <h1 class="display-4">
+    Selamat Datang, {{user.username.title|default:'Guest'}}
+  </h1>
+  <p class="lead">
+    Selamat datang di sistem pendaftaran e-ormas Badan Kesatuan Bangsa dan
+    Politik Kabupaten Bondowoso , Silahkan lengkapi data-data ormas anda pada
+    halaman profile dengan lengkap dan benar, pastikan data anda telah diisi
+    dengan baik agar proses verifiksi ormas anda berjalan dengan baik.
+  </p>
+  <hr class="my-4" />
+  <p class="lead">
+    {% if user.is_authenticated %}
+    <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button"
+      >Logout</a
+    >
+    {% else %}
+    <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button"
+      >Sign in</a
+    >
+    {% endif %}
+  </p>
+</div>
 {% endblock content %}

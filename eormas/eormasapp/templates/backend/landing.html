@@ -1,65 +1,65 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Data Tables</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+        <li class="breadcrumb-item">Tables</li>
+        <li class="breadcrumb-item active">
+          <a href="{% url 'data_ormas' %}">Data Ormas</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <!-- End Page Title -->
 
-    <div class="pagetitle">
-      <h1>Data Tables</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active"><a href="{% url 'data_ormas' %}">Data Ormas</a></li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Datatables</h5>
-              <table class="table datatable">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">nama</th>
-                    <th scope="col">unsur</th>
-                    <th scope="col">alamat</th>
-                    <th scope="col">desa</th>
-                    <th scope="col">kecamatan</th>
-                    <th scope="col">kabupaten</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for ormas in ormas %}
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>28</td>
-                    <td>28</td>
-                    <td>28</td>
-                    <td>
-                      <a href="#" class="btn btn-secondary">Edit</a>
-                      <a href="#" class="btn btn-danger">Hapus</a>
-                    </td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-              <a href="{% url 'tambah_ormas' %}" class="btn btn-primary">Tambah</a>
-
-            </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Datatables</h5>
+            <table class="table datatable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">nama</th>
+                  <th scope="col">unsur</th>
+                  <th scope="col">alamat</th>
+                  <th scope="col">desa</th>
+                  <th scope="col">kecamatan</th>
+                  <th scope="col">kabupaten</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for ormas in ormas %}
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Brandon Jacob</td>
+                  <td>Designer</td>
+                  <td>28</td>
+                  <td>28</td>
+                  <td>28</td>
+                  <td>28</td>
+                  <td>
+                    <a href="#" class="btn btn-secondary">Edit</a>
+                    <a href="#" class="btn btn-danger">Hapus</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <a href="{% url 'tambah_ormas' %}" class="btn btn-primary"
+              >Tambah</a
+            >
           </div>
-
         </div>
       </div>
-    </section>
-
-  </main><!-- End #main -->
+    </div>
+  </section>
+</main>
+<!-- End #main -->
 
 {% endblock %}

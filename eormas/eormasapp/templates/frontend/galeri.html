@@ -1,5 +1,4 @@
-{% extends 'index.html' %}
-{% block content %}
+{% extends 'index.html' %} {% block content %}
 
 <div class="container container-box">
   <h1 class="text-center mb-4">Galeri Ormas</h1>
@@ -7,24 +6,27 @@
     {% for galeri in galeri %}
     <div class="col-lg-4">
       <div class="galeri-box">
-            <div class="galeri">
-              {% if galeri.image %}
-                <div class="bi-pic p-3">
-                  <img src="{{ galeri.image.url }}" class=" gmbr w-100 shadow-1-strong" alt="">
-                </div>
-              {% endif %}
-              <div class="bi-text p-4">
-                <h4>{{ galeri.judul }}</h4>
-                <p>{{ galeri.caption }}</p> 
-              </div>
-            </div>
+        <div class="galeri">
+          {% if galeri.image %}
+          <div class="bi-pic p-3">
+            <img
+              src="{{ galeri.image.url }}"
+              class="gmbr w-100 shadow-1-strong"
+              alt=""
+            />
+          </div>
+          {% endif %}
+          <div class="bi-text p-4">
+            <h4>{{ galeri.judul }}</h4>
+            <p>{{ galeri.caption }}</p>
+          </div>
+        </div>
       </div>
     </div>
     {% endfor %}
   </div>
-</div><br><br><br>
-  <!-- Blog Section End -->
-
-
+</div>
+<br /><br /><br />
+<!-- Blog Section End -->
 
 {% endblock %}

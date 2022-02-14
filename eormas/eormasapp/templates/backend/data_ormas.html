@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="main-content">
   <section class="section">
@@ -15,9 +14,16 @@
               <div class="card-header-action">
                 <form>
                   <div class="input-group">
-                    <input type="text" class="form-control" id="myInput" placeholder="Search">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="myInput"
+                      placeholder="Search"
+                    />
                     <div class="input-group-btn">
-                      <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                      <button class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -25,7 +31,9 @@
             </div>
             <div class="card-body p-0">
               <div class="table-responsive">
-                <a class="btn btn-success" href="{% url 'export_data' %}">Export Data</a>
+                <a class="btn btn-success" href="{% url 'export_data' %}"
+                  >Export Data</a
+                >
                 <table class="table datatable" id="movie">
                   <thead>
                     <tr>
@@ -65,8 +73,7 @@
                       <td>{{ ormas.bidang }}</td>
                       <td>{{ ormas.alamat }}</td>
                       <td>
-                      <a href="{{ ormas.buktiAlamat.url }}">Review</a>
-                
+                        <a href="{{ ormas.buktiAlamat.url }}">Review</a>
                       </td>
                       <td>{{ ormas.desa }}</td>
                       <td>{{ ormas.kecamatan }}</td>
@@ -75,21 +82,21 @@
                       <td>{{ ormas.noNotaris }}</td>
                       <td>
                         {% if ormas.skTerdaftar %}
-                        <img src="{{ ormas.skTerdaftar.url }}" width="90px">
+                        <img src="{{ ormas.skTerdaftar.url }}" width="90px" />
                         {% endif %}
                       </td>
                       <td>
                         {% if ormas.skPengurus %}
-                        <img src="{{ ormas.skPengurus.url }}" width="90px">
+                        <img src="{{ ormas.skPengurus.url }}" width="90px" />
                         {% endif %}
                       </td>
-                      
+
                       <td>{{ ormas.namaKetua }}</td>
                       <td>{{ ormas.ttlKetua }}</td>
                       <td>{{ ormas.noKetua }}</td>
                       <td>
                         {% if ormas.biodataKetua %}
-                        <img src="{{ ormas.biodataKetua.url }}" width="90px">
+                        <img src="{{ ormas.biodataKetua.url }}" width="90px" />
                         {% endif %}
                       </td>
 
@@ -98,7 +105,10 @@
                       <td>{{ ormas.noSekretaris }}</td>
                       <td>
                         {% if ormas.biodataSekretaris %}
-                        <img src="{{ ormas.biodataSekretaris.url }}" width="90px">
+                        <img
+                          src="{{ ormas.biodataSekretaris.url }}"
+                          width="90px"
+                        />
                         {% endif %}
                       </td>
 
@@ -107,7 +117,10 @@
                       <td>{{ ormas.noBendahara }}</td>
                       <td>
                         {% if ormas.biodataBendahara %}
-                        <img src="{{ ormas.biodataBendahara.url }}" width="90px">
+                        <img
+                          src="{{ ormas.biodataBendahara.url }}"
+                          width="90px"
+                        />
                         {% endif %}
                       </td>
                       {% if ormas.status == '0' %}
@@ -116,28 +129,45 @@
                       <td>Accepted</td>
                       {% endif %}
                       <td>
-                        <a href="{% url 'edit_ormas' ormas.id %}" class="btn btn-secondary">Edit</a>
-                        <a href="{% url 'hapus_ormas' ormas.id %}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">Hapus</a>
+                        <a
+                          href="{% url 'edit_ormas' ormas.id %}"
+                          class="btn btn-secondary"
+                          >Edit</a
+                        >
+                        <a
+                          href="{% url 'hapus_ormas' ormas.id %}"
+                          class="btn btn-danger"
+                          onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
+                          >Hapus</a
+                        >
                       </td>
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
-                <div class="container ">
+                <div class="container">
                   <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                      <li class="page-item"><a class="page-link paginate" id="previous" href="#">Previous</a></li>
-                      <li class="page-item"><a class="page-link paginate" id="next" href="#">Next</a></li>
+                      <li class="page-item">
+                        <a class="page-link paginate" id="previous" href="#"
+                          >Previous</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link paginate" id="next" href="#"
+                          >Next</a
+                        >
+                      </li>
                     </ul>
                   </nav>
-                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
+
     <div class="section-body">
       <div class="row">
         <div class="col-12">
@@ -147,9 +177,16 @@
               <div class="card-header-action">
                 <form>
                   <div class="input-group">
-                    <input type="text" class="form-control" id="myInput" placeholder="Search">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="myInput"
+                      placeholder="Search"
+                    />
                     <div class="input-group-btn">
-                      <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                      <button class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -197,7 +234,10 @@
                       <td>{{ unverormas.alamat }}</td>
                       <td>
                         {% if unverormas.buktiAlamat %}
-                        <img src="{{ unverormas.buktiAlamat.url }}" width="90px">
+                        <img
+                          src="{{ unverormas.buktiAlamat.url }}"
+                          width="90px"
+                        />
                         {% endif %}
                       </td>
                       <td>{{ unverormas.desa }}</td>
@@ -207,20 +247,29 @@
                       <td>{{ unverormas.noNotaris }}</td>
                       <td>
                         {% if unverormas.skTerdaftar %}
-                        <img src="{{ unverormas.skTerdaftar.url }}" width="90px">
+                        <img
+                          src="{{ unverormas.skTerdaftar.url }}"
+                          width="90px"
+                        />
                         {% endif %}
                       </td>
                       <td>
                         {% if unverormas.skPengurus %}
-                        <img src="{{ unverormas.skPengurus.url }}" width="90px">
+                        <img
+                          src="{{ unverormas.skPengurus.url }}"
+                          width="90px"
+                        />
                         {% endif %}
-                      </td>   
+                      </td>
                       <td>{{ unverormas.namaKetua }}</td>
                       <td>{{ unverormas.ttlKetua }}</td>
                       <td>{{ unverormas.noKetua }}</td>
                       <td>
                         {% if unverormas.biodataKetua %}
-                        <img src="{{ unverormas.biodataKetua.url }}" width="90px">
+                        <img
+                          src="{{ unverormas.biodataKetua.url }}"
+                          width="90px"
+                        />
                         {% endif %}
                       </td>
                       <td>{{ unverormas.namaSekretaris }}</td>
@@ -228,7 +277,10 @@
                       <td>{{ unverormas.noSekretaris }}</td>
                       <td>
                         {% if unverormas.biodataSekretaris %}
-                        <img src="{{ unverormas.biodataSekretaris.url }}" width="90px">
+                        <img
+                          src="{{ unverormas.biodataSekretaris.url }}"
+                          width="90px"
+                        />
                         {% endif %}
                       </td>
 
@@ -237,7 +289,10 @@
                       <td>{{ unverormas.noBendahara }}</td>
                       <td>
                         {% if unverormas.biodataBendahara %}
-                        <img src="{{ unverormas.biodataBendahara.url }}" width="90px">
+                        <img
+                          src="{{ unverormas.biodataBendahara.url }}"
+                          width="90px"
+                        />
                         {% endif %}
                       </td>
                       {% if unverormas.status == '0' %}
@@ -246,19 +301,40 @@
                       <td>Accepted</td>
                       {% endif %}
                       <td>
-                        <a href="{% url 'edit_ormas' unverormas.id %}" class="btn btn-warning">Review</a>
-                        <a href="{% url 'hapus_ormas' unverormas.id %}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">Hapus</a>
-                        <a href="{% url 'publish_ormas' unverormas.id %}" class="btn btn-success">Accepted</a>
+                        <a
+                          href="{% url 'edit_ormas' unverormas.id %}"
+                          class="btn btn-warning"
+                          >Review</a
+                        >
+                        <a
+                          href="{% url 'hapus_ormas' unverormas.id %}"
+                          class="btn btn-danger"
+                          onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
+                          >Hapus</a
+                        >
+                        <a
+                          href="{% url 'publish_ormas' unverormas.id %}"
+                          class="btn btn-success"
+                          >Accepted</a
+                        >
                       </td>
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
-                <div class="container ">
+                <div class="container">
                   <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                      <li class="page-item"><a class="page-link paginate" id="previous" href="#">Previous</a></li>
-                      <li class="page-item"><a class="page-link paginate" id="next" href="#">Next</a></li>
+                      <li class="page-item">
+                        <a class="page-link paginate" id="previous" href="#"
+                          >Previous</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link paginate" id="next" href="#"
+                          >Next</a
+                        >
+                      </li>
                     </ul>
                   </nav>
                 </div>
@@ -268,5 +344,6 @@
         </div>
       </div>
     </div>
-</section>
-{% endblock %}
+  </section>
+  {% endblock %}
+</div>

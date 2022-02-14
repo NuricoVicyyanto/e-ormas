@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="main-content">
   <section class="section">
@@ -16,9 +15,15 @@
               <div class="card-header-action">
                 <form>
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Search"
+                    />
                     <div class="input-group-btn">
-                      <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                      <button class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -42,7 +47,12 @@
                       <td>{{ user.email }}</td>
                       <td>{{ user.date_joined }}</td>
                       <td>
-                        <a href="{% url 'hapus_user' user.id %}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">Hapus</a>
+                        <a
+                          href="{% url 'hapus_user' user.id %}"
+                          class="btn btn-danger"
+                          onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
+                          >Hapus</a
+                        >
                       </td>
                     </tr>
                     {% endfor %}
@@ -54,5 +64,6 @@
         </div>
       </div>
     </div>
-</section>
-{% endblock %}
+  </section>
+  {% endblock %}
+</div>

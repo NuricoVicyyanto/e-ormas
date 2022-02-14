@@ -1,5 +1,4 @@
-{% extends 'index.html' %}
-{% block content %}
+{% extends 'index.html' %} {% block content %}
 <div class="container container-box">
   <div class="shadow p-3 mb-5 mx-3 bg-white rounded">
     <div class="card-body">
@@ -7,12 +6,16 @@
       <div class="card-body p-0">
         <form>
           <div class="input-group">
-            <input type="text" class="form-control" id="myInput" placeholder="Search">
-            <div class="input-group-btn">
-            </div>
+            <input
+              type="text"
+              class="form-control"
+              id="myInput"
+              placeholder="Search"
+            />
+            <div class="input-group-btn"></div>
           </div>
         </form>
-        <br>
+        <br />
         <div class="table-responsive">
           <table class="table table-bordered">
             <thead>
@@ -49,28 +52,32 @@
         <div class="card-body p-0">
           <form>
             <div class="input-group">
-              <input type="text" class="form-control" id="myInput" placeholder="Search">
-              <div class="input-group-btn">
-              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="myInput"
+                placeholder="Search"
+              />
+              <div class="input-group-btn"></div>
             </div>
           </form>
-          <br>
+          <br />
           <div class="table-responsive">
             <table class="table table-bordered">
               <thead>
-                  <tr>
-                    <th scope="col">Unsur</th>
-                    <th scope="col">Jumlah</th>
-                  </tr>
-                </thead>
-                <tbody id="myTable">
-                  {% for ormas in ormas %}
-                  <tr>
-                    <td>{{ ormas.unsur }}</td>
-                    <td>{{ ormas.jumlah }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
+                <tr>
+                  <th scope="col">Unsur</th>
+                  <th scope="col">Jumlah</th>
+                </tr>
+              </thead>
+              <tbody id="myTable">
+                {% for ormasuns in ormasuns %}
+                <tr>
+                  <td>{{ ormasuns.unsur }}</td>
+                  <td>{{ ormasuns.jumlah }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
             </table>
           </div>
         </div>
@@ -82,12 +89,16 @@
         <div class="card-body p-0">
           <form>
             <div class="input-group">
-              <input type="text" class="form-control" id="myInput" placeholder="Search">
-              <div class="input-group-btn">
-              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="myInput"
+                placeholder="Search"
+              />
+              <div class="input-group-btn"></div>
             </div>
           </form>
-          <br>
+          <br />
           <div class="table-responsive">
             <table class="table table-bordered">
               <thead>
@@ -97,46 +108,13 @@
                 </tr>
               </thead>
               <tbody id="myTable">
-                {% for ormas in ormas %}
+                {% for ormasds in ormasds %}
                 <tr>
-                  <td>{{ ormas.desa }}</td>
-                  <td>{{ ormas.jumlah }}</td>
+                  <td>{{ ormasds.desa }}</td>
+                  <td>{{ ormasds.jumlah }}</td>
                 </tr>
                 {% endfor %}
               </tbody>
-          </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="shadow p-3 mb-5 mx-3 bg-white rounded">
-      <div class="card-body">
-        <h5 class="card-title">e-Ormas</h5>
-        <div class="card-body p-0">
-          <form>
-            <div class="input-group">
-              <input type="text" class="form-control" id="myInput" placeholder="Search">
-              <div class="input-group-btn">
-              </div>
-            </div>
-          </form>
-          <br>
-          <div class="table-responsive">
-            <table class="table table-bordered">
-              <thead>
-                  <tr>
-                    <th scope="col">Kecamatan</th>
-                    <th scope="col">Jumlah</th>
-                  </tr>
-                </thead>
-                <tbody id="myTable">
-                  {% for ormas in ormas %}
-                  <tr>
-                    <td>{{ ormas.kecamatan }}</td>
-                    <td>{{ ormas.jumlah }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
             </table>
           </div>
         </div>
@@ -148,28 +126,69 @@
         <div class="card-body p-0">
           <form>
             <div class="input-group">
-              <input type="text" class="form-control" id="myInput" placeholder="Search">
-              <div class="input-group-btn">
-              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="myInput"
+                placeholder="Search"
+              />
+              <div class="input-group-btn"></div>
             </div>
           </form>
-          <br>
+          <br />
           <div class="table-responsive">
             <table class="table table-bordered">
               <thead>
-                  <tr>
-                    <th scope="col">Kabupaten</th>
-                    <th scope="col">Jumlah</th>
-                  </tr>
-                </thead>
-                <tbody id="myTable">
-                  {% for ormas in ormas %}
-                  <tr>
-                    <td>{{ ormas.kabupaten }}</td>
-                    <td>{{ ormas.jumlah }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
+                <tr>
+                  <th scope="col">Kecamatan</th>
+                  <th scope="col">Jumlah</th>
+                </tr>
+              </thead>
+              <tbody id="myTable">
+                {% for ormaskec in ormaskec %}
+                <tr>
+                  <td>{{ ormaskec.kecamatan }}</td>
+                  <td>{{ ormaskec.jumlah }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shadow p-3 mb-5 mx-3 bg-white rounded">
+      <div class="card-body">
+        <h5 class="card-title">e-Ormas</h5>
+        <div class="card-body p-0">
+          <form>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                id="myInput"
+                placeholder="Search"
+              />
+              <div class="input-group-btn"></div>
+            </div>
+          </form>
+          <br />
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Kabupaten</th>
+                  <th scope="col">Jumlah</th>
+                </tr>
+              </thead>
+              <tbody id="myTable">
+                {% for ormaskab in ormaskab %}
+                <tr>
+                  <td>{{ ormaskab.kabupaten }}</td>
+                  <td>{{ ormaskab.jumlah }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
             </table>
           </div>
         </div>
