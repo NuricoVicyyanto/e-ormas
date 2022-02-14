@@ -1,8 +1,8 @@
 {% extends 'index.html' %} {% block content %}
 <div class="running-text bg-primary text-white">
   <marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
-    {% for informasi in informasi %} {{ informasi.informasi}}-{{
-    informasi.tanggal }} <span style="color: red">|</span>
+    {% for informasi in informasi %} {{ informasi.informasi}}-
+    {{informasi.tanggal }} <span style="color: red">|</span>
     {% endfor %}
   </marquee>
 </div>
