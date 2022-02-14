@@ -294,7 +294,7 @@ def hapusOrmas(request, id_ormas):
 
 
 def publishOrmas(request, id_ormas):
-    ormas = Ormas.objects.get(id=id_ormas)
+    ormas = Ormas.objects.get(user=request.user,id=id_ormas)
 
     ormas.status = '1'
     ormas.save()

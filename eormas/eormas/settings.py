@@ -40,8 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'eormasapp.apps.EormasappConfig',
     'django_cleanup.apps.CleanupConfig',
+<<<<<<< Updated upstream
     'social_django',
     
+=======
+    'social_django',    
+>>>>>>> Stashed changes
 ]
 
 MIDDLEWARE = [
