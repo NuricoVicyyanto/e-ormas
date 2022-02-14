@@ -279,7 +279,7 @@ h1 {
 input {
     padding: 10px;
     width: 100%;
-    font-size: 17px;
+    font-size: 16px;
     font-family: Raleway;
     border: 1px solid #aaaaaa
 }
@@ -297,7 +297,7 @@ button {
     color: #ffffff;
     border: none;
     padding: 10px 20px;
-    font-size: 17px;
+    font-size: 16px;
     font-family: Raleway;
     cursor: pointer
 }
@@ -345,7 +345,7 @@ button:hover {
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 16px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
