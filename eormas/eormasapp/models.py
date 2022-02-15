@@ -50,6 +50,15 @@ class Ormas(models.Model):
         self.kecamatan = self.kecamatan.upper()
         self.kabupaten = self.kabupaten.upper()
 
+    def delete(self, *args, **kwargs):
+        self.buktiAlamat.delete()
+        self.skTerdaftar.delete()
+        self.skPengurus.delete()
+        self.biodataKetua.delete()
+        self.biodataSekretaris.delete()
+        self.biodataBendahara.delete()
+        super().delete(*args, **kwargs)
+
 
 class Galeri(models.Model):
     image = models.ImageField(upload_to='image/', null=True)
