@@ -292,8 +292,16 @@ input.invalid {
     display: none
 }
 
+.tab h1 {
+    color: #0d47a1;
+}
+
+.tab label {
+    color: #0d47a1;
+}
+
 button {
-    background-color: #4CAF50;
+    background-color: #2196f3;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -307,14 +315,14 @@ button:hover {
 }
 
 #prevBtn {
-    background-color: #bbbbbb
+    background-color: #727272
 }
 
 .step {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbbbbb;
+    background-color: #64b5f6;
     border: none;
     border-radius: 50%;
     display: inline-block;
@@ -326,7 +334,7 @@ button:hover {
 }
 
 .step.finish {
-    background-color: #4CAF50
+    background-color: #2196f3
 }
 
 .all-steps {
@@ -373,7 +381,7 @@ button:hover {
 }
 
 .container input:checked~.checkmark {
-    background-color: #2196F3
+    background-color: #2196f3
 }
 
 .checkmark:after {
