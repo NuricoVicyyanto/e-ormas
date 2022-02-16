@@ -29,7 +29,7 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
         <div class="container">
             <div class="justify-content-start mx-4">
-              <a class="navbar-brand" href="{% url 'dashboard' %}"><img src="{% static 'img/logo.png' %}"></a>
+              <a class="navbar-brand" href="{% url 'dashboard' %}"><img src="{% static 'img/logo.png' %}"><br>Dashboard Informasi dan Layanan Data Organisasi Masyarakat</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="nav navbar-nav navbar-right">
                       <li class="nav-item active text-center">
-                          <a class="nav-link text-white h6" data-toggle="collapse" href="{% url 'dashboard' %}"><i class="fa fa-home fa-2x"></i><br>Home</a>
+                          <a class="nav-link text-white h6" data-toggle="collapse" href="{% url 'dashboard' %}"><i class="fa fa-home fa-2x"></i><br>Dashboard</a>
                       </li>
                       <li class="nav-item active">
                         <a class="nav-link  text-white h6" href="{% url 'ormas' %}"><i class="fa fa-table fa-2x"></i><br>Data Ormas</a>
@@ -52,7 +52,7 @@
                       </li>
                   </ul>
                   <span class="navbar-text">
-                      <a href="{% url 'login' %}" class="btn btn-warning shadow text-white">Log in</a>
+                      <a href="{% url 'login' %}" class="btn-link text-white h6"><i class="fa fa-sign-in fa-2x"></i> <br> Masuk</a>
                   </span>
               </div>
             <div>
