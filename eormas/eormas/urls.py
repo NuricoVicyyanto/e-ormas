@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import include, path
 from eormasapp import views
 from django.conf.urls.static import static
-from django.conf.urls import url
+from django.urls import re_path as url
 
 urlpatterns = [
     url(r'^export/csv/$', views.file_load_view, name='export_data'),
