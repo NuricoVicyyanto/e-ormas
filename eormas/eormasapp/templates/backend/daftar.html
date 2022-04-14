@@ -23,10 +23,10 @@
             {% csrf_token %}
             <div class="container">
             <div class="form-row justify-content-center">
-                <div class="col-md-8">
-                    <div class="tab">
-                        <h1>Data Kelengkapan Ormas</h1>
-                        <hr>
+                {% comment %} <div class="col-md-8">
+                    <div class="tab"> {% endcomment %}
+                        {% comment %} <h1>Data Kelengkapan Ormas</h1>
+                        <br> {% endcomment %}
                         <label class="my-2"><b>Username:</b></label>
                             {{ user_form.username }}
                         <label class="my-2"><b>Email:</b></label>
@@ -37,10 +37,10 @@
                             {{ ormas.unsur }}
                         <label class="my-2"><b>Bidang Kegiatan:</b></label>
                             {{ ormas.bidang }}
-                    </div>
-                    <div class="tab">
-                        <h1>Data Kelengkapan Ormas</h1>
-                        <hr>
+                    {% comment %} </div>
+                    <div class="tab"> {% endcomment %}
+                        {% comment %} <h1>Data Kelengkapan Ormas</h1>
+                        <hr> {% endcomment %}
                         {{ ormas.user}}
                         <label class="my-2"><b>Alamat:</b></label>
                             {{ ormas.alamat }}
@@ -55,10 +55,10 @@
                             {{ ormas.kecamatan }}
                         <label class="my-2"><b>Kabupaten:</b></label>
                             {{ ormas.kabupaten }}
-                    </div>
-                    <div class="tab">
-                        <h1>Data Kelengkapan Ormas</h1>
-                        <hr>
+                    {% comment %} </div>
+                    <div class="tab"> {% endcomment %}
+                        {% comment %} <h1>Data Kelengkapan Ormas</h1>
+                        <hr> {% endcomment %}
                         <label class="my-2"><b>Nama Notaris:</b></label>
                             {{ ormas.namaNotaris }}
                         <label class="my-2"><b>No Notaris:</b></label>
@@ -67,10 +67,10 @@
                             {{ ormas.skTerdaftar }}
                         <label class="my-2"><b>Sk Pengurus:</b></label>
                             {{ ormas.skPengurus }}
-                    </div>
-                    <div class="tab">
-                        <h1>Biodata Ketua</h1>
-                        <hr>
+                    {% comment %} </div>
+                    <div class="tab"> {% endcomment %}
+                        {% comment %} <h1>Biodata Ketua</h1>
+                        <hr> {% endcomment %}
                         <label class="my-2"><b>Nama Ketua:</b></label>
                             {{ ormas.namaKetua }}
                         <label class="my-2"><b>Tempat/ Tgl lahir Ketua:</b></label>
@@ -79,10 +79,10 @@
                             {{ ormas.noKetua }}
                         <label class="my-2"><b>Bukti identitas Ketua:</b></label>
                             {{ ormas.biodataKetua }}
-                    </div>
-                    <div class="tab">
-                        <h1>Biodata Sekretaris</h1>
-                        <hr>
+                    {% comment %} </div>
+                    <div class="tab"> {% endcomment %}
+                        {% comment %} <h1>Biodata Sekretaris</h1>
+                        <hr> {% endcomment %}
                         <label class="my-2"><b>Nama Sekretaris:</b></label>
                             {{ ormas.namaSekretaris }}
                         <label class="my-2"><b>Tempat/ Tgl lahir Sekretaris:</b></label>
@@ -91,10 +91,10 @@
                             {{ ormas.noSekretaris }}
                         <label class="my-2"><b>Bukti identitas Sekretaris:</b></label>
                             {{ ormas.biodataSekretaris }}
-                    </div>
-                    <div class="tab">
-                        <h1>Biodata Bendahara</h1>
-                        <hr>
+                    {% comment %} </div>
+                    <div class="tab"> {% endcomment %}
+                        {% comment %} <h1>Biodata Bendahara</h1>
+                        <hr> {% endcomment %}
                         <label class="my-2"><b>Nama Bendahara:</b></label>
                             {{ ormas.namaBendahara }}
                         <label class="my-2"><b>Tempat/ Tgl lahir Bendahara:</b></label>
@@ -104,15 +104,16 @@
                         <label class="my-2"><b>Bukti identitas Bendahara:</b></label>
                             {{ ormas.biodataBendahara }}
                         {{ormas.status}}
-                        <a class="btn btn-primary" type="submit">Submit</a>
-                    </div>
+                        
+                    {% comment %} </div>
                     <div class="all-steps" id="all-steps"> <span class="step"></span> <span class="step"></span> <span class="step"></span> <span class="step"></span> <span class="step"></span></div>
-                </div>
+                </div> {% endcomment %}
             </div>
             </div>
-            <div id="nextprevious">
+            <button class="btn btn-dark">Simpan</button>
+            {% comment %} <div id="nextprevious">
                 <div style="float:right;"> <button class="btn-lg" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button> <button class="btn-lg m-4" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button> </div>
-            </div>
+            </div> {% endcomment %}
             </div>
         </form>
     </div>
