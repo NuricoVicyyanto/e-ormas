@@ -47,12 +47,14 @@
                       <td>{{ user.email }}</td>
                       <td>{{ user.date_joined }}</td>
                       <td>
+                        {% if user.is_superuser %} {% else %}
                         <a
                           href="{% url 'hapus_user' user.id %}"
                           class="btn btn-danger"
                           onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
                           >Hapus</a
                         >
+                        {% endif %}
                       </td>
                     </tr>
                     {% endfor %}
