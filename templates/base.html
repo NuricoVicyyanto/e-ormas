@@ -60,7 +60,12 @@
               </a>
             </li> {% endcomment %}
               {% if request.user.is_superuser %}
-              <li class="nav-item dropdown">
+              <li {% if request.resolver_match.url_name == 'data_ormas' %}class="nav-item dropdown active"
+              {% elif request.resolver_match.url_name == 'jml_ormas_uns' %}class="nav-item dropdown active"
+              {% elif request.resolver_match.url_name == 'jml_ormas_ds' %}class="nav-item dropdown active"
+              {% elif request.resolver_match.url_name == 'jml_ormas_kec' %}class="nav-item dropdown active"
+              {% elif request.resolver_match.url_name == 'jml_ormas_kab' %}class="nav-item dropdown active"
+              {% endif %}>
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>Tables</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{% url 'data_ormas' %}">Data Ormas</a></li>
@@ -70,32 +75,32 @@
                   <li><a class="nav-link" href="{% url 'jml_ormas_kab' %}">Data Ormas(Kab)</a></li>
                 </ul>
               </li>
-              <li class="nav-item dropdown active">
+              <li {% if request.resolver_match.url_name == 'galeri' %}class="nav-item dropdown active"{% endif %}>
                 <a href="{% url 'galeri' %}" class="nav-link">
                   <i class="fas fa-square"></i>
                   <span>Galeri</span>
                 </a>
               </li>
-              <li class="nav-item dropdown active">
+              <li {% if request.resolver_match.url_name == 'informasi' %}class="nav-item dropdown active"{% endif %}>
                 <a href="{% url 'informasi' %}" class="nav-link">
                   <i class="fas fa-exclamation"></i>
                   <span>Info</span>
                 </a>
               </li>
-              <li class="nav-item dropdown active">
+              <li {% if request.resolver_match.url_name == 'daftar_user' %}class="nav-item dropdown active"{% endif %}>
                 <a href="{% url 'daftar_user' %}" class="nav-link">
                   <i class="fas fa-columns"></i>
                   <span>Daftar User</span>
                 </a>
               </li>
-              <li class="nav-item dropdown active">
+              <li {% if request.resolver_match.url_name == 'register' %}class="nav-item dropdown active"{% endif %}>
                 <a href="{% url 'register' %}" class="nav-link">
                   <i class="fas fa-user"></i>
                   <span>Register Account</span>
                 </a>
               </li>
               {% endif %}
-              <li class="nav-item dropdown active">
+              <li {% if request.resolver_match.url_name == 'logout' %}class="nav-item dropdown active"{% endif %}>
                 <a href="{% url 'logout' %}" class="nav-link">
                   <i class="fas fa-arrow-alt-circle-right"></i>
                   <span>Logout</span>
