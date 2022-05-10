@@ -102,7 +102,7 @@ class FormGaleri(ModelForm):
         # exclude = ['judul'] * untuk kolom yang tidak akan ditampilkan
 
         widgets = {
-            'image': forms.FileInput({'class': 'form-control'}),
+            'image': forms.FileInput(attrs={'required': False,'class': 'form-control','enctype': 'multipart/form-data'}),
             'judul': forms.TextInput({'class': 'form-control', 'id': 'Judul'}),
             'caption': forms.TextInput({'class': 'form-control'}),
         }
