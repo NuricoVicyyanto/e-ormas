@@ -15,9 +15,16 @@
                 <div class="card-header-action">
                   <form>
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="myInput"
+                        placeholder="Search"
+                      />
                       <div class="input-group-btn">
-                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-primary">
+                          <i class="fas fa-search"></i>
+                        </button>
                       </div>
                     </div>
                   </form>
@@ -25,7 +32,7 @@
               </div>
               <div class="card-body p-0">
                 <div class="table-responsive">
-                  <table class="table datatable">
+                  <table class="table datatable" id='movie'>
                     <thead>
                       <tr>
                         <th scope="col">Gambar</th>
@@ -34,7 +41,7 @@
                         <th scope="col">Opsi</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id='myTable'>
                       {% for galeri in galeri %}
                       <tr>
                         <td>

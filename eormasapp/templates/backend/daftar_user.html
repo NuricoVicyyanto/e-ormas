@@ -14,24 +14,27 @@
               <h4>Data User</h4>
               <div class="card-header-action">
                 <form>
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Search"
-                    />
-                    <div class="input-group-btn">
-                      <button class="btn btn-primary">
-                        <i class="fas fa-search"></i>
-                      </button>
+                  <form>
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="myInput"
+                        placeholder="Search"
+                      />
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary">
+                          <i class="fas fa-search"></i>
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  </form>
                 </form>
               </div>
             </div>
             <div class="card-body p-0">
               <div class="table-responsive">
-                <table class="table datatable">
+                <table class="table datatable" id='movie'>
                   <thead>
                     <tr>
                       <th scope="col">Username</th>
@@ -40,7 +43,7 @@
                       <th scope="col">Aksi</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody id='myTable'>
                     {% for user in user %}
                     <tr>
                       <td>{{ user.username }}</td>
