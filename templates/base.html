@@ -61,11 +61,11 @@
             </li> {% endcomment %}
               {% if request.user.is_superuser %}
               <li {% if request.resolver_match.url_name == 'data_ormas' %}class="nav-item dropdown active"
-              {% elif request.resolver_match.url_name == 'jml_ormas_uns' %}class="nav-item dropdown active"
-              {% elif request.resolver_match.url_name == 'jml_ormas_ds' %}class="nav-item dropdown active"
-              {% elif request.resolver_match.url_name == 'jml_ormas_kec' %}class="nav-item dropdown active"
-              {% elif request.resolver_match.url_name == 'jml_ormas_kab' %}class="nav-item dropdown active"
-              {% endif %}>
+                  {% elif request.resolver_match.url_name == 'jml_ormas_uns' %}class="nav-item dropdown active"
+                  {% elif request.resolver_match.url_name == 'jml_ormas_ds' %}class="nav-item dropdown active"
+                  {% elif request.resolver_match.url_name == 'jml_ormas_kec' %}class="nav-item dropdown active"
+                  {% elif request.resolver_match.url_name == 'jml_ormas_kab' %}class="nav-item dropdown active"
+                  {% endif %}>
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>Tables</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{% url 'data_ormas' %}">Data Ormas</a></li>
