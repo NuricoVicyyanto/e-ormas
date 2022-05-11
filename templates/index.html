@@ -45,56 +45,21 @@ src="https://code.jquery.com/jquery-3.5.1.js">
 		</div>
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	    	<a class="navbar-brand" href="{% url 'dashboard' %}">Papermag <span>Magazine</span></a>
-	    	<form action="#" class="searchform order-sm-start order-lg-last">
-          <div class="form-group d-flex">
-            <input type="text" class="form-control pl-3" placeholder="Search">
-            <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
-          </div>
-        </form>
+	    	<a class="navbar-brand" href="index.html">E-Ormas <span>Informasi dan Layanan Data Organisasi Masyarakat</span></a>     
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="fa fa-bars"></span> Menu
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav m-auto">
-	        	<li 
-            {% if request.resolver_match.url_name == 'dashboard' %} 
-                class="nav-item active"
-            {% else %}
-                class="nav-item"
-            {% endif %}>
-              <a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a>
-            </li>
-
-            <li 
-            {% if request.resolver_match.url_name == 'ormas' %} 
-                class="nav-item active"
-            {% else %}
-                class="nav-item"
-            {% endif %}>
-              <a href="{% url 'ormas' %}" class="nav-link">Data Ormas</a>
-            </li>
-
-	        	<li 
-            {% if request.resolver_match.url_name == 'grafik' %} 
-                class="nav-item active"
-            {% else %}
-                class="nav-item"
-            {% endif %}>
-              <a href="{% url 'grafik' %}" class="nav-link">grafik</a>
-            </li>
-
-	          <li 
-            {% if request.resolver_match.url_name == 'galeri_view' %} 
-                class="nav-item active"
-            {% else %}
-                class="nav-item"
-            {% endif %}>
-              <a href="{% url 'galeri_view' %}" class="nav-link">Galeri</a>
-            </li>
+	        	<li class="nav-item active"><a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a></li>
+	        	<li class="nav-item"><a href="{% url 'ormas' %}" class="nav-link">Data Ormas</a></li>
+	        	<li class="nav-item"><a href="{% url 'grafik' %}" class="nav-link">Grafik</a></li>
+	          <li class="nav-item"><a href="{% url 'galeri_view' %}" class="nav-link">Galeri</a></li>
 	        </ul>
 	      </div>
+        <a href="{% url 'login' %}" class="btn btn-primary" role="button" aria-disabled="true">Login  <i class="fa fa-sign-in"></i></a>
 	    </div>
+      
 	  </nav>
     <!-- END nav -->
 
