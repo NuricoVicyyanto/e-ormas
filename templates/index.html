@@ -57,10 +57,41 @@ src="https://code.jquery.com/jquery-3.5.1.js">
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav m-auto">
-	        	<li class="nav-item active"><a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a></li>
-	        	<li class="nav-item"><a href="{% url 'ormas' %}" class="nav-link">Data Ormas</a></li>
-	        	<li class="nav-item"><a href="{% url 'grafik' %}" class="nav-link">Grafik</a></li>
-	          <li class="nav-item"><a href="{% url 'galeri_view' %}" class="nav-link">Galeri</a></li>
+	        	<li 
+            {% if request.resolver_match.url_name == 'dashboard' %} 
+                class="nav-item active"
+            {% else %}
+                class="nav-item"
+            {% endif %}>
+              <a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a>
+            </li>
+
+            <li 
+            {% if request.resolver_match.url_name == 'ormas' %} 
+                class="nav-item active"
+            {% else %}
+                class="nav-item"
+            {% endif %}>
+              <a href="{% url 'ormas' %}" class="nav-link">Data Ormas</a>
+            </li>
+
+	        	<li 
+            {% if request.resolver_match.url_name == 'grafik' %} 
+                class="nav-item active"
+            {% else %}
+                class="nav-item"
+            {% endif %}>
+              <a href="{% url 'grafik' %}" class="nav-link">grafik</a>
+            </li>
+
+	          <li 
+            {% if request.resolver_match.url_name == 'galeri_view' %} 
+                class="nav-item active"
+            {% else %}
+                class="nav-item"
+            {% endif %}>
+              <a href="{% url 'galeri_view' %}" class="nav-link">Galeri</a>
+            </li>
 	        </ul>
 	      </div>
 	    </div>
