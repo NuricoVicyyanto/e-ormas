@@ -566,6 +566,5 @@ def daftar(request):
     else:
         user_form = FormUser(instance=request.user)
         ormas = FormOrmas(instance=request.user.ormas)
-        data = Ormas.objects.get(id=request.user.ormas.id)
 
-    return render(request, 'backend/daftar.html', {'user_form': user_form, 'ormas': ormas, 'data': data})
+    return render(request, 'backend/daftar.html', {'user_form': user_form, 'ormas': ormas})
