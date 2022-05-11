@@ -3,7 +3,7 @@
 {% block content %}
 <div class="card">
     <div class="box p-4">
-    <div class="row justify-content-lef">
+    <div class="row justify-content-center">
         <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
     </div>
     {% if user_form.errors %}
@@ -22,7 +22,7 @@
         <form method="post" id="reqForm" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="container">
-            <div class="form-row">
+            <div class="form-row justify-content-center">
                 {% comment %} <div class="col-md-8">
                     <div class="tab"> {% endcomment %}
                         {% comment %} <h1>Data Kelengkapan Ormas</h1>
@@ -43,13 +43,12 @@
                         <hr> {% endcomment %}
                         {{ ormas.user}}
                         <label class="my-2"><b>Alamat:</b></label>
-                            {{ ormas.alamat }}                                                 
-                        <label class="my-2"><b>Bukti Alamat:</b></label>      
+                            {{ ormas.alamat }}
+                        <label class="my-2"><b>Bukti Alamat:</b></label>
                             {{ ormas.buktiAlamat }}
-                             <div class="row my-3 p-3">
-                                <img class="img-responsive" width="460" height="345" src="{{ user.ormas.buktiAlamat.url }} " style="cursor: pointer;"/>
-                            </div>
-                        
+                            {% comment %} <div class="row my-3 p-3">
+                                <img class="rounded-circle account-img" src="{{ user.ormas.buktiAlamat.url }} " style="cursor: pointer;"/>
+                            </div> {% endcomment %}
                         <label class="my-2"><b>Kelurahan:</b></label>
                             {{ ormas.desa }}
                         <label class="my-2"><b>Kecamatan:</b></label>
@@ -66,14 +65,8 @@
                             {{ ormas.noNotaris }}
                         <label class="my-2"><b>SK Terdaftar:</b></label>
                             {{ ormas.skTerdaftar }}
-                            <div class="row my-3 p-3">
-                                <img class="img-responsive" width="460" height="345" src="{{ user.ormas.skTerdaftar.url }} " style="cursor: pointer;"/>
-                            </div>
                         <label class="my-2"><b>Sk Pengurus:</b></label>
                             {{ ormas.skPengurus }}
-                            <div class="row my-3 p-3">
-                                <img class="img-responsive" width="460" height="345" src="{{ user.ormas.skPengurus.url }} " style="cursor: pointer;"/>
-                            </div>
                     {% comment %} </div>
                     <div class="tab"> {% endcomment %}
                         {% comment %} <h1>Biodata Ketua</h1>
@@ -86,9 +79,6 @@
                             {{ ormas.noKetua }}
                         <label class="my-2"><b>Bukti identitas Ketua:</b></label>
                             {{ ormas.biodataKetua }}
-                            <div class="row my-3 p-3">
-                                <img class="img-responsive" width="460" height="345" src="{{ user.ormas.biodataKetua.url }} " style="cursor: pointer;"/>
-                            </div>
                     {% comment %} </div>
                     <div class="tab"> {% endcomment %}
                         {% comment %} <h1>Biodata Sekretaris</h1>
@@ -101,9 +91,6 @@
                             {{ ormas.noSekretaris }}
                         <label class="my-2"><b>Bukti identitas Sekretaris:</b></label>
                             {{ ormas.biodataSekretaris }}
-                            <div class="row my-3 p-3">
-                                <img class="img-responsive" width="460" height="345" src="{{ user.ormas.biodataSekretaris.url }} " style="cursor: pointer;"/>
-                            </div>
                     {% comment %} </div>
                     <div class="tab"> {% endcomment %}
                         {% comment %} <h1>Biodata Bendahara</h1>
@@ -116,9 +103,6 @@
                             {{ ormas.noBendahara }}
                         <label class="my-2"><b>Bukti identitas Bendahara:</b></label>
                             {{ ormas.biodataBendahara }}
-                            <div class="row my-3 p-3">
-                                <img class="img-responsive" width="460" height="345" src="{{ user.ormas.biodataBendahara.url }} " style="cursor: pointer;"/>
-                            </div>
                         {{ormas.status}}
                         
                     {% comment %} </div>
