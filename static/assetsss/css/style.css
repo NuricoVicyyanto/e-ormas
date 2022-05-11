@@ -33,10 +33,64 @@
   text-align: justify;
 }
 
+.user_card {
+  width: 350px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background: #fafffe;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.form_container {
+  margin-top: 20px;
+}
+
+#form-title {
+  color: #fff;
+}
+.login_btn {
+  width: 100%;
+  color: white !important;
+}
+.login_btn:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.login_container {
+  padding: 0 2rem;
+}
+.input-group-text {
+  background: #ffc107 !important;
+  color: white !important;
+  border: 0 !important;
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+.form-control{
+  background-color: #f8e3a5 !important;
+}
+
+.input_user,
+.input_pass:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
 .accordion .accordion-body {
   font-size: 14px;
   text-align: justify;
 }
+
 
 
 /*!
@@ -112,6 +166,10 @@ hr {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem; }
+
+h1{
+  font-family: 'Roboto', sans-serif;
+}
 
 p {
   margin-top: 0;
@@ -8195,8 +8253,8 @@ a {
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   line-height: 1.5;
-  font-weight: 400;
-  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 300;
+  font-family: "Roboto", Arial, sans-serif;
   color: #000; }
 
 .bg-primary {
