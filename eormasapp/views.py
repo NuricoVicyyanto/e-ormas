@@ -562,7 +562,7 @@ def daftar(request):
             ormas.status = '0'
             ormas.save()
             messages.success(request, 'Your profile is updated successfully')
-            return redirect(to='logout')
+            return redirect(to='pendaftaran')
     else:
         user_form = FormUser(instance=request.user)
         ormas = FormOrmas(instance=request.user.ormas)
