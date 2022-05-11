@@ -3,78 +3,125 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
-        <script type="text/javascript"
-        src="https://code.jquery.com/jquery-3.5.1.js">
-        </script>
-        <link rel="icon" href="{% static 'img/logo.png' %}">
-        <!-- Datatable plugin JS library file -->
-        <script type="text/javascript" src=
-      "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
-        </script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="{% static 'assetsss/css/style.css' %}">
+{% comment %} <script type="text/javascript"
+src="https://code.jquery.com/jquery-3.5.1.js">
+</script>
+<link rel="icon" href="{% static 'img/logo.png' %}">
+<!-- Datatable plugin JS library file -->
+<script type="text/javascript" src=
+"https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
+</script> {% endcomment %}
     <title>e-Ormas</title>
 </head>
 
 <body class="main">    
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <div class="container">
-            <div class="justify-content-start mx-4">
-              <a class="navbar-brand" href="{% url 'dashboard' %}"><img src="{% static 'img/logo.png' %}"><br>Dashboard Informasi dan Layanan Data Organisasi Masyarakat</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
-            <div class="justify-content-end mx-4">
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="nav navbar-nav navbar-right">
-                      <li class="nav-item active text-center">
-                          <a class="nav-link text-white h6" data-toggle="collapse" href="{% url 'dashboard' %}"><i class="fa fa-home fa-2x"></i><br>Dashboard</a>
-                      </li>
-                      <li class="nav-item active">
-                        <a class="nav-link  text-white h6" href="{% url 'ormas' %}"><i class="nav-icon fa fa-table fa-2x"></i><br>Data Ormas</a>
-                      </li>
-                      <li class="nav-item active">
-                          <a class="nav-link text-white h6" href="{% url 'grafik' %}"><i class="fa fa-bar-chart fa-2x"></i><br>Grafik</a>
-                      </li>
-                      <li class="nav-item active">
-                          <a class="nav-link text-white h6" href="{% url 'galeri_view' %}"><i class="fa fa-file-image-o fa-2x"></i><br>Galeri</a>
-                      </li>
-                  </ul>
-                  <span class="navbar-text">
-                      <a href="{% url 'login' %}" class="btn-link text-white h6"><i class="fa fa-sign-in fa-2x"></i> <br> Masuk</a>
-                  </span>
-              </div>
-            <div>
-        </div>
-    </nav>
- 
+  <section class="">
+		<div class="wrap">
+			<div class="container">
+				<div class="row justify-content-between">
+						<div class="col">
+							<p class="mb-0 phone"><span class="fa fa-phone"></span> <a href="#">+00 1234 567</a></p>
+						</div>
+						<div class="col d-flex justify-content-end">
+							<div class="social-media">
+				    		<p class="mb-0 d-flex">
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+				    		</p>
+			        </div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="index.html">Papermag <span>Magazine</span></a>
+	    	<form action="#" class="searchform order-sm-start order-lg-last">
+          <div class="form-group d-flex">
+            <input type="text" class="form-control pl-3" placeholder="Search">
+            <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
+          </div>
+        </form>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav m-auto">
+	        	<li class="nav-item active"><a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a></li>
+	        	<li class="nav-item"><a href="{% url 'ormas' %}" class="nav-link">Data Ormas</a></li>
+	        	<li class="nav-item"><a href="{% url 'grafik' %}" class="nav-link">Grafik</a></li>
+	          <li class="nav-item"><a href="{% url 'galeri_view' %}" class="nav-link">Galeri</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+	</section>
+
     {% block content %}
 
     {% endblock %}
 
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4">
-    <div class="container-fluid text-center text-md-left">
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4 ">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fa fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fa fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#! bg-primary" role="button"
+        ><i class="fa fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fa fa-instagram"></i
+      ></a>
+
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Text -->
+    <section class="mb-4 text-white">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
       <div class="row">
-        <div class="col-md-6 mt-md-0 mt-3">
-          <h5 class="text-uppercase text-white">e-Ormas</h5>
-          <p class="text-white">Aplikasi pendataan ormas bakesbangpol kabupaten Bondowoso</p>
-        </div>
-        <hr class="clearfix w-100 d-md-none pb-3">
-        <div class="col-md-3 mb-md-0 mb-3">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase text-white">Links</h5>
-          <ul class="list-unstyled">
+
+          <ul class="list-unstyled mb-0">
             <li>
               <a href="#!" class="text-white">Link 1</a>
             </li>
@@ -89,27 +136,85 @@
             </li>
           </ul>
         </div>
-        <div class="col-md-3 mb-md-0 mb-3">
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase text-white">Links</h5>
-          <ul class="list-unstyled text-white">
+
+          <ul class="list-unstyled mb-0">
             <li>
               <a href="#!" class="text-white">Link 1</a>
             </li>
             <li>
-              <a href="#!"class="text-white">Link 2</a>
+              <a href="#!" class="text-white">Link 2</a>
             </li>
             <li>
-              <a href="#!"class="text-white">Link 3</a>
+              <a href="#!" class="text-white">Link 3</a>
             </li>
             <li>
-              <a href="#!"class="text-white">Link 4</a>
+              <a href="#!" class="text-white">Link 4</a>
             </li>
           </ul>
         </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase text-white">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase text-white">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
       </div>
-    </div>
-    <div class="footer-copyright text-center text-white py-3 bg-primary">© 2022 Copyright testing</div>  
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="bg-primary text-center p-3">
+    © 2020 Copyright:
+    <a class="text-white " href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
 </footer>
+<!-- Footer -->
   <!-- Footer -->
 
     <!-- Optional JavaScript; choose one of the two! -->
@@ -120,35 +225,10 @@
         crossorigin="anonymous"></script>
         <script src="{% static 'assets/js/Chart.js'%}"></script>
         <script src="{% static 'assets/js/Chart.min.js'%}"></script>
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
-    <script>
-        $(document).ready(function(){
-          $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-          });
-        });
-        </script>
-
-        <script>
-            function killCopy(e){
-                return false;
-            }
-            function reEnable(){
-                return true;
-            }
-            document.onselectstart=new Function ("return false");
-            if (window.sidebar){
-                document.onmousedown=killCopy;
-                document.onclick=reEnable;
-            }
-        </script>
+<script src="{% static 'assetsss/js/jquery.min.js' %}"></script>
+<script src="{% static 'assetsss/js/popper.js' %}"></script>
+<script src="{% static 'assetsss/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assetsss/css/style.css' %}"></script>
 </body>
 
 </html>
