@@ -132,6 +132,76 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   text-align: justify;
 }
 
+.box {
+  background-color: #f8e3a5;
+  padding: 20px;
+}
+
+.desc {
+  margin-bottom: 5rem;
+}
+
+.box h2 {
+  color: #f8e3a5;
+}
+
+.box-content{
+  border-color: #ffc107;
+  border-style: double;
+  border-width: 5px;
+  text-align: center;
+  background-color: #f8e3a5;
+  overflow: hidden;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.box-content p {
+  margin: 0;
+  color: #ffc107;
+}
+
+.desc-text p {
+  text-size-adjust: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.desc-title h3 {
+  color: #f8e3a5;
+  border-bottom: 4px solid #ffc107;
+  display: inline-block;
+}
+
+.description-text p {
+  text-size-adjust: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #ffc107;
+}
+
+.description-title h3 {
+  color: #ffc107;
+  border-bottom: 4px solid #fac830;
+  display: inline-block;
+}
+
+.cards-box {
+  background-color: #ffc107;
+}
+
+.boxs {
+  background-color: #ffc107;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  
+}
+
+.navbar {
+  background-color: #ffc107;
+  height: 90px;
+}
 
 
 /*!
@@ -3505,9 +3575,10 @@ input[type="button"].btn-block {
 
 .nav-link {
   display: block;
+  text-decoration: none;
   padding: 0.5rem 1rem; }
   .nav-link:hover, .nav-link:focus {
-    text-decoration: none; }
+    text-decoration: underline; }
   .nav-link.disabled {
     color: #6c757d;
     pointer-events: none;

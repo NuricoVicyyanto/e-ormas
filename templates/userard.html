@@ -16,19 +16,19 @@
     <title>{% block title %} {% endblock %} </title>
 </head>
 <body>
-  <div class="container p-3 my-3">
+  <div class="container my-4">
     <div class="row">
       <div class="col-md-12">
         <nav class="navbar navbar-expand-md" >
-          <a href="{% url 'pendaftaran' %}" class="text-white h2">Home</a>
+          <a href="{% url 'pendaftaran' %}" class="text-dark h2">Home</a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
                   {% if user.is_authenticated %}
-                    <a href="{% url 'daftar' %}" class="nav-item nav-link">Profile</a>
-                    <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>
+                    <a href="{% url 'daftar' %}" class="nav-item nav-link text-dark">Profile</a>
+                    <a href="{% url 'logout' %}" class="nav-item nav-link text-dark">Logout</a>
                 {% endif %}
                 </div>
             </div>
