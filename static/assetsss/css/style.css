@@ -19,6 +19,8 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   color: #7F7F7F;
 }
 
+
+
 /* CSS */
 /* .button-30 {
   background-color: #c2fbd7;
@@ -132,7 +134,34 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   text-align: justify;
 }
 
-.box {
+/* User CSS */
+
+.nav-daftar{
+  height: 90px;
+  box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+}
+
+.daftar{
+  background-color: #ffffff;
+
+}
+
+.nav-nav{
+  margin: 5px;
+}
+
+.menu-user{
+  height: 40px;
+  padding: 0px;
+  margin: 0px;
+
+}
+.txt-bread{
+  font-size: 10pt;
+  
+}
+
+/* .box {
   background-color: #f8e3a5;
   padding: 20px;
 }
@@ -198,11 +227,12 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   
 }
 
-.navbar {
+.navbar-user {
   background-color: #ffc107;
   height: 90px;
-}
+} */
 
+/* Selesai */
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
